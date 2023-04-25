@@ -1,0 +1,17 @@
+{
+  "env": {
+    "PORT": 5000,
+    "NODE_ENV": "production",
+    "MONGO_USER": "Capalbo",
+    "MONGO_PASSWORD": "N5lSTFp2yRGRZgwm",
+    "MONGO_DEFAULT_DATABASE": "Fabrique-DB",
+    "SMTP_EMAIL": "capalbodomenico@gmail.com",
+    "SMTP_PASSWORD": "ppaiaabgepyqlcov",
+    "JWT_SECRET": "secret1992_25_03",
+    "JWT_RESET_SECRET": "secret2023_04_19",
+    "RESET_PASSWORD_SECRET": "secret2017_05_03",
+    "CLIENT_URL": "http://localhost:3000"
+  },
+  "watch": ["app.js"],
+  "ext": "js"
+}
