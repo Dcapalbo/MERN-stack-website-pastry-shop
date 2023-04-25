@@ -1,0 +1,43 @@
+@import "../../../assets/variables.scss";
+@import "../../../assets/mixin.scss";
+
+.auth__aside {
+  background-color: $typographyColor;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  display: flex;
+  padding: 20px;
+  height: 100vh;
+  @media (max-width: $screen-md-min) {
+    width: calc(100% - 80%);
+    padding: 5px;
+  }
+  @media (max-width: $screen-sm-min) {
+    width: calc(100% - 65%);
+    padding: 5px;
+  }
+  p {
+    color: $bgColor;
+  }
+  li {
+    a {
+      color: $bgColor;
+      &:hover {
+        color: $hoverColor;
+      }
+    }
+  }
+  .auth__aside__logout {
+    width: 100%;
+    p {
+      padding: 10px 15px;
+      color: $bgColor;
+      cursor: pointer;
+      &:hover {
+        color: $hoverColor;
+      }
+    }
+  }
+}

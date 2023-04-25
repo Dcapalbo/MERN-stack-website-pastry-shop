@@ -1,0 +1,39 @@
+.mobile__navigation {
+  display: none;
+}
+
+.brand__logo {
+  object-fit: contain;
+  height: 60px;
+  width: 80px;
+}
+
+@media (max-width: 828px) {
+  .mobile__navigation {
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+    transition: 1s;
+    width: 100%;
+  }
+
+  .hamburgher {
+    color: #7c96ab;
+    font-size: 30px;
+  }
+
+  .cross__button {
+    color: #7c96ab;
+    position: absolute;
+    font-size: 30px;
+    right: 25px;
+    top: 20px;
+  }
+
+  .clicked__mobile__navigation {
+    animation-duration: 1s;
+    transition: 1s;
+    height: 20vh;
+  }
+}

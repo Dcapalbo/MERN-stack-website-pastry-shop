@@ -1,0 +1,19 @@
+.navigation {
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  width: 100%;
+}
+
+.brand__logo {
+  object-fit: contain;
+  height: 60px;
+  width: 80px;
+}
+
+@media (max-width: 828px) {
+  .navigation {
+    display: none;
+  }
+}

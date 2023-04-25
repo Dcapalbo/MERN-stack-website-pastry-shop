@@ -1,0 +1,10 @@
+@import "../../assets/variables.scss";
+
+// hero
+.hero {
+  min-width: 100%;
+  .fabrique__video {
+    max-width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,17 @@
+@import "../../assets/mixin.scss";
+@import "../../assets/variables.scss";
+// nav links
+.nav__links {
+  @include flex-between;
+  z-index: 10;
+  li:first-child {
+    display: flex;
+    > svg {
+      margin-right: 10px;
+      color: $typographyColor;
+    }
+  }
+  @media (max-width: $screen-md-min) {
+    @include flex-column;
+  }
+}

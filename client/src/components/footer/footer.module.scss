@@ -1,0 +1,46 @@
+@import "../../assets/variables.scss";
+@import "../../assets/mixin.scss";
+footer {
+  background-color: $bgColor;
+  margin-top: 150px;
+  width: 100%;
+  .footer__container {
+    @include flex-start;
+    height: 100%;
+    margin: auto;
+    width: 90%;
+    @media (max-width: $screen-sm-min) {
+      @include flex-column;
+    }
+    .footer__container__elm {
+      width: calc(100% / 3);
+      padding: 10px;
+      p,
+      li {
+        color: $typographyColor;
+        padding: 0;
+      }
+      a {
+        transition: 0.4s;
+        color: $typographyColor;
+        &:hover {
+          color: $hoverColor;
+          transition: 0.4s;
+        }
+      }
+      @media (max-width: $screen-sm-min) {
+        text-align: center;
+        width: 100%;
+      }
+    }
+    .footer__container__elm:last-child {
+      @include flex-center;
+      a {
+        svg {
+          height: 30px;
+          width: 50px;
+        }
+      }
+    }
+  }
+}

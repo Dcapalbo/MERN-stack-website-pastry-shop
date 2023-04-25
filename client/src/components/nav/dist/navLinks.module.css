@@ -1,0 +1,21 @@
+.nav__links {
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  z-index: 10;
+}
+.nav__links li:first-child {
+  display: flex;
+}
+.nav__links li:first-child > svg {
+  margin-right: 10px;
+  color: #7c96ab;
+}
+@media (max-width: 828px) {
+  .nav__links {
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+  }
+}

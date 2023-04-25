@@ -1,0 +1,92 @@
+@import "./variables.scss";
+@import "./mixin.scss";
+
+.card {
+  background-color: $bgColor;
+  border: 2px solid $buttonsColor;
+  max-height: calc(100% - 40px);
+  width: calc(100% / 4 - 48px);
+  transition: transform 0.1s;
+  @include flex-column;
+  position: relative;
+  margin: 24px;
+  &:hover {
+    background-color: transparent;
+    transform: scale(1.1);
+    border-radius: 1%;
+    transition: 0.2s;
+  }
+
+  .card__description {
+    transform: translate(-50%, -80%);
+    transition: transform 0.1s;
+    left: calc(100% / 2);
+    top: calc(100% / 2);
+    position: absolute;
+    line-height: 40px;
+    padding: 0 10px;
+    display: none;
+    width: 100%;
+    height: 60%;
+    &:hover {
+      display: block;
+    }
+    &:hover + .card__image {
+      opacity: 0;
+    }
+  }
+
+  .card__image {
+    position: relative;
+    object-fit: cover;
+    transition: 0.2s;
+    cursor: pointer;
+    height: 550px;
+    width: 100%;
+    z-index: 1;
+    opacity: 1;
+    &:hover + .card__description {
+      transition: 0.3s;
+      display: block;
+    }
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.2s;
+      opacity: 0;
+    }
+  }
+
+  .card__button__wrapper {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    height: 20%;
+    .card__cta {
+      border: 1px solid #cc0000;
+      font-family: $Lato;
+      color: $buttonsColor;
+      padding: 15px 15px;
+      margin: 10px 0px;
+      transition: 0.3s;
+      font-size: 20px;
+      width: 225px;
+      z-index: 2;
+      &:hover {
+        background-color: $hoverColor;
+        color: $typographyColor;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+    }
+  }
+
+  @media (max-width: $screen-lg-min) {
+    width: calc(100% / 2 - 48px);
+    margin: 16px;
+  }
+
+  @media (max-width: $screen-sm-min) {
+    margin: 12px;
+    width: 100%;
+  }
+}

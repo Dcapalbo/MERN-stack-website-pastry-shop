@@ -1,0 +1,38 @@
+@import "../../../assets/variables.scss";
+@import "../../../assets/typography.scss";
+@import "../../../assets/mixin.scss";
+
+.wrapper__card__container {
+  background-color: $bgColor;
+  height: auto;
+  width: 100%;
+  .card__container {
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    display: flex;
+    margin: auto;
+    height: 100%;
+    width: 90%;
+    @media (max-width: $screen-lg-min) {
+      @include flex-center;
+      padding: 24px 12px;
+      width: 100%;
+    }
+
+    @media (max-width: $screen-sm-min) {
+      @include flex-center;
+      padding: 12px;
+      width: 100%;
+    }
+  }
+}
+
+.justify__content__center {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  display: flex;
+}

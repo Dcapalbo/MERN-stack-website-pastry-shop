@@ -1,0 +1,29 @@
+.wrapper__filter__data__select {
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+.wrapper__filter__data__select label {
+  color: #90ee90;
+}
+.wrapper__filter__data__select .filter__data__select {
+  background-color: #90ee90;
+  color: #ffd700;
+  width: 20%;
+}
+@media (max-width: 992px) {
+  .wrapper__filter__data__select .filter__data__select {
+    width: 50%;
+  }
+}
+.wrapper__filter__data__select h3 {
+  margin-top: 20px;
+}
+@media (max-width: 576px) {
+  .wrapper__filter__data__select {
+    width: 100%;
+  }
+}

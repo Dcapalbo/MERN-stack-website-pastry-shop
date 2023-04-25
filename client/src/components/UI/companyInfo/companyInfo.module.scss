@@ -1,0 +1,24 @@
+@import '../../../assets/variables.scss';
+@import '../../../assets/mixin.scss';
+
+.companyInfo {
+    text-align:  center;
+    padding: 12px;
+    margin: auto;
+    width: 60%;
+    h2 {
+        margin-bottom: 30px;
+    }
+    p {
+        line-height: 35px;
+    }
+    @media (max-width:$screen-lg-min) {
+        padding: 12px;
+        width: 80%;
+    }
+
+    @media (max-width:$screen-sm-min) {
+        padding: 12px;
+        width: 80%;
+    }
+}

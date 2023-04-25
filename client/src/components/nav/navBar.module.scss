@@ -1,0 +1,13 @@
+@import "../../assets/mixin.scss";
+@import "../../assets/variables.scss";
+
+.flex__wrapper {
+  @include flex-between;
+  width: 100%;
+}
+
+@media (max-width: $screen-md-min) {
+  .flex__wrapper {
+    display: block;
+  }
+}

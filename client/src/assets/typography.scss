@@ -1,0 +1,209 @@
+@import "./variables.scss";
+
+body {
+  font-family: $Lato;
+}
+
+// unordered list
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+// li elements
+li {
+  position: relative;
+  padding: 10px 15px;
+  list-style: none;
+  font-size: 18px;
+  @media (max-width: $screen-md-min) {
+    font-size: 16px;
+  }
+}
+
+// anchor points
+a {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: $typographyColor;
+  transition: 0.4s;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  &:hover,
+  &:active {
+    color: $typographyColor;
+    transition: 0.4s;
+  }
+}
+
+// generic typography
+p,
+small,
+label {
+  font-weight: 200;
+  padding: 0;
+  margin: 0;
+}
+
+//paragraphs
+p,
+small {
+  color: $typographyColor;
+  font-size: 18px;
+  @media (max-width: $screen-lg-min) {
+    font-size: 16px;
+  }
+  @media (max-width: $screen-sm-min) {
+    font-size: 14px;
+  }
+}
+
+small {
+  color: $typographyColor;
+  font-size: 16px;
+}
+
+// labels
+label {
+  margin-bottom: 8px;
+  font-size: 18px;
+  display: block;
+  @media (max-width: $screen-lg-min) {
+    font-size: 16px;
+  }
+  @media (max-width: $screen-sm-min) {
+    font-size: 14px;
+  }
+}
+
+// inputs
+input {
+  height: 35px;
+}
+
+//textarea
+textarea {
+  height: 100px;
+  border: solid;
+  width: 100%;
+}
+
+// inputs && textarea
+input,
+textarea {
+  border-radius: 10px;
+  padding: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// selects
+select {
+  border-radius: 10px;
+  border: solid;
+  padding: 5px;
+  height: 35px;
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// div
+div {
+  line-height: 24px;
+}
+
+// end generic typography
+// headliners
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: capitalize;
+  color: red;
+  padding: 0;
+  margin: 0;
+}
+
+//headliners
+h1 {
+  line-height: 40px;
+  font-size: 28px;
+  @media (max-width: $screen-lg-min) {
+    font-size: 24px;
+  }
+  @media (max-width: $screen-sm-min) {
+    font-size: 20px;
+  }
+}
+
+h2 {
+  line-height: 36px;
+  font-size: 26px;
+  @media (max-width: $screen-lg-min) {
+    font-size: 22px;
+  }
+  @media (max-width: $screen-sm-min) {
+    font-size: 18px;
+  }
+}
+
+h3 {
+  line-height: 34px;
+  font-size: 24px;
+  @media (max-width: $screen-lg-min) {
+    font-size: 20px;
+  }
+  @media (max-width: $screen-sm-min) {
+    font-size: 16px;
+  }
+}
+
+h4,
+h5,
+h6 {
+  line-height: 32px;
+  font-size: 22px;
+  @media (max-width: $screen-lg-min) {
+    font-size: 18px;
+  }
+  @media (max-width: $screen-sm-min) {
+    font-size: 14px;
+  }
+}
+
+// buttons
+// primary button
+.primary__button {
+  border-color: $typographyColor;
+  background-color: $bgColor;
+  color: $buttonsColor;
+  transition: 0.4s;
+  font-size: 18px;
+  height: 45px;
+  width: 130px;
+  border: 1px;
+  &:hover,
+  &:active {
+    background-color: $hoverColor;
+    border-color: $hoverColor;
+    color: $typographyColor;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+}
+
+// generic margin
+.generic__margin__top {
+  margin-top: 20px;
+}
+
+// generic text center
+.text__align__center {
+  text-align: center;
+}

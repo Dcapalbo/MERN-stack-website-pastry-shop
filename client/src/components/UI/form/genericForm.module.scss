@@ -1,0 +1,51 @@
+@import "../../../assets/variables.scss";
+@import "../../../assets/typography.scss";
+@import "../../../assets/mixin.scss";
+
+.form__wrapper {
+  margin: auto;
+  width: 40%;
+  @media (max-width: $screen-xl-min) {
+    width: 70%;
+  }
+  @media (max-width: $screen-lg-min) {
+    width: 90%;
+  }
+}
+.form__container {
+  background-color: $typographyColor;
+  @include flex-start;
+  border-radius: 10px;
+  padding: 35px 60px;
+  margin-top: 50px;
+  width: 100%;
+  h4 {
+    text-align: center;
+    margin: 10px;
+  }
+  small {
+    color: $typographyColor;
+  }
+  .form__container__item {
+    text-align: center;
+    margin: 10px 0px;
+    width: 100%;
+    input {
+      width: 100%;
+    }
+    a {
+      margin-bottom: 20px;
+      color: $typographyColor;
+      display: block;
+      cursor: pointer;
+    }
+  }
+  @media (max-width: $screen-lg-min) {
+    padding: 10px 30px;
+  }
+}
+
+.color {
+  background-color: black;
+  color: red;
+}

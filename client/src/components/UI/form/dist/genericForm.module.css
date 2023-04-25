@@ -1,0 +1,278 @@
+body {
+  font-family: "Lato";
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  position: relative;
+  padding: 10px 15px;
+  list-style: none;
+  font-size: 18px;
+}
+@media (max-width: 828px) {
+  li {
+    font-size: 16px;
+  }
+}
+
+a {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: #3c2f2f;
+  transition: 0.4s;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+}
+a:hover, a:active {
+  color: #3c2f2f;
+  transition: 0.4s;
+}
+
+p,
+small,
+label {
+  font-weight: 200;
+  padding: 0;
+  margin: 0;
+}
+
+p,
+small {
+  color: #3c2f2f;
+  font-size: 18px;
+}
+@media (max-width: 992px) {
+  p,
+small {
+    font-size: 16px;
+  }
+}
+@media (max-width: 576px) {
+  p,
+small {
+    font-size: 14px;
+  }
+}
+
+small {
+  color: #3c2f2f;
+  font-size: 16px;
+}
+
+label {
+  margin-bottom: 8px;
+  font-size: 18px;
+  display: block;
+}
+@media (max-width: 992px) {
+  label {
+    font-size: 16px;
+  }
+}
+@media (max-width: 576px) {
+  label {
+    font-size: 14px;
+  }
+}
+
+input {
+  height: 35px;
+}
+
+textarea {
+  height: 100px;
+  border: solid;
+  width: 100%;
+}
+
+input,
+textarea {
+  border-radius: 10px;
+  padding: 10px;
+}
+input:hover,
+textarea:hover {
+  cursor: pointer;
+}
+
+select {
+  border-radius: 10px;
+  border: solid;
+  padding: 5px;
+  height: 35px;
+  width: 100%;
+}
+select:hover {
+  cursor: pointer;
+}
+
+div {
+  line-height: 24px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: capitalize;
+  color: #3c2f2f;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  line-height: 40px;
+  font-size: 28px;
+}
+@media (max-width: 992px) {
+  h1 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 576px) {
+  h1 {
+    font-size: 20px;
+  }
+}
+
+h2 {
+  line-height: 36px;
+  font-size: 26px;
+}
+@media (max-width: 992px) {
+  h2 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 576px) {
+  h2 {
+    font-size: 18px;
+  }
+}
+
+h3 {
+  line-height: 34px;
+  font-size: 24px;
+}
+@media (max-width: 992px) {
+  h3 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 576px) {
+  h3 {
+    font-size: 16px;
+  }
+}
+
+h4,
+h5,
+h6 {
+  line-height: 32px;
+  font-size: 22px;
+}
+@media (max-width: 992px) {
+  h4,
+h5,
+h6 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 576px) {
+  h4,
+h5,
+h6 {
+    font-size: 14px;
+  }
+}
+
+.primary__button {
+  background-color: transparent;
+  border-color: #ffe4e1;
+  color: #90ee90;
+  transition: 0.4s;
+  font-size: 18px;
+  height: 45px;
+  width: 100px;
+  border: 1px;
+}
+.primary__button:hover, .primary__button:active {
+  background-color: #90ee90;
+  border-color: #ffd700;
+  color: #3c2f2f;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.generic__margin__top {
+  margin-top: 20px;
+}
+
+.text__align__center {
+  text-align: center;
+}
+
+.form__wrapper {
+  margin: auto;
+  width: 40%;
+}
+@media (max-width: 1200px) {
+  .form__wrapper {
+    width: 70%;
+  }
+}
+@media (max-width: 992px) {
+  .form__wrapper {
+    width: 90%;
+  }
+}
+
+.form__container {
+  background-color: #3c2f2f;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  border-radius: 10px;
+  padding: 35px 60px;
+  margin-top: 50px;
+  width: 100%;
+}
+.form__container h4 {
+  text-align: center;
+  margin: 10px;
+}
+.form__container small {
+  color: #3c2f2f;
+}
+.form__container .form__container__item {
+  text-align: center;
+  margin: 10px 0px;
+  width: 100%;
+}
+.form__container .form__container__item input {
+  width: 100%;
+}
+.form__container .form__container__item a {
+  margin-bottom: 20px;
+  color: #3c2f2f;
+  display: block;
+  cursor: pointer;
+}
+@media (max-width: 992px) {
+  .form__container {
+    padding: 10px 30px;
+  }
+}
+
+.color {
+  background-color: black;
+  color: red;
+}

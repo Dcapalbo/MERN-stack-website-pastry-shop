@@ -1,0 +1,80 @@
+.detail__sweet__about__container {
+  justify-content: space-between;
+  height: fit-content;
+  display: flex;
+  margin: auto;
+  width: 80%;
+}
+@media (max-width: 576px) {
+  .detail__sweet__about__container {
+    flex-direction: column;
+    width: 90%;
+  }
+}
+@media (max-width: 828px) {
+  .detail__sweet__about__container {
+    flex-direction: column;
+    width: 90%;
+  }
+}
+.detail__sweet__about__container .detail__sweet__about__card__image {
+  object-fit: contain;
+  width: 45%;
+}
+@media (max-width: 576px) {
+  .detail__sweet__about__container .detail__sweet__about__card__image {
+    width: 100%;
+  }
+}
+@media (max-width: 828px) {
+  .detail__sweet__about__container .detail__sweet__about__card__image {
+    width: 100%;
+  }
+}
+.detail__sweet__about__container .detail__sweet__about__card__info {
+  width: calc(100% - 45%);
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  padding: 10px 0px;
+  text-align: right;
+  height: 100%;
+}
+@media (max-width: 576px) {
+  .detail__sweet__about__container .detail__sweet__about__card__info {
+    width: 100%;
+  }
+}
+@media (max-width: 828px) {
+  .detail__sweet__about__container .detail__sweet__about__card__info {
+    width: 100%;
+  }
+}
+.detail__sweet__about__container .detail__sweet__about__card__info h2,
+.detail__sweet__about__container .detail__sweet__about__card__info h3,
+.detail__sweet__about__container .detail__sweet__about__card__info p {
+  margin-bottom: 10px;
+}
+.detail__sweet__about__container .detail__sweet__about__card__info .detail__sweet__about__card__info__wrapper {
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+}
+.detail__sweet__about__container .detail__sweet__about__card__info .detail__sweet__about__card__info__wrapper div {
+  width: calc(100% / 2 - 15px);
+  margin-left: 15px;
+}
+@media (max-width: 992px) {
+  .detail__sweet__about__container .detail__sweet__about__card__info .detail__sweet__about__card__info__wrapper div {
+    width: calc(120% / 2);
+    margin-left: 10px;
+  }
+}
+.detail__sweet__about__container .detail__sweet__about__card__info .detail__sweet__about__card__info__wrapper div:first-child {
+  text-align: left;
+}
+@media (max-width: 992px) {
+  .detail__sweet__about__container .detail__sweet__about__card__info .detail__sweet__about__card__info__wrapper div:first-child {
+    width: calc(100% - 40% - 10px);
+  }
+}

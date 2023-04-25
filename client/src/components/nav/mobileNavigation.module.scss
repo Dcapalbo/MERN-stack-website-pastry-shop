@@ -1,0 +1,38 @@
+@import "../../assets/mixin.scss";
+@import "../../assets/variables.scss";
+
+.mobile__navigation {
+  display: none;
+}
+//logo
+.brand__logo {
+  object-fit: contain;
+  height: 60px;
+  width: 80px;
+}
+
+@media (max-width: $screen-md-min) {
+  .mobile__navigation {
+    @include flex-between;
+    transition: 1s;
+    width: 100%;
+  }
+  .hamburgher {
+    color: $typographyColor;
+    font-size: 30px;
+  }
+
+  .cross__button {
+    color: $typographyColor;
+    position: absolute;
+    font-size: 30px;
+    right: 25px;
+    top: 20px;
+  }
+
+  .clicked__mobile__navigation {
+    animation-duration: 1s;
+    transition: 1s;
+    height: 20vh;
+  }
+}

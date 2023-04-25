@@ -1,0 +1,28 @@
+@import "../../../assets/variables.scss";
+@import "../../../assets/mixin.scss";
+
+.wrapper__filter__data__select {
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  label {
+    color: $buttonsColor;
+  }
+  .filter__data__select {
+    background-color: $buttonsColor;
+    color: $hoverColor;
+    width: 20%;
+    @media (max-width: $screen-lg-min) {
+      width: 50%;
+    }
+  }
+  h3 {
+    margin-top: 20px;
+  }
+  @media (max-width: $screen-sm-min) {
+    width: 100%;
+  }
+}

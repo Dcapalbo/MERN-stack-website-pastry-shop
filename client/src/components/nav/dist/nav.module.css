@@ -1,0 +1,33 @@
+.navigation {
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  z-index: 10;
+}
+.navigation li:first-child {
+  display: flex;
+}
+.navigation li:first-child > svg {
+  margin-right: 10px;
+  color: #7c96ab;
+}
+.navigation .navigation__logo {
+  object-fit: contain;
+  height: 60px;
+  width: 80px;
+}
+.navigation .navigation__films__dropdown {
+  transform: translate(-40px, -3px);
+  background-color: #f3d7c8;
+  text-align: center;
+  position: absolute;
+  padding: 10px;
+  display: none;
+  width: 142px;
+}
+.navigation .navigation__films:hover + .navigation__films__dropdown,
+.navigation .navigation__films__dropdown:hover {
+  display: block;
+  z-index: 1;
+}
