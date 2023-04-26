@@ -7,7 +7,7 @@ const fs = require("fs");
 exports.getSweets = async (req, res) => {
   try {
     const sweets = await Sweet.find().sort({
-      year: -1,
+      price: -1,
     });
     res.status(200).send(sweets);
   } catch {
@@ -16,9 +16,16 @@ exports.getSweets = async (req, res) => {
 };
 // POST => Adding a Sweet
 exports.addSweet = async (req, res) => {
-  const { sweetName, ingredientName, measureUnit, price, description } =
-    req.body;
-  console.log(req.body);
+  const {
+    sweetName,
+    ingredientName,
+    measureUnit,
+    amount,
+    price,
+    description,
+    category,
+  } = req.body;
+
   const image = req.file;
 
   const errors = validationResult(req);
@@ -26,12 +33,14 @@ exports.addSweet = async (req, res) => {
   // Send a response with the status and a json
   if (!errors.isEmpty()) {
     res.status(422).json({
-      film: {
+      sweet: {
         sweetName,
         ingredientName,
         measureUnit,
+        amount,
         price,
         description,
+        category,
       },
       message: "Validation errors are present",
       errorMessage: errors.array()[0].msg,
@@ -49,19 +58,22 @@ exports.addSweet = async (req, res) => {
       sweetName,
       ingredientName,
       measureUnit,
+      amount,
       price,
       description,
+      category,
       imageUrl: {
         data: fs.readFileSync("images/" + image.filename),
-        contentType: "image/png",
+        contentType: "image/jpg",
       },
     });
 
     deleteFile("images/" + image.filename);
-    console.log("abbiamo creato lo sweet?", sweet);
+    console.log("my sweet has been created?", sweet);
     return res.status(201).send(sweet);
   } catch (error) {
-    return res.status(500).json({ message: "Something went wrong." });
+    console.log(error);
+    return res.status(500).json({ message: "Something went wrong.", error });
   }
 };
 
@@ -99,7 +111,7 @@ exports.editSweet = async (req, res) => {
   // Send a response with the status and a json
   if (!errors.isEmpty()) {
     res.status(422).json({
-      film: {
+      sweet: {
         sweetName,
         ingredientName,
         measureUnit,
@@ -134,7 +146,7 @@ exports.deleteSweet = async (req, res) => {
     });
     console.log("The sweet has been deleted");
   } catch (error) {
-    res.status(500).send(error.message);
-    console.log("Something went wrong while deleting a sweet: ", error.message);
+    res.status(500).send(error);
+    console.log("Something went wrong while deleting a sweet: ", error);
   }
 };

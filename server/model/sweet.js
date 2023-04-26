@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const ingredient = require("./ingredient.js");
 // sweet Schema
 const sweetSchema = new Schema({
-  name: {
+  sweetName: {
     type: String,
     required: true,
   },
@@ -20,9 +20,13 @@ const sweetSchema = new Schema({
     type: String,
     required: true,
   },
-  image: {
+  category: {
     type: String,
     required: true,
+  },
+  imageUrl: {
+    data: Buffer,
+    contentType: String,
   },
 });
 

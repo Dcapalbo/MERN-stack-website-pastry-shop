@@ -9,7 +9,7 @@ var ingredient = require("./ingredient.js"); // sweet Schema
 
 
 var sweetSchema = new Schema({
-  name: {
+  sweetName: {
     type: String,
     required: true
   },
@@ -25,9 +25,13 @@ var sweetSchema = new Schema({
     type: String,
     required: true
   },
-  image: {
+  category: {
     type: String,
     required: true
+  },
+  imageUrl: {
+    data: Buffer,
+    contentType: String
   }
 });
 module.exports = mongoose.model("Sweet", sweetSchema);

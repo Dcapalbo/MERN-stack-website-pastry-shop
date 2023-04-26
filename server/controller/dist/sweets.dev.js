@@ -20,7 +20,7 @@ exports.getSweets = function _callee(req, res) {
           _context.prev = 0;
           _context.next = 3;
           return regeneratorRuntime.awrap(Sweet.find().sort({
-            year: -1
+            price: -1
           }));
 
         case 3:
@@ -46,26 +46,27 @@ exports.getSweets = function _callee(req, res) {
 
 
 exports.addSweet = function _callee2(req, res) {
-  var _req$body, sweetName, ingredientName, measureUnit, price, description, image, errors, existingSweet, sweet;
+  var _req$body, sweetName, ingredientName, measureUnit, amount, price, description, category, image, errors, existingSweet, sweet;
 
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          _req$body = req.body, sweetName = _req$body.sweetName, ingredientName = _req$body.ingredientName, measureUnit = _req$body.measureUnit, price = _req$body.price, description = _req$body.description;
-          console.log(req.body);
+          _req$body = req.body, sweetName = _req$body.sweetName, ingredientName = _req$body.ingredientName, measureUnit = _req$body.measureUnit, amount = _req$body.amount, price = _req$body.price, description = _req$body.description, category = _req$body.category;
           image = req.file;
           errors = validationResult(req); // if there are errors
           // Send a response with the status and a json
 
           if (!errors.isEmpty()) {
             res.status(422).json({
-              film: {
+              sweet: {
                 sweetName: sweetName,
                 ingredientName: ingredientName,
                 measureUnit: measureUnit,
+                amount: amount,
                 price: price,
-                description: description
+                description: description,
+                category: category
               },
               message: "Validation errors are present",
               errorMessage: errors.array()[0].msg,
@@ -74,17 +75,17 @@ exports.addSweet = function _callee2(req, res) {
           } // saving the data inside the db
 
 
-          _context2.prev = 5;
-          _context2.next = 8;
+          _context2.prev = 4;
+          _context2.next = 7;
           return regeneratorRuntime.awrap(Sweet.findOne({
             sweetName: sweetName
           }));
 
-        case 8:
+        case 7:
           existingSweet = _context2.sent;
 
           if (!existingSweet) {
-            _context2.next = 11;
+            _context2.next = 10;
             break;
           }
 
@@ -92,31 +93,35 @@ exports.addSweet = function _callee2(req, res) {
             message: "The sweet exist already"
           }));
 
-        case 11:
-          _context2.next = 13;
+        case 10:
+          _context2.next = 12;
           return regeneratorRuntime.awrap(Sweet.create({
             sweetName: sweetName,
             ingredientName: ingredientName,
             measureUnit: measureUnit,
+            amount: amount,
             price: price,
             description: description,
+            category: category,
             imageUrl: {
               data: fs.readFileSync("images/" + image.filename),
-              contentType: "image/png"
+              contentType: "image/jpg"
             }
           }));
 
-        case 13:
+        case 12:
           sweet = _context2.sent;
           deleteFile("images/" + image.filename);
-          console.log("abbiamo creato lo sweet?", sweet);
+          console.log("my sweet has been created?", sweet);
           return _context2.abrupt("return", res.status(201).send(sweet));
 
-        case 19:
-          _context2.prev = 19;
-          _context2.t0 = _context2["catch"](5);
+        case 18:
+          _context2.prev = 18;
+          _context2.t0 = _context2["catch"](4);
+          console.log(_context2.t0);
           return _context2.abrupt("return", res.status(500).json({
-            message: "Something went wrong."
+            message: "Something went wrong.",
+            error: _context2.t0
           }));
 
         case 22:
@@ -124,7 +129,7 @@ exports.addSweet = function _callee2(req, res) {
           return _context2.stop();
       }
     }
-  }, null, null, [[5, 19]]);
+  }, null, null, [[4, 18]]);
 }; // PUT => Editing a sweet
 
 
@@ -162,7 +167,7 @@ exports.editSweet = function _callee3(req, res) {
 
           if (!errors.isEmpty()) {
             res.status(422).json({
-              film: {
+              sweet: {
                 sweetName: sweetName,
                 ingredientName: ingredientName,
                 measureUnit: measureUnit,
@@ -226,8 +231,8 @@ exports.deleteSweet = function _callee4(req, res) {
         case 8:
           _context4.prev = 8;
           _context4.t0 = _context4["catch"](1);
-          res.status(500).send(_context4.t0.message);
-          console.log("Something went wrong while deleting a sweet: ", _context4.t0.message);
+          res.status(500).send(_context4.t0);
+          console.log("Something went wrong while deleting a sweet: ", _context4.t0);
 
         case 12:
         case "end":
