@@ -7,16 +7,16 @@ const TypeSelect = (props) => {
       label: "",
     },
     {
-      value: "Lungometraggio",
-      label: "Lungometraggio",
+      value: "Torte",
+      label: "Torte",
     },
     {
-      value: "Cortometraggio",
-      label: "Cortometraggio",
+      value: "Biscotti",
+      label: "Biscotti",
     },
     {
-      value: "Documentario",
-      label: "Documentario",
+      value: "Crostate",
+      label: "Crostate",
     },
   ];
 

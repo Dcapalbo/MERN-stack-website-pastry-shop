@@ -1,5 +1,6 @@
 import { dataSweetActions } from "../../../store/data-sweet-slice";
 import { sweetSchema } from "../../../schema/sweetSchema";
+import { useController, useForm } from "react-hook-form";
 import { slugCreation } from "../../../utils/functions";
 import { useDispatch, useSelector } from "react-redux";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,8 +8,8 @@ import PuffLoader from "react-spinners/PuffLoader";
 import classes from "./genericForm.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import TypeSelect from "../select/typeSelect";
 import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
 import axios from "axios";
 import React from "react";
 
@@ -18,49 +19,65 @@ const SweetForm = () => {
   const dispatch = useDispatch();
   const uriLocation = window.location.href;
 
-  const dataUpdateSweet = useSelector(
-    (state) => state.dataSweet.sweetData ?? null
-  );
+  let ciccio;
 
-  const { register, handleSubmit, formState } = useForm({
-    defaultValues: dataUpdateSweet ?? "",
+  const { register, control, handleSubmit, formState } = useForm({
+    defaultValues: ciccio ?? "",
     resolver: zodResolver(sweetSchema),
   });
 
   useEffect(() => {
     setIsUpdate(uriLocation.includes("update-sweet"));
     if (!uriLocation.includes("update-sweet")) {
-      dispatch(dataSweetActions.resetSweetData());
+      // dispatch(dataSweetActions.resetSweetData());
+      console.log("siamo nel form update");
     }
   }, [uriLocation, dispatch]);
 
   const { errors } = formState;
+
+  const { field } = useController({ name: "type", control });
 
   const [enteredFileIsValid, setEnteredFileisValid] = useState(true);
   const [isUpdate, setIsUpdate] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [file, setFile] = useState(null);
-  const [ingredients, setIngredients] = useState([
-    { name: "", amount: "", measureUnit: "" },
-  ]);
+  // const [ingredients, setIngredients] = useState([
+  //   { name: "", amount: "", measureUnit: "" },
+  // ]);
+
+  const handleSelectChange = (option) => {
+    field.onChange(option.target.value);
+  };
 
   const confirmHandler = (event) => {
     const enteredFileIsValid = file !== null && file !== "";
     setEnteredFileisValid(enteredFileIsValid);
 
     const formData = new FormData();
-    const { sweetName, price, description } = event;
+    const {
+      sweetName,
+      ingredientName,
+      measureUnit,
+      amount,
+      price,
+      description,
+      category,
+    } = event;
 
     formData.append("sweetName", sweetName ?? "");
+    formData.append("sweetName", ingredientName ?? "");
+    formData.append("sweetName", measureUnit ?? "");
+    formData.append("sweetName", amount ?? "");
     formData.append("price", price ?? "");
     formData.append("slug", slugCreation(sweetName));
-    // formData.append("type", type); maybe we are going to see how the time is running
     formData.append("description", description ?? "");
+    formData.append("type", category ?? "");
     formData.append("file", file ?? "");
 
-    if (dataUpdateSweet?._id) {
-      formData.append("_id", dataUpdateSweet?._id);
+    if (ciccio?._id) {
+      formData.append("_id", ciccio?._id);
     }
 
     if (formData.entries().next().done === false) {
@@ -117,8 +134,8 @@ const SweetForm = () => {
       >
         <div className={classes.form__container__item}>
           {!isUpdate
-            ? !isUpdate && <h4>{t("labels.addDbFilm")}</h4>
-            : isUpdate && <h4>{t("labels.modifyDbFilm")}</h4>}
+            ? !isUpdate && <h4>{t("labels.addDbSweet")}</h4>
+            : isUpdate && <h4>{t("labels.modifyDbSweet")}</h4>}
           <label htmlFor="Name">{t("sweetName")}</label>
           <input
             defaultValue={formState.defaultValues?.payload?.sweetName ?? ""}
@@ -130,14 +147,63 @@ const SweetForm = () => {
           )}
         </div>
         <div className={classes.form__container__item}>
-          <label htmlFor="Director">{t("director")}</label>
+          <label htmlFor="IngredientName">{t("ingredientName")}</label>
           <input
-            defaultValue={formState.defaultValues?.payload?.director ?? ""}
-            {...register("director")}
+            defaultValue={
+              formState.defaultValues?.payload?.IngredientName ?? ""
+            }
+            {...register("IngredientName")}
             type="text"
           />
-          {errors.director?.message && (
-            <small>{errors.director?.message}</small>
+          {errors.IngredientName?.message && (
+            <small>{errors.IngredientName?.message}</small>
+          )}
+        </div>
+        <div className={classes.form__container__item}>
+          <label htmlFor="MeasureUnit">{t("measureUnit")}</label>
+          <input
+            defaultValue={formState.defaultValues?.payload?.measureUnit ?? ""}
+            {...register("measureUnit")}
+            type="text"
+          />
+          {errors.measureUnit?.message && (
+            <small>{errors.measureUnit?.message}</small>
+          )}
+        </div>
+        <div className={classes.form__container__item}>
+          <label htmlFor="Amount">{t("amount")}</label>
+          <input
+            defaultValue={formState.defaultValues?.payload?.amount ?? ""}
+            {...register("amount")}
+            type="text"
+          />
+          {errors.amount?.message && <small>{errors.amount?.message}</small>}
+        </div>
+        <div className={classes.form__container__item}>
+          <label htmlFor="Price">{t("price")}</label>
+          <input
+            defaultValue={formState.defaultValues?.payload?.price ?? ""}
+            {...register("price")}
+            type="text"
+          />
+          {errors.price?.message && <small>{errors.price?.message}</small>}
+        </div>
+        <div className={classes.form__container__item}>
+          <label htmlFor="Description">{t("description")}</label>
+          <input
+            defaultValue={formState.defaultValues?.payload?.description ?? ""}
+            {...register("description")}
+            type="text"
+          />
+          {errors.description?.message && (
+            <small>{errors.description?.message}</small>
+          )}
+        </div>
+        <div className={classes.form__container__item}>
+          <label htmlFor="Category">{t("category")}</label>
+          <TypeSelect onChange={handleSelectChange} value={field.value} />
+          {errors.category?.message && (
+            <small>{errors.category?.message}</small>
           )}
         </div>
         <div className={classes.form__container__item}>
@@ -152,7 +218,7 @@ const SweetForm = () => {
             required
           />
           {!enteredFileIsValid && (
-            <small>Campo obbligatorio, inserire la cover del film</small>
+            <small>Campo obbligatorio, inserire l'immagine del dolce</small>
           )}
         </div>
         <div className={classes.form__container__item}>

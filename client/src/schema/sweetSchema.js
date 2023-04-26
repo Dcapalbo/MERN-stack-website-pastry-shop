@@ -54,6 +54,7 @@ const sweetSchema = z.object({
       message:
         "la descrizione del prodotto di pasticceria non può superare i 150 caratteri",
     }),
+  category: z.string().min(1, { message: "Inserire un campo valido" }),
 });
 
 export { sweetSchema };

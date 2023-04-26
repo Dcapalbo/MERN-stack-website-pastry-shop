@@ -1,16 +1,14 @@
+import classes from "../assets/genericPages.module.scss";
 import SweetForm from "../components/UI/form/sweetForm";
-import Navigation from "../components/nav/Navigation";
-import Footer from "../components/footer/footer";
-import Header from "../components/header/header";
+import Aside from "../components/UI/aside/aside";
 
 const NewSweet = () => {
   return (
     <>
-      <Header>
-        <Navigation />
-      </Header>
-      <SweetForm />
-      <Footer />
+      <section className={classes.aside__wrapper}>
+        <Aside />
+        <SweetForm />
+      </section>
     </>
   );
 };

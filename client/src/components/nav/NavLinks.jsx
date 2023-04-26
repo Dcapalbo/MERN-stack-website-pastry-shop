@@ -35,17 +35,12 @@ const NavLinks = () => {
       </li>
       {isAuthenticated && tokenExpiration && (
         <li>
-          <Link to="/admin/sweets">{t("sweets")}</Link>
+          <Link to="/admin/sweets">{t("sweetsList")}</Link>
         </li>
       )}
       {isAuthenticated && tokenExpiration && (
         <li>
           <Link to="/admin/add-new-sweet">{t("addSweet")}</Link>
-        </li>
-      )}
-      {isAuthenticated && tokenExpiration && (
-        <li>
-          <Link to="/admin/update-new-sweet">{t("updateSweet")}</Link>
         </li>
       )}
       {isAuthenticated && tokenExpiration && (

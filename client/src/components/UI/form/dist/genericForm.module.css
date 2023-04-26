@@ -1,5 +1,5 @@
 body {
-  font-family: "Lato";
+  font-family: "Lato", sans-serif;
 }
 
 ul {
@@ -22,14 +22,14 @@ li {
 a {
   text-transform: capitalize;
   text-decoration: none;
-  color: #3c2f2f;
+  color: #7c96ab;
   transition: 0.4s;
   font-weight: 400;
   padding: 0;
   margin: 0;
 }
 a:hover, a:active {
-  color: #3c2f2f;
+  color: #7c96ab;
   transition: 0.4s;
 }
 
@@ -43,7 +43,7 @@ label {
 
 p,
 small {
-  color: #3c2f2f;
+  color: #7c96ab;
   font-size: 18px;
 }
 @media (max-width: 992px) {
@@ -60,7 +60,7 @@ small {
 }
 
 small {
-  color: #3c2f2f;
+  color: #7c96ab;
   font-size: 16px;
 }
 
@@ -122,7 +122,7 @@ h4,
 h5,
 h6 {
   text-transform: capitalize;
-  color: #3c2f2f;
+  color: red;
   padding: 0;
   margin: 0;
 }
@@ -194,19 +194,19 @@ h6 {
 }
 
 .primary__button {
-  background-color: transparent;
-  border-color: #ffe4e1;
-  color: #90ee90;
+  border-color: #7c96ab;
+  background-color: #f3d7c8;
+  color: #b7b7b7;
   transition: 0.4s;
   font-size: 18px;
   height: 45px;
-  width: 100px;
+  width: 130px;
   border: 1px;
 }
 .primary__button:hover, .primary__button:active {
-  background-color: #90ee90;
-  border-color: #ffd700;
-  color: #3c2f2f;
+  background-color: #edc6b1;
+  border-color: #edc6b1;
+  color: #7c96ab;
   transition: 0.4s;
   cursor: pointer;
 }
@@ -221,28 +221,23 @@ h6 {
 
 .form__wrapper {
   margin: auto;
-  width: 40%;
+  width: 50%;
 }
 @media (max-width: 1200px) {
   .form__wrapper {
-    width: 70%;
-  }
-}
-@media (max-width: 992px) {
-  .form__wrapper {
-    width: 90%;
+    width: 60%;
   }
 }
 
 .form__container {
-  background-color: #3c2f2f;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  display: flex;
+  background-color: #7c96ab;
   border-radius: 10px;
   padding: 35px 60px;
-  margin-top: 50px;
+  max-height: 100vh;
+  flex-wrap: wrap;
+  overflow: auto;
+  display: flex;
+  margin: auto;
   width: 100%;
 }
 .form__container h4 {
@@ -250,7 +245,7 @@ h6 {
   margin: 10px;
 }
 .form__container small {
-  color: #3c2f2f;
+  color: #7c96ab;
 }
 .form__container .form__container__item {
   text-align: center;
@@ -262,7 +257,7 @@ h6 {
 }
 .form__container .form__container__item a {
   margin-bottom: 20px;
-  color: #3c2f2f;
+  color: #7c96ab;
   display: block;
   cursor: pointer;
 }

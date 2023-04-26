@@ -37,6 +37,9 @@ var sweetSchema = _zod.z.object({
     message: "la descrizione del prodotto di pasticceria deve essere di almeno 20 caratteri"
   }).max(150, {
     message: "la descrizione del prodotto di pasticceria non può superare i 150 caratteri"
+  }),
+  category: _zod.z.string().min(1, {
+    message: "Inserire un campo valido"
   })
 });
 

@@ -23,7 +23,7 @@ const FilterDataSelect = (props) => {
 
   return (
     <div className={classes.wrapper__filter__data__select}>
-      <label>Filtra i risultati</label>
+      <label>Filtra i dolci per categoria</label>
       <select
         className={classes.filter__data__select}
         onChange={props.onChange}
@@ -35,7 +35,6 @@ const FilterDataSelect = (props) => {
           </option>
         ))}
       </select>
-      <h3>Filmografia</h3>
     </div>
   );
 };
