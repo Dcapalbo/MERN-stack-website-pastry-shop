@@ -2,11 +2,11 @@
 @import "./mixin.scss";
 
 .card {
-  background-color: $bgColor;
   border: 2px solid $buttonsColor;
   max-height: calc(100% - 40px);
-  width: calc(100% / 4 - 48px);
+  background-color: $bgColor;
   transition: transform 0.1s;
+  width: calc(100% / 3 - 100px);
   @include flex-column;
   position: relative;
   margin: 24px;
@@ -88,5 +88,13 @@
   @media (max-width: $screen-sm-min) {
     margin: 12px;
     width: 100%;
+  }
+}
+
+.auth__card {
+  width: calc(100% / 2 - 48px);
+  @media (max-width: $screen-lg-min) {
+    width: calc(100%);
+    margin: 12px;
   }
 }

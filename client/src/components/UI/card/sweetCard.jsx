@@ -10,6 +10,7 @@ import React from "react";
 const SweetCard = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const uriLocation = window.location.href;
 
   const isLoggedIn = useSelector((state) => state.userLogin.isLoggedIn);
 
@@ -83,7 +84,13 @@ const SweetCard = (props) => {
   };
 
   return (
-    <div className={classes.card}>
+    <div
+      className={
+        uriLocation.includes("admin/sweets")
+          ? classes.card + " " + classes.auth__card
+          : classes.card
+      }
+    >
       {props.imageUrl && (
         <img
           onClick={sendDetailSweet}

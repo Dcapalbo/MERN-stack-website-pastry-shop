@@ -1,23 +1,25 @@
 .auth__aside {
   background-color: #7c96ab;
   justify-content: space-between;
+  width: calc(100% - 75%);
   flex-direction: column;
-  align-items: center;
   width: fit-content;
+  padding: 10px 0px;
   display: flex;
-  padding: 20px;
   height: 100vh;
 }
 @media (max-width: 828px) {
   .auth__aside {
     width: calc(100% - 80%);
-    padding: 5px;
+    padding: 5px 0px;
+  }
+  .auth__aside li {
+    padding: 10px 5px;
   }
 }
 @media (max-width: 576px) {
   .auth__aside {
-    width: calc(100% - 65%);
-    padding: 5px;
+    width: calc(100% - 75%);
   }
 }
 .auth__aside p {
@@ -39,4 +41,13 @@
 }
 .auth__aside .auth__aside__logout p:hover {
   color: #edc6b1;
+}
+@media (max-width: 828px) {
+  .auth__aside .auth__aside__logout p {
+    padding: 10px 5px;
+  }
+}
+
+.auth__aside__nav__margin {
+  margin-top: 50px;
 }

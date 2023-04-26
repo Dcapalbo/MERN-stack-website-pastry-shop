@@ -6,7 +6,7 @@
   background-color: $bgColor;
   height: auto;
   margin: auto;
-  width: 60%;
+  width: 100%;
   .card__container {
     @include flex-start;
     padding: 10px 0px;
@@ -33,4 +33,19 @@
   text-align: center;
   flex-wrap: wrap;
   display: flex;
+}
+
+.admin__wrapper__card__container {
+  width: calc(100% - 30%);
+  max-height: 100vh;
+  overflow: auto;
+  height: auto;
+  margin: auto;
+  @media (max-width: $screen-md-min) {
+    width: calc(100% - 20%);
+  }
+
+  @media (max-width: $screen-sm-min) {
+    width: calc(100% - 25%);
+  }
 }

@@ -1,26 +1,31 @@
+import { dataUserActions } from "../../../store/data-user-slice";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import classes from "./aside.module.scss";
-import { Link } from "react-router-dom";
 import React from "react";
 
 const Aside = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logout = () => {
+    dispatch(dataUserActions.logout());
+    navigate("/login");
+  };
+  const userName = useSelector((state) => state.userLogin.userName);
 
   return (
     <aside className={classes.auth__aside}>
       <ul className={classes.auth__aside__nav}>
         <li>
-          <p>Area personale</p>
+          <p>Area Personale</p>
         </li>
-        <Link to="/home">
-          <img
-            className={classes.navigation__logo}
-            src={""}
-            alt="logo pastry"
-            title="logo pastry"
-          />
-        </Link>
         <li>
+          <p>Utente loggato: {userName}</p>
+        </li>
+        <li className={classes.auth__aside__nav__margin}>
           <Link to={"/home"}>{t("home")}</Link>
         </li>
         <li>
@@ -43,7 +48,7 @@ const Aside = () => {
         </li>
       </ul>
       <div className={classes.auth__aside__logout}>
-        <p onClick={() => console.log("ciao")}>Logout</p>
+        <p onClick={logout}>Logout</p>
       </div>
     </aside>
   );

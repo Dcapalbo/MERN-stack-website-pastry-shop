@@ -1,9 +1,9 @@
 .card {
-  background-color: #ffe4e1;
-  border: 2px solid #90ee90;
+  border: 2px solid #b7b7b7;
   max-height: calc(100% - 40px);
-  width: calc(100% / 4 - 48px);
+  background-color: #f3d7c8;
   transition: transform 0.1s;
+  width: calc(100% / 3 - 100px);
   justify-content: center;
   flex-direction: column;
   display: flex;
@@ -61,8 +61,8 @@
 }
 .card .card__button__wrapper .card__cta {
   border: 1px solid #cc0000;
-  font-family: "Lato";
-  color: #90ee90;
+  font-family: "Lato", sans-serif;
+  color: #b7b7b7;
   padding: 15px 15px;
   margin: 10px 0px;
   transition: 0.3s;
@@ -71,8 +71,8 @@
   z-index: 2;
 }
 .card .card__button__wrapper .card__cta:hover {
-  background-color: #ffd700;
-  color: #3c2f2f;
+  background-color: #edc6b1;
+  color: #7c96ab;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -86,5 +86,15 @@
   .card {
     margin: 12px;
     width: 100%;
+  }
+}
+
+.auth__card {
+  width: calc(100% / 2 - 48px);
+}
+@media (max-width: 992px) {
+  .auth__card {
+    width: calc(100%);
+    margin: 12px;
   }
 }

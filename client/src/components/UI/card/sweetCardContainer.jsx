@@ -19,9 +19,7 @@ const SweetCardContainer = () => {
   let loading;
   let error;
 
-  if (
-    uriLocation === `${process.env.REACT_APP_CLIENT_LOCAL_PORT}/admin/sweets`
-  ) {
+  if (uriLocation.includes("/admin/sweets")) {
     const apiData = ApiGetHook(
       `${process.env.REACT_APP_API_LOCAL_PORT}/get-sweets`
     );
@@ -73,7 +71,13 @@ const SweetCardContainer = () => {
     );
   } else {
     return (
-      <section className={classes.wrapper__card__container}>
+      <section
+        className={
+          uriLocation.includes("/admin/sweets")
+            ? classes.admin__wrapper__card__container
+            : classes.wrapper__card__container
+        }
+      >
         <div
           className={
             (filteredSweets.length > 2
