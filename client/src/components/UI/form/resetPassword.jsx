@@ -66,7 +66,7 @@ const ResetPassword = () => {
           <small>{errors.confirmPassword?.message}</small>
         )}
         <div className={classes.form__container__item}>
-          <button className={classes.secondary__button} type="submit">
+          <button className={classes.primary__button} type="submit">
             {t("confirmAction")}
           </button>
         </div>

@@ -83,7 +83,7 @@ const LoginForm = () => {
         )}
         <div className={classes.form__container__item}>
           <Link to="/forgot-password">{t("labels.forgotLabel")}</Link>
-          <button className={classes.secondary__button} type="submit">
+          <button className={classes.primary__button} type="submit">
             {t("signInAction")}
           </button>
         </div>

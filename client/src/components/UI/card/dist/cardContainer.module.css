@@ -1,5 +1,5 @@
 body {
-  font-family: "Lato";
+  font-family: "Lato", sans-serif;
 }
 
 ul {
@@ -22,14 +22,14 @@ li {
 a {
   text-transform: capitalize;
   text-decoration: none;
-  color: #3c2f2f;
+  color: #7c96ab;
   transition: 0.4s;
   font-weight: 400;
   padding: 0;
   margin: 0;
 }
 a:hover, a:active {
-  color: #3c2f2f;
+  color: #7c96ab;
   transition: 0.4s;
 }
 
@@ -43,7 +43,7 @@ label {
 
 p,
 small {
-  color: #3c2f2f;
+  color: #7c96ab;
   font-size: 18px;
 }
 @media (max-width: 992px) {
@@ -60,7 +60,7 @@ small {
 }
 
 small {
-  color: #3c2f2f;
+  color: #7c96ab;
   font-size: 16px;
 }
 
@@ -122,7 +122,7 @@ h4,
 h5,
 h6 {
   text-transform: capitalize;
-  color: #3c2f2f;
+  color: red;
   padding: 0;
   margin: 0;
 }
@@ -194,19 +194,19 @@ h6 {
 }
 
 .primary__button {
-  background-color: transparent;
-  border-color: #ffe4e1;
-  color: #90ee90;
+  border-color: #7c96ab;
+  background-color: #f3d7c8;
+  color: #b7b7b7;
   transition: 0.4s;
   font-size: 18px;
   height: 45px;
-  width: 100px;
+  width: 130px;
   border: 1px;
 }
 .primary__button:hover, .primary__button:active {
-  background-color: #90ee90;
-  border-color: #ffd700;
-  color: #3c2f2f;
+  background-color: #edc6b1;
+  border-color: #edc6b1;
+  color: #7c96ab;
   transition: 0.4s;
   cursor: pointer;
 }
@@ -220,19 +220,22 @@ h6 {
 }
 
 .wrapper__card__container {
-  background-color: #ffe4e1;
+  background-color: #f3d7c8;
   height: auto;
-  width: 100%;
+  margin: auto;
+  width: 60%;
 }
 .wrapper__card__container .card__container {
   justify-content: flex-start;
   align-items: center;
-  text-align: center;
+  flex-wrap: wrap;
+  display: flex;
+  padding: 10px 0px;
   flex-wrap: wrap;
   display: flex;
   margin: auto;
   height: 100%;
-  width: 90%;
+  width: 100%;
 }
 @media (max-width: 992px) {
   .wrapper__card__container .card__container {
@@ -241,7 +244,6 @@ h6 {
     flex-wrap: wrap;
     display: flex;
     padding: 24px 12px;
-    width: 100%;
   }
 }
 @media (max-width: 576px) {
@@ -251,7 +253,6 @@ h6 {
     flex-wrap: wrap;
     display: flex;
     padding: 12px;
-    width: 100%;
   }
 }
 

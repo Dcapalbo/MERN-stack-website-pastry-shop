@@ -5,26 +5,24 @@
 .wrapper__card__container {
   background-color: $bgColor;
   height: auto;
-  width: 100%;
+  margin: auto;
+  width: 60%;
   .card__container {
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
+    @include flex-start;
+    padding: 10px 0px;
     flex-wrap: wrap;
     display: flex;
     margin: auto;
     height: 100%;
-    width: 90%;
+    width: 100%;
     @media (max-width: $screen-lg-min) {
       @include flex-center;
       padding: 24px 12px;
-      width: 100%;
     }
 
     @media (max-width: $screen-sm-min) {
       @include flex-center;
       padding: 12px;
-      width: 100%;
     }
   }
 }

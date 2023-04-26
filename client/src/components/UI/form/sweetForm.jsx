@@ -36,7 +36,7 @@ const SweetForm = () => {
 
   const { errors } = formState;
 
-  const { field } = useController({ name: "type", control });
+  const { field } = useController({ name: "category", control });
 
   const [enteredFileIsValid, setEnteredFileisValid] = useState(true);
   const [isUpdate, setIsUpdate] = useState(false);
@@ -80,7 +80,7 @@ const SweetForm = () => {
       formData.append("_id", ciccio?._id);
     }
 
-    if (formData.entries().next().done === false) {
+    if (formData !== {}) {
       if (
         uriLocation ===
         `${process.env.REACT_APP_CLIENT_LOCAL_PORT}/admin/add-new-sweet`
@@ -98,7 +98,7 @@ const SweetForm = () => {
           })
           .finally(() => {
             setIsLoading(false);
-            navigate("/admin/home");
+            navigate("/admin/sweets");
           });
       } else if (
         uriLocation ===
@@ -120,7 +120,7 @@ const SweetForm = () => {
           })
           .finally(() => {
             setIsLoading(false);
-            navigate("/admin/home");
+            navigate("/admin/sweets");
           });
       }
     }
@@ -225,7 +225,7 @@ const SweetForm = () => {
           {!isUpdate
             ? !isUpdate && (
                 <>
-                  <button className={classes.secondary__button} type="submit">
+                  <button className={classes.primary__button} type="submit">
                     {t("insertAction")}
                   </button>
                   <div className={classes.generic__margin__top}>
@@ -235,7 +235,7 @@ const SweetForm = () => {
               )
             : isUpdate && (
                 <>
-                  <button className={classes.secondary__button} type="submit">
+                  <button className={classes.primary__button} type="submit">
                     {t("modifyAction")}
                   </button>
                   <div className={classes.generic__margin__top}>
