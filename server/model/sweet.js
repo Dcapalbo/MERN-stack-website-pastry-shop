@@ -24,6 +24,10 @@ const sweetSchema = new Schema({
     type: String,
     required: true,
   },
+  slug: {
+    type: String,
+    required: true,
+  },
   imageUrl: {
     data: Buffer,
     contentType: String,
