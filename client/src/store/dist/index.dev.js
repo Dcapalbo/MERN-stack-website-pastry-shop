@@ -3,9 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.store = void 0;
+exports.persistor = exports.store = void 0;
 
 var _toolkit = require("@reduxjs/toolkit");
+
+var _reduxPersist = require("redux-persist");
+
+var _storage = _interopRequireDefault(require("redux-persist/lib/storage"));
 
 var _dataSweetSlice = _interopRequireDefault(require("./data-sweet-slice"));
 
@@ -20,7 +24,14 @@ var rootReducer = (0, _toolkit.combineReducers)({
   dataType: _dataSelectSlice["default"].reducer,
   userLogin: _dataUserSlice["default"].reducer
 });
+var persistConfig = {
+  key: "root",
+  storage: _storage["default"]
+};
+var persistedReducer = (0, _reduxPersist.persistReducer)(persistConfig, rootReducer);
 var store = (0, _toolkit.configureStore)({
-  reducer: rootReducer
+  reducer: persistedReducer
 });
 exports.store = store;
+var persistor = (0, _reduxPersist.persistStore)(store);
+exports.persistor = persistor;

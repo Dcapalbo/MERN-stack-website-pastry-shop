@@ -1,8 +1,5 @@
-import { dataSweetActions } from "../../../store/data-sweet-slice";
+import { useForm, useController } from "react-hook-form";
 import { sweetSchema } from "../../../schema/sweetSchema";
-import { useController, useForm } from "react-hook-form";
-import { slugCreation } from "../../../utils/functions";
-import { useDispatch, useSelector } from "react-redux";
 import { zodResolver } from "@hookform/resolvers/zod";
 import PuffLoader from "react-spinners/PuffLoader";
 import classes from "./genericForm.module.scss";
@@ -13,26 +10,26 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
 
-const SweetForm = () => {
+const FilmForm = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const uriLocation = window.location.href;
 
-  let ciccio;
-
   const { register, control, handleSubmit, formState } = useForm({
-    defaultValues: ciccio ?? "",
+    defaultValues: "",
     resolver: zodResolver(sweetSchema),
   });
 
   useEffect(() => {
-    setIsUpdate(uriLocation.includes("update-sweet"));
-    if (!uriLocation.includes("update-sweet")) {
-      // dispatch(dataSweetActions.resetSweetData());
-      console.log("siamo nel form update");
+    if (
+      uriLocation !==
+      `${process.env.REACT_APP_CLIENT_LOCAL_PORT}/admin/update-film`
+    ) {
+      setIsUpdate(false);
+    } else {
+      setIsUpdate(true);
     }
-  }, [uriLocation, dispatch]);
+  }, [uriLocation]);
 
   const { errors } = formState;
 
@@ -43,9 +40,6 @@ const SweetForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [file, setFile] = useState(null);
-  // const [ingredients, setIngredients] = useState([
-  //   { name: "", amount: "", measureUnit: "" },
-  // ]);
 
   const handleSelectChange = (option) => {
     field.onChange(option.target.value);
@@ -56,6 +50,7 @@ const SweetForm = () => {
     setEnteredFileisValid(enteredFileIsValid);
 
     const formData = new FormData();
+
     const {
       sweetName,
       ingredientName,
@@ -66,19 +61,16 @@ const SweetForm = () => {
       category,
     } = event;
 
-    formData.append("sweetName", sweetName ?? "");
-    formData.append("sweetName", ingredientName ?? "");
-    formData.append("sweetName", measureUnit ?? "");
-    formData.append("sweetName", amount ?? "");
-    formData.append("price", price ?? "");
-    formData.append("slug", slugCreation(sweetName));
-    formData.append("description", description ?? "");
-    formData.append("type", category ?? "");
-    formData.append("file", file ?? "");
+    console.log(event);
 
-    if (ciccio?._id) {
-      formData.append("_id", ciccio?._id);
-    }
+    formData.append("sweetName", sweetName);
+    formData.append("ingredientName", ingredientName);
+    formData.append("measureUnit", measureUnit);
+    formData.append("amount", parseInt(amount));
+    formData.append("price", parseInt(price));
+    formData.append("description", description);
+    formData.append("category", category);
+    formData.append("file", file);
 
     if (formData !== {}) {
       if (
@@ -112,10 +104,7 @@ const SweetForm = () => {
             console.log(res.data);
           })
           .catch((err) => {
-            console.error(
-              "there is an error for updating the specific sweet: ",
-              err
-            );
+            console.error("there is an error for updating a sweet: ", err);
             setError(err);
           })
           .finally(() => {
@@ -136,7 +125,7 @@ const SweetForm = () => {
           {!isUpdate
             ? !isUpdate && <h4>{t("labels.addDbSweet")}</h4>
             : isUpdate && <h4>{t("labels.modifyDbSweet")}</h4>}
-          <label htmlFor="Name">{t("sweetName")}</label>
+          <label htmlFor="SweetName">{t("sweetName")}</label>
           <input
             defaultValue={formState.defaultValues?.payload?.sweetName ?? ""}
             {...register("sweetName")}
@@ -150,13 +139,13 @@ const SweetForm = () => {
           <label htmlFor="IngredientName">{t("ingredientName")}</label>
           <input
             defaultValue={
-              formState.defaultValues?.payload?.IngredientName ?? ""
+              formState.defaultValues?.payload?.ingredientName ?? ""
             }
-            {...register("IngredientName")}
+            {...register("ingredientName")}
             type="text"
           />
-          {errors.IngredientName?.message && (
-            <small>{errors.IngredientName?.message}</small>
+          {errors.ingredientName?.message && (
+            <small>{errors.ingredientName?.message}</small>
           )}
         </div>
         <div className={classes.form__container__item}>
@@ -190,11 +179,11 @@ const SweetForm = () => {
         </div>
         <div className={classes.form__container__item}>
           <label htmlFor="Description">{t("description")}</label>
-          <input
+          <textarea
             defaultValue={formState.defaultValues?.payload?.description ?? ""}
             {...register("description")}
             type="text"
-          />
+          ></textarea>
           {errors.description?.message && (
             <small>{errors.description?.message}</small>
           )}
@@ -206,21 +195,19 @@ const SweetForm = () => {
             <small>{errors.category?.message}</small>
           )}
         </div>
-        <div className={classes.form__container__item}>
-          <label htmlFor="Image">{t("cover")}</label>
-          <input
-            onChange={(event) => {
-              const file = event.target.files[0];
-              setFile(file);
-            }}
-            type="file"
-            name="Image"
-            required
-          />
-          {!enteredFileIsValid && (
-            <small>Campo obbligatorio, inserire l'immagine del dolce</small>
-          )}
-        </div>
+        <label htmlFor="Image">{t("cover")}</label>
+        <input
+          onChange={(event) => {
+            const file = event.target.files[0];
+            setFile(file);
+          }}
+          type="file"
+          name="Image"
+          required
+        />
+        {!enteredFileIsValid && (
+          <small>Campo obbligatorio, inserire la cover del film</small>
+        )}
         <div className={classes.form__container__item}>
           {!isUpdate
             ? !isUpdate && (
@@ -262,4 +249,4 @@ const SweetForm = () => {
   );
 };
 
-export default SweetForm;
+export default FilmForm;
