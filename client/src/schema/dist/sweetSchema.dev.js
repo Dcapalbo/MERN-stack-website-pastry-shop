@@ -33,15 +33,15 @@ var sweetSchema = _zod.z.object({
     meesage: "inserire un valore"
   }).min(1, {
     message: "indicare la quantità dell'ingrediente in numeri, minimo 1 numero"
-  }).max(20, {
-    message: "indicare la quantità dell'ingrediente in numeri, massimo 4 numeri"
+  }).max(5, {
+    message: "indicare la quantità dell'ingrediente in numeri, massimo 5 numeri"
   }),
   price: _zod.z.string().nonempty({
     meesage: "inserire un valore"
   }).min(2, {
-    message: "il prezzo deve essere di almeno 0.99"
+    message: "il prezzo deve essere di almeno due cifre"
   }).max(5, {
-    message: "il prezzo non può superare l'ammontare di 999.99"
+    message: "il prezzo deve essere composto da massimo 5 cifre"
   }),
   description: _zod.z.string().nonempty({
     meesage: "inserire un valore"

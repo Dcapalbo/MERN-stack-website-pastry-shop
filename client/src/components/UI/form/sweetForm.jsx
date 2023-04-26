@@ -61,8 +61,6 @@ const FilmForm = () => {
       category,
     } = event;
 
-    console.log(event);
-
     formData.append("sweetName", sweetName);
     formData.append("ingredientName", ingredientName);
     formData.append("measureUnit", measureUnit);
@@ -71,6 +69,8 @@ const FilmForm = () => {
     formData.append("description", description);
     formData.append("category", category);
     formData.append("file", file);
+
+    console.log(event);
 
     if (formData !== {}) {
       if (
@@ -90,7 +90,6 @@ const FilmForm = () => {
           })
           .finally(() => {
             setIsLoading(false);
-            navigate("/admin/sweets");
           });
       } else if (
         uriLocation ===
@@ -109,7 +108,6 @@ const FilmForm = () => {
           })
           .finally(() => {
             setIsLoading(false);
-            navigate("/admin/sweets");
           });
       }
     }

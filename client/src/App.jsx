@@ -22,6 +22,7 @@ import AuthSignUp from "./pages/AuthSignUp";
 import AuthAllSweets from "./pages/AuthAllSweets";
 import ResetPasswordForm from "./pages/ResetPassword";
 import ForgotPasswordForm from "./pages/ForgotPassword";
+import { dataSweetActions } from "./store/data-sweet-slice";
 
 // initialize the react traductions
 i18n.use(initReactI18next).init({
@@ -50,7 +51,7 @@ const App = () => {
   useEffect(() => {
     setIsAuthenticated(isLoggedIn);
     setTokenExpiration(isAuth(token));
-    // dispatch(dataSweetActions.setSweetsData(sweets));
+    dispatch(dataSweetActions.setSweetsData(sweets));
   }, [isLoggedIn, token, dispatch, sweets]);
 
   return (

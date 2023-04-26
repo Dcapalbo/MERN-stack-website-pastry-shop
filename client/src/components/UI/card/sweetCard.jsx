@@ -21,55 +21,50 @@ const SweetCard = (props) => {
     setIsAuthenticated(isLoggedIn);
   }, [isLoggedIn, dispatch]);
 
-  const sendFilmFormHandler = () => {
+  const sendSweetToFormHandler = () => {
     dispatch(
       dataSweetActions.setSweetData({
-        title: props.title,
-        director: props.director,
-        production: props.production,
-        screenwriter: props.screenwriter,
-        directorOfPhotography: props.directorOfPhotography,
-        synopsis: props.synopsis,
-        duration: props.duration.toString(),
-        year: props.year.toString(),
-        type: props.type,
+        sweetName: props.sweetName,
+        ingredientName: props.ingredientName,
+        measureUnit: props.measureUnit,
+        amount: props.amount.toString(),
+        price: props.price.toString(),
+        description: props.description,
+        category: props.category,
         imageUrl: props.imageUrl,
         _id: props._id,
       })
     );
-    navigate("/admin/update-film");
+    navigate("/admin/update-sweet");
   };
 
-  const sendFilmIdHanlder = () => {
+  const sendDetailSweet = () => {
     dispatch(
       dataSweetActions.setSweetData({
-        title: props.title,
-        director: props.director,
-        production: props.production,
-        screenwriter: props.screenwriter,
-        directorOfPhotography: props.directorOfPhotography,
-        synopsis: props.synopsis,
-        duration: props.duration.toString(),
-        year: props.year.toString(),
-        slug: props.slug,
-        type: props.type,
+        sweetName: props.sweetName,
+        ingredientName: props.ingredientName,
+        measureUnit: props.measureUnit,
+        amount: props.amount.toString(),
+        price: props.price.toString(),
+        description: props.description,
+        category: props.category,
         imageUrl: props.imageUrl,
         _id: props._id,
       })
     );
-    navigate(`/film/${props.slug}`);
+    navigate(`/sweet/${props.slug}`);
   };
 
-  const deleteFilmHandler = () => {
+  const deleteSweetHandler = () => {
     setIsLoading(true);
 
-    const filmId = {
+    const sweetId = {
       _id: props._id,
     };
 
     axios
-      .delete(`${process.env.REACT_APP_API_LOCAL_PORT}/delete-film`, {
-        data: filmId,
+      .delete(`${process.env.REACT_APP_API_LOCAL_PORT}/delete-sweet`, {
+        data: sweetId,
       })
       .then((res) => {
         dispatch(dataSweetActions.removeSweetData({ _id: props._id }));
@@ -78,7 +73,7 @@ const SweetCard = (props) => {
       })
       .catch((err) => {
         console.error(
-          "there is an error for deleting the specific film: ",
+          "there is an error for deleting the specific sweet: ",
           err.name
         );
         setIsLoading(false);
@@ -90,24 +85,22 @@ const SweetCard = (props) => {
     <div className={classes.card}>
       {props.imageUrl && (
         <img
-          onClick={sendFilmIdHanlder}
+          onClick={sendDetailSweet}
           className={classes.card__image}
           src={props.imageUrl}
-          alt={props.title}
-          title={props.title}
+          alt={props.sweetName}
+          sweetName={props.sweetName}
           loading="lazy"
         />
       )}
       <div className={classes.card__description}>
-        {props.title && <h2>{props.title}</h2>}
-        {props.director && <h3>{props.director}</h3>}
-        {props.production && <p>{props.production}</p>}
-        {props.screenwriter && <input hidden id={props.screenwriter} />}
-        {props.directorOfPhotography && (
-          <input hidden id={props.directorOfPhotography} />
-        )}
-        {props.synopsis && <p>{props.synopsis}</p>}
-        {props.duration && <p>{props.duration}</p>}
+        {props.sweetName && <h2>{props.sweetName}</h2>}
+        {props.ingredientName && <h3>{props.ingredientName}</h3>}
+        {props.measureUnit && <p>{props.measureUnit}</p>}
+        {props.amount && <input hidden id={props.amount} />}
+        {props.price && <input hidden id={props.price} />}
+        {props.description && <p>{props.description}</p>}
+        {props.category && <p>{props.category}</p>}
         {props.year && <p>{props.year}</p>}
         {props.slug && <input hidden id={props.slug} />}
         {props.type && <small>{props.type}</small>}
@@ -115,11 +108,14 @@ const SweetCard = (props) => {
       </div>
       {isAuthenticated && (
         <div className={classes.card__button__wrapper}>
-          <button onClick={sendFilmFormHandler} className={classes.card__cta}>
-            Modifica Film
+          <button
+            onClick={sendSweetToFormHandler}
+            className={classes.card__cta}
+          >
+            Modifica dolce
           </button>
-          <button onClick={deleteFilmHandler} className={classes.card__cta}>
-            Elimina Film
+          <button onClick={deleteSweetHandler} className={classes.card__cta}>
+            Elimina dolce
           </button>
         </div>
       )}
@@ -137,7 +133,7 @@ const SweetCard = (props) => {
         />
       )}
       {error && (
-        <small>Problema nell' eliminazione del singolo film, riprovare</small>
+        <small>Problema nell' eliminazione del singolo dolce, riprovare</small>
       )}
     </div>
   );

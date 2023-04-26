@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const dataSelectSlice = createSlice({
-  name: "sweetType",
+  name: "sweetCategory",
   initialState: {
-    dataType: "",
+    category: "",
   },
   reducers: {
-    setDataType(state, action) {
-      state.dataType = action.payload;
+    setSweetCategory(state, action) {
+      state.category = action.payload;
     },
   },
 });

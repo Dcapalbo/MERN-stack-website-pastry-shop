@@ -1,5 +1,6 @@
 import { dataSweetActions } from "../../../store/data-sweet-slice";
 import { useDispatch, useSelector } from "react-redux";
+import { slugCreation } from "../../../utils/functions";
 import StateGetHook from "../../../hooks/stateGetHook";
 import base64ArrayBuffer from "../../../utils/base64";
 import PuffLoader from "react-spinners/PuffLoader";
@@ -12,8 +13,9 @@ const SweetCardContainer = () => {
   const dispatch = useDispatch();
   let uriLocation = window.location.href;
 
-  const typeData = useSelector((state) => state.dataType.dataType) || "";
-  const [filteredData, setFilteredData] = useState([]);
+  const sweetCategory =
+    useSelector((state) => state.sweetCategory.category) || "";
+  const [filteredSweets, setFilteredSweets] = useState([]);
 
   let sweets;
   let loading;
@@ -32,68 +34,68 @@ const SweetCardContainer = () => {
 
     dispatch(dataSweetActions.setSweetsData(sweets));
   } else {
-    //   const stateData = StateGetHook((state) => state.dataSweet.sweetsData);
+    const stateData = StateGetHook((state) => state.dataSweet.sweetsData);
 
-    //   films = stateData.films;
-    //   loading = stateData.loading;
-    //   error = stateData.error;
-    // }
+    sweets = stateData.sweets;
+    loading = stateData.loading;
+    error = stateData.error;
+  }
 
-    // useEffect(() => {
-    //   if (films) {
-    //     setFilteredData(films);
-    //     if (typeData) {
-    //       const filteredFilms = films.filter((film) => film.type === typeData);
-    //       setFilteredData(filteredFilms);
-    //     }
-    //   }
-    // }, [typeData, films]);
+  useEffect(() => {
+    if (sweets) {
+      setFilteredSweets(sweets);
+      if (sweetCategory) {
+        const filteredSweets = sweets.filter(
+          (sweet) => sweet.category === sweetCategory
+        );
+        setFilteredSweets(filteredSweets);
+      }
+    }
+  }, [sweetCategory, sweets]);
 
-    // if (loading) {
-    //   return (
-    //     <PuffLoader
-    //       style={{
-    //         display: "inherit",
-    //         position: "relative",
-    //         width: "100px",
-    //         height: "100px",
-    //         margin: "auto",
-    //       }}
-    //       color={"#cc0000"}
-    //       size={100}
-    //     />
-    //   );
-    // } else if (error) {
-    //   return (
-    //     <h1 className={classes.text__align__center}>
-    //       There are some problems, please try to refresh
-    //     </h1>
-    //   );
-    // } else {
+  if (loading) {
+    return (
+      <PuffLoader
+        style={{
+          display: "inherit",
+          position: "relative",
+          width: "100px",
+          height: "100px",
+          margin: "auto",
+        }}
+        color={"#cc0000"}
+        size={100}
+      />
+    );
+  } else if (error) {
+    return (
+      <h1 className={classes.text__align__center}>
+        There are some problems, please try to refresh
+      </h1>
+    );
+  } else {
     return (
       <section className={classes.wrapper__card__container}>
         <div
           className={
-            (filteredData.length > 2
+            (filteredSweets.length > 2
               ? classes.card__container
               : classes.card__container,
             classes.justify__content__center)
           }
         >
-          {filteredData.length > 0 ? (
-            filteredData.map((sweet) => (
+          {filteredSweets.length > 0 ? (
+            filteredSweets.map((sweet) => (
               <SweetCard
-                title={sweet.title}
-                director={sweet.director}
-                production={sweet.production}
-                screenwriter={sweet.screenwriter}
-                directorOfPhotography={sweet.directorOfPhotography}
-                synopsis={sweet.synopsis}
+                sweetName={sweet.sweetName}
+                ingredientName={sweet.ingredientName}
+                measureUnit={sweet.measureUnit}
+                amount={sweet.amount}
+                price={sweet.price}
+                description={sweet.description}
+                slug={sweet.slugCreation(sweet.sweetName)}
+                category={sweet.category}
                 imageUrl={`data:image/png;base64,${base64ArrayBuffer(sweet)}`}
-                duration={sweet.duration}
-                year={sweet.year}
-                slug={sweet.slug}
-                type={sweet.type}
                 key={sweet._id}
                 _id={sweet._id}
               />

@@ -36,18 +36,18 @@ const sweetSchema = z.object({
       message:
         "indicare la quantità dell'ingrediente in numeri, minimo 1 numero",
     })
-    .max(20, {
+    .max(5, {
       message:
-        "indicare la quantità dell'ingrediente in numeri, massimo 4 numeri",
+        "indicare la quantità dell'ingrediente in numeri, massimo 5 numeri",
     }),
   price: z
     .string()
     .nonempty({ meesage: "inserire un valore" })
     .min(2, {
-      message: "il prezzo deve essere di almeno 0.99",
+      message: "il prezzo deve essere di almeno due cifre",
     })
     .max(5, {
-      message: "il prezzo non può superare l'ammontare di 999.99",
+      message: "il prezzo deve essere composto da massimo 5 cifre",
     }),
   description: z
     .string()
