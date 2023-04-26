@@ -18,7 +18,7 @@ import Home from "./pages/Home";
 import AuthHome from "./pages/AuthHome";
 import NewSweet from "./pages/NewSweet";
 import LoginForm from "./pages/LoginForm";
-// import UpdateSweet from "./pages/UpdateSweet";
+import UpdateSweet from "./pages/UpdateSweet";
 import Sweet from "./pages/Sweet";
 import AuthSignUp from "./pages/AuthSignUp";
 import ForgotPasswordForm from "./pages/ForgotPassword";
@@ -76,9 +76,9 @@ const App = () => {
         {isAuthenticated && tokenExpiration && (
           <Route path="/admin/add-new-sweet" element={<NewSweet />} />
         )}
-        {/* {isAuthenticated && tokenExpiration && (
+        {isAuthenticated && tokenExpiration && (
           <Route path="/admin/update-sweet" element={<UpdateSweet />} />
-        )} */}
+        )}
         {isAuthenticated && tokenExpiration && (
           <Route path="/forgot-password" element={<ForgotPasswordForm />} />
         )}

@@ -10,22 +10,24 @@ import TypeSelect from "../select/typeSelect";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const FilmForm = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const uriLocation = window.location.href;
 
+  const dataUpdateSweets = useSelector(
+    (state) => state.dataSweets.sweetData ?? ""
+  );
+
   const { register, control, handleSubmit, formState } = useForm({
-    defaultValues: "",
+    defaultValues: dataUpdateSweets ?? "",
     resolver: zodResolver(sweetSchema),
   });
 
   useEffect(() => {
-    if (
-      uriLocation !==
-      `${process.env.REACT_APP_CLIENT_LOCAL_PORT}/admin/update-film`
-    ) {
+    if (uriLocation.includes("/admin/update-film")) {
       setIsUpdate(false);
     } else {
       setIsUpdate(true);
@@ -72,7 +74,9 @@ const FilmForm = () => {
     formData.append("slug", slugCreation(sweetName));
     formData.append("file", file);
 
-    console.log(event);
+    if (dataUpdateSweets?._id) {
+      formData.append("_id", dataUpdateSweets?._id);
+    }
 
     if (formData !== {}) {
       if (

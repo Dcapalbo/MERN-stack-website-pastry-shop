@@ -1,41 +1,20 @@
-import { dataSweetActions } from "../../../store/data-sweet-slice";
-import { useDispatch, useSelector } from "react-redux";
 import StateGetHook from "../../../hooks/stateGetHook";
 import base64ArrayBuffer from "../../../utils/base64";
 import PuffLoader from "react-spinners/PuffLoader";
-import ApiGetHook from "../../../hooks/apiGetHook";
 import classes from "./cardContainer.module.scss";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import SweetCard from "./sweetCard";
 
 const SweetCardContainer = () => {
-  const dispatch = useDispatch();
   let uriLocation = window.location.href;
 
   const sweetCategory = useSelector((state) => state.dataType.category) || "";
   const [filteredSweets, setFilteredSweets] = useState([]);
 
-  let sweets;
-  let loading;
-  let error;
-
-  if (uriLocation.includes("/admin/sweets")) {
-    const apiData = ApiGetHook(
-      `${process.env.REACT_APP_API_LOCAL_PORT}/get-sweets`
-    );
-
-    sweets = apiData.sweets;
-    loading = apiData.loading;
-    error = apiData.error;
-
-    dispatch(dataSweetActions.setSweetsData(sweets));
-  } else {
-    const stateData = StateGetHook((state) => state.dataSweets.sweetsData);
-
-    sweets = stateData.sweets;
-    loading = stateData.loading;
-    error = stateData.error;
-  }
+  const { sweets, loading, error } = StateGetHook(
+    (state) => state.dataSweets.sweetsData
+  );
 
   useEffect(() => {
     if (sweets) {

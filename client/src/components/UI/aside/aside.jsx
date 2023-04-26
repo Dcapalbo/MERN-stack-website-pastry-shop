@@ -1,6 +1,8 @@
+import { dataSweetActions } from "../../../store/data-sweet-slice";
 import { dataUserActions } from "../../../store/data-user-slice";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import ApiGetHook from "../../../hooks/apiGetHook";
 import { useTranslation } from "react-i18next";
 import classes from "./aside.module.scss";
 import React from "react";
@@ -9,12 +11,22 @@ const Aside = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  let uriLocation = window.location.href;
+
+  if (uriLocation.includes("/admin/sweets")) {
+    const { sweets } = ApiGetHook(
+      `${process.env.REACT_APP_API_LOCAL_PORT}/get-sweets`
+    );
+
+    dispatch(dataSweetActions.setSweetsData(sweets));
+  }
+
+  const userName = useSelector((state) => state.userLogin.userName);
 
   const logout = () => {
     dispatch(dataUserActions.logout());
     navigate("/login");
   };
-  const userName = useSelector((state) => state.userLogin.userName);
 
   return (
     <aside className={classes.auth__aside}>

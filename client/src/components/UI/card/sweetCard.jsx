@@ -70,7 +70,6 @@ const SweetCard = (props) => {
       })
       .then((res) => {
         dispatch(dataSweetActions.removeSweetData({ _id: props._id }));
-        window.location.replace("/admin/sweets");
         setIsLoading(false);
       })
       .catch((err) => {
