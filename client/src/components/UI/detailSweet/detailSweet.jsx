@@ -1,24 +1,25 @@
 import PuffLoader from "react-spinners/PuffLoader";
-import classes from "./dataFilmAbout.module.scss";
+import classes from "./detailSweet.module.scss";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import React from "react";
 
-const SweetFilm = () => {
+const Sweetsweet = () => {
   const { t } = useTranslation();
-  const film = useSelector((state) => state.dataFilm.filmData);
+
+  const sweet = useSelector((state) => state.dataSweets.sweetData);
   const [loading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
-    if (film) {
+    if (sweet) {
       setIsLoading(false);
     } else {
       setError(true);
     }
-  }, [film]);
+  }, [sweet]);
 
   if (loading) {
     return (
@@ -37,108 +38,102 @@ const SweetFilm = () => {
   } else if (error) {
     return (
       <h1 className={classes.text__align__center}>
-        Il film selezionato non è stato trovato, tornare alla pagina precedente
+        Il dolce selezionato non è stato trovato, tornare alla pagina precedente
       </h1>
     );
   } else {
     return (
-      film && (
-        <section className={classes.detail__film__about__container}>
+      sweet && (
+        <section className={classes.detail__sweet__about__container}>
           <img
-            className={classes.detail__film__about__card__image}
-            src={film?.imageUrl ?? ""}
-            alt={film?.title ?? ""}
-            title={film?.title ?? ""}
+            className={classes.detail__sweet__about__card__image}
+            src={sweet.imageUrl ?? ""}
+            alt={sweet.sweetName ?? ""}
+            sweetName={sweet.sweetName ?? ""}
             loading="lazy"
           />
-          <div className={classes.detail__film__about__card__info}>
-            {film?.title && (
-              <div className={classes.detail__film__about__card__info__wrapper}>
+          <div className={classes.detail__sweet__about__card__info}>
+            {sweet.sweetName && (
+              <div
+                className={classes.detail__sweet__about__card__info__wrapper}
+              >
                 <div>
-                  <h2>{t("title")}:</h2>
+                  <h2>{t("sweetName")}:</h2>
                 </div>
                 <div>
-                  <h2>{film?.title ?? ""}</h2>
-                </div>
-              </div>
-            )}
-            {film?.director && (
-              <div className={classes.detail__film__about__card__info__wrapper}>
-                <div>
-                  <h2>{t("director")}:</h2>
-                </div>
-                <div>
-                  <h2>{film?.director ?? ""}</h2>
+                  <h2>{sweet.sweetName ?? ""}</h2>
                 </div>
               </div>
             )}
-            {film?.production && (
-              <div className={classes.detail__film__about__card__info__wrapper}>
+            {sweet?.ingredientName && (
+              <div
+                className={classes.detail__sweet__about__card__info__wrapper}
+              >
                 <div>
-                  <h2>{t("production")}:</h2>
+                  <h2>{t("ingredientName")}:</h2>
                 </div>
                 <div>
-                  <h2>{film?.production ?? ""}</h2>
-                </div>
-              </div>
-            )}
-            {film?.screenwriter && (
-              <div className={classes.detail__film__about__card__info__wrapper}>
-                <div>
-                  <p>{t("screenwriter")}:</p>
-                </div>
-                <div>
-                  <p>{film?.screenwriter ?? ""}</p>
+                  <h2>{sweet?.ingredientName ?? ""}</h2>
                 </div>
               </div>
             )}
-            {film?.directorOfPhotography && (
-              <div className={classes.detail__film__about__card__info__wrapper}>
+            {sweet?.measureUnit && (
+              <div
+                className={classes.detail__sweet__about__card__info__wrapper}
+              >
                 <div>
-                  <p>{t("directorOfPhotography")}:</p>
+                  <h2>{t("measureUnit")}:</h2>
                 </div>
                 <div>
-                  <p>{film?.directorOfPhotography ?? ""}</p>
-                </div>
-              </div>
-            )}
-            {film?.synopsis && (
-              <div className={classes.detail__film__about__card__info__wrapper}>
-                <div>
-                  <p>{t("synopsis")}:</p>
-                </div>
-                <div>
-                  <p>{film?.synopsis ?? ""}</p>
+                  <h2>{sweet?.measureUnit ?? ""}</h2>
                 </div>
               </div>
             )}
-            {film?.duration && (
-              <div className={classes.detail__film__about__card__info__wrapper}>
+            {sweet?.amount && (
+              <div
+                className={classes.detail__sweet__about__card__info__wrapper}
+              >
                 <div>
-                  <p>{t("duration")}:</p>
+                  <p>{t("amount")}:</p>
                 </div>
                 <div>
-                  <p>{film?.duration ?? ""}</p>
-                </div>
-              </div>
-            )}
-            {film?.year && (
-              <div className={classes.detail__film__about__card__info__wrapper}>
-                <div>
-                  <p>{t("year")}:</p>
-                </div>
-                <div>
-                  <p>{film?.year ?? ""}</p>
+                  <p>{sweet?.amount ?? ""}</p>
                 </div>
               </div>
             )}
-            {film?.type && (
-              <div className={classes.detail__film__about__card__info__wrapper}>
+            {sweet.price && (
+              <div
+                className={classes.detail__sweet__about__card__info__wrapper}
+              >
                 <div>
-                  <p>{t("typology")}:</p>
+                  <p>{t("price")}:</p>
                 </div>
                 <div>
-                  <p>{film?.type ?? ""}</p>
+                  <p>{sweet.price ?? ""}</p>
+                </div>
+              </div>
+            )}
+            {sweet.description && (
+              <div
+                className={classes.detail__sweet__about__card__info__wrapper}
+              >
+                <div>
+                  <p>{t("description")}:</p>
+                </div>
+                <div>
+                  <p>{sweet.description ?? ""}</p>
+                </div>
+              </div>
+            )}
+            {sweet.category && (
+              <div
+                className={classes.detail__sweet__about__card__info__wrapper}
+              >
+                <div>
+                  <p>{t("category")}:</p>
+                </div>
+                <div>
+                  <p>{sweet.category ?? ""}</p>
                 </div>
               </div>
             )}
@@ -149,4 +144,4 @@ const SweetFilm = () => {
   }
 };
 
-export default SweetFilm;
+export default Sweetsweet;

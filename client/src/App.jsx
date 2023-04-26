@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { isAuth } from "./utils/isAuth";
 // importing the react traductions functions
+import { dataSweetActions } from "./store/data-sweet-slice";
 import { initReactI18next } from "react-i18next";
 import { translationIt } from "./utils/i18It";
 import { translationEn } from "./utils/i18En";
@@ -18,11 +19,11 @@ import AuthHome from "./pages/AuthHome";
 import NewSweet from "./pages/NewSweet";
 import LoginForm from "./pages/LoginForm";
 // import UpdateSweet from "./pages/UpdateSweet";
+import Sweet from "./pages/Sweet";
 import AuthSignUp from "./pages/AuthSignUp";
+import ForgotPasswordForm from "./pages/ForgotPassword";
 import AuthAllSweets from "./pages/AuthAllSweets";
 import ResetPasswordForm from "./pages/ResetPassword";
-import ForgotPasswordForm from "./pages/ForgotPassword";
-import { dataSweetActions } from "./store/data-sweet-slice";
 
 // initialize the react traductions
 i18n.use(initReactI18next).init({
@@ -59,8 +60,8 @@ const App = () => {
       <Routes>
         {/* not authenticated Routes  */}
         <Route path="/home" element={<Home />} />
-        {/* <Route path="/about" element={<About />} />
-        <Route path="/sweet/:id" element={<Sweet />} /> */}
+        {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/sweet/:slug" element={<Sweet />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/reset-password" element={<ResetPasswordForm />} />
         <Route path="/sign-up" element={<AuthSignUp />} />

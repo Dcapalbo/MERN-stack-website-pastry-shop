@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const dataSweetSlice = createSlice({
-  name: "dataSweet",
+  name: "dataSweets",
   initialState: {
     sweetData: {},
     sweetsData: [],
@@ -13,15 +13,12 @@ const dataSweetSlice = createSlice({
     setSweetData(state, action) {
       state.sweetData = action.payload;
     },
-    addSweetData(state, action) {
-      state.sweetsData.push(action.payload);
-    },
     removeSweetData(state, action) {
       state.sweetsData = state.sweetsData.filter(
         (sweet) => sweet._id !== action.payload._id
       );
     },
-    resetContactData(state) {
+    resetSweetData(state) {
       state.sweetData = {};
     },
   },

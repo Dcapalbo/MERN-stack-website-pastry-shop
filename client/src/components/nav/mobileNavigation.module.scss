@@ -20,11 +20,13 @@
   .hamburgher {
     color: $typographyColor;
     font-size: 30px;
+    cursor: pointer;
   }
 
   .cross__button {
     color: $typographyColor;
     position: absolute;
+    cursor: pointer;
     font-size: 30px;
     right: 25px;
     top: 20px;
@@ -32,7 +34,7 @@
 
   .clicked__mobile__navigation {
     animation-duration: 1s;
+    height: fit-content;
     transition: 1s;
-    height: 20vh;
   }
 }

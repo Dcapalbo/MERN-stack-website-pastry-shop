@@ -4,16 +4,22 @@ const dataUserSlice = createSlice({
   name: "userLogin",
   initialState: {
     isLoggedIn: false,
-    userEmail: null,
+    userName: null,
     userId: null,
     token: null,
   },
   reducers: {
     login(state, action) {
       state.isLoggedIn = true;
-      state.userEmail = action.payload.userEmail;
+      state.userName = action.payload.userName;
       state.userId = action.payload.userId;
       state.token = action.payload.token;
+    },
+    logout(state) {
+      state.isLoggedIn = false;
+      state.userName = null;
+      state.userId = null;
+      state.token = null;
     },
   },
 });

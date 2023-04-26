@@ -6,7 +6,16 @@
   z-index: 10;
 }
 .nav__links li:first-child {
+  margin-right: 60px;
   display: flex;
+}
+@media (max-width: 828px) {
+  .nav__links li:first-child {
+    margin-right: 0px;
+  }
+}
+.nav__links li:first-child p {
+  margin-left: 10px;
 }
 .nav__links li:first-child > svg {
   margin-right: 10px;

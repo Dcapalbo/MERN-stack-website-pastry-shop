@@ -8,12 +8,12 @@ exports["default"] = exports.dataSelectActions = void 0;
 var _toolkit = require("@reduxjs/toolkit");
 
 var dataSelectSlice = (0, _toolkit.createSlice)({
-  name: "sweetCategory",
+  name: "dataCategory",
   initialState: {
     category: ""
   },
   reducers: {
-    setSweetCategory: function setSweetCategory(state, action) {
+    setDataCategory: function setDataCategory(state, action) {
       state.category = action.payload;
     }
   }

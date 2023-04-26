@@ -25,9 +25,9 @@ const SweetCard = (props) => {
     dispatch(
       dataSweetActions.setSweetData({
         sweetName: props.sweetName,
-        ingredientName: props.ingredientName,
-        measureUnit: props.measureUnit,
-        amount: props.amount.toString(),
+        // ingredientName: props.ingredientName,
+        // measureUnit: props.measureUnit,
+        // amount: props.amount.toString(),
         price: props.price.toString(),
         description: props.description,
         category: props.category,
@@ -42,12 +42,13 @@ const SweetCard = (props) => {
     dispatch(
       dataSweetActions.setSweetData({
         sweetName: props.sweetName,
-        ingredientName: props.ingredientName,
-        measureUnit: props.measureUnit,
-        amount: props.amount.toString(),
+        // ingredientName: props.ingredientName,
+        // measureUnit: props.measureUnit,
+        // amount: props.amount.toString(),
         price: props.price.toString(),
         description: props.description,
         category: props.category,
+        slug: props.slug,
         imageUrl: props.imageUrl,
         _id: props._id,
       })
@@ -68,7 +69,7 @@ const SweetCard = (props) => {
       })
       .then((res) => {
         dispatch(dataSweetActions.removeSweetData({ _id: props._id }));
-        window.location.replace("admin/sweets");
+        window.location.replace("/admin/sweets");
         setIsLoading(false);
       })
       .catch((err) => {
@@ -97,10 +98,9 @@ const SweetCard = (props) => {
         {props.sweetName && <h2>{props.sweetName}</h2>}
         {props.ingredientName && <h3>{props.ingredientName}</h3>}
         {props.measureUnit && <p>{props.measureUnit}</p>}
-        {props.amount && <input hidden id={props.amount} />}
-        {props.price && <input hidden id={props.price} />}
+        {props.amount && <p>{props.amount}</p>}
+        {props.price && <p>{props.price} euro</p>}
         {props.description && <p>{props.description}</p>}
-        {props.category && <p>{props.category}</p>}
         {props.slug && <input hidden id={props.slug} />}
         {props.category && <small>{props.category}</small>}
         {props._id && <input hidden id={props._id} />}

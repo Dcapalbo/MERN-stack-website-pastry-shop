@@ -8,7 +8,7 @@ exports["default"] = exports.dataSweetActions = void 0;
 var _toolkit = require("@reduxjs/toolkit");
 
 var dataSweetSlice = (0, _toolkit.createSlice)({
-  name: "dataSweet",
+  name: "dataSweets",
   initialState: {
     sweetData: {},
     sweetsData: []
@@ -20,15 +20,12 @@ var dataSweetSlice = (0, _toolkit.createSlice)({
     setSweetData: function setSweetData(state, action) {
       state.sweetData = action.payload;
     },
-    addSweetData: function addSweetData(state, action) {
-      state.sweetsData.push(action.payload);
-    },
     removeSweetData: function removeSweetData(state, action) {
       state.sweetsData = state.sweetsData.filter(function (sweet) {
         return sweet._id !== action.payload._id;
       });
     },
-    resetContactData: function resetContactData(state) {
+    resetSweetData: function resetSweetData(state) {
       state.sweetData = {};
     }
   }

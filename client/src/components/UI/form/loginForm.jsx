@@ -42,7 +42,7 @@ const LoginForm = () => {
       .then((res) => {
         dispatch(
           dataUserActions.login({
-            userEmail: res.data.result.email,
+            userName: res.data.result.name,
             userId: res.data.userId,
             token: res.data.token,
           })

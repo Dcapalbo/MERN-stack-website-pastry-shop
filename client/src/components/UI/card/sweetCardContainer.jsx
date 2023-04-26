@@ -1,6 +1,5 @@
 import { dataSweetActions } from "../../../store/data-sweet-slice";
 import { useDispatch, useSelector } from "react-redux";
-import { slugCreation } from "../../../utils/functions";
 import StateGetHook from "../../../hooks/stateGetHook";
 import base64ArrayBuffer from "../../../utils/base64";
 import PuffLoader from "react-spinners/PuffLoader";
@@ -13,8 +12,7 @@ const SweetCardContainer = () => {
   const dispatch = useDispatch();
   let uriLocation = window.location.href;
 
-  const sweetCategory =
-    useSelector((state) => state.sweetCategory.category) || "";
+  const sweetCategory = useSelector((state) => state.dataType.category) || "";
   const [filteredSweets, setFilteredSweets] = useState([]);
 
   let sweets;
@@ -34,7 +32,7 @@ const SweetCardContainer = () => {
 
     dispatch(dataSweetActions.setSweetsData(sweets));
   } else {
-    const stateData = StateGetHook((state) => state.dataSweet.sweetsData);
+    const stateData = StateGetHook((state) => state.dataSweets.sweetsData);
 
     sweets = stateData.sweets;
     loading = stateData.loading;
@@ -51,7 +49,7 @@ const SweetCardContainer = () => {
         setFilteredSweets(filteredSweets);
       }
     }
-  }, [sweetCategory, sweets]);
+  }, [sweets, sweetCategory]);
 
   if (loading) {
     return (
@@ -93,7 +91,7 @@ const SweetCardContainer = () => {
                 amount={sweet.amount}
                 price={sweet.price}
                 description={sweet.description}
-                slug={sweet.slugCreation(sweet.sweetName)}
+                slug={sweet.slug}
                 category={sweet.category}
                 imageUrl={`data:image/png;base64,${base64ArrayBuffer(sweet)}`}
                 key={sweet._id}

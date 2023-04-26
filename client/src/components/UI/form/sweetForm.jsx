@@ -92,6 +92,7 @@ const FilmForm = () => {
           })
           .finally(() => {
             setIsLoading(false);
+            navigate("/admin/sweets");
           });
       } else if (
         uriLocation ===
@@ -110,6 +111,7 @@ const FilmForm = () => {
           })
           .finally(() => {
             setIsLoading(false);
+            navigate("/admin/sweets");
           });
       }
     }

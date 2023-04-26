@@ -15,7 +15,7 @@ const Home = () => {
 
   const sendTypeHandler = (event) => {
     const value = event.target.value;
-    dispatch(dataSelectActions.setDataType(value));
+    dispatch(dataSelectActions.setDataCategory(value));
     setType(value);
   };
 
@@ -28,7 +28,6 @@ const Home = () => {
       <Accordion />
       <FilterDataSelect onChange={sendTypeHandler} type={type} />
       <SweetCardContainer />
-      {/* <ContactForm /> */}
       <Footer />
     </>
   );

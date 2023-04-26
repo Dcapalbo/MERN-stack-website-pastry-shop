@@ -5,7 +5,14 @@
   @include flex-between;
   z-index: 10;
   li:first-child {
+    margin-right: 60px;
     display: flex;
+    @media (max-width: $screen-md-min) {
+      margin-right: 0px;
+    }
+    p {
+      margin-left: 10px;
+    }
     > svg {
       margin-right: 10px;
       color: $typographyColor;
