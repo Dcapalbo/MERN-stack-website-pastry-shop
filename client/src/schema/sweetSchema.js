@@ -7,7 +7,7 @@ const sweetSchema = z.object({
     .max(25, {
       message: "il nome del dolce non deve contenere più di 25 caratteri",
     }),
-  ingredientName: z.array
+  ingredientName: z
     .string()
     .min(3, {
       message: "Il nome dell'ingrediente deve contenere almeno 3 caratteri",
@@ -16,7 +16,7 @@ const sweetSchema = z.object({
       message:
         "Il nome dell'ingrediente non deve contenere più di 25 caratteri",
     }),
-  measureUnit: z.array
+  measureUnit: z
     .string()
     .min(1, {
       message:
@@ -26,7 +26,7 @@ const sweetSchema = z.object({
       message:
         "la sigla dell'unità di misura non deve contenere più di 20 caratteri",
     }),
-  amount: z.array
+  amount: z
     .string()
     .min(1, {
       message:

@@ -13,17 +13,17 @@ var sweetSchema = _zod.z.object({
   }).max(25, {
     message: "il nome del dolce non deve contenere più di 25 caratteri"
   }),
-  ingredientName: _zod.z.array.string().min(3, {
+  ingredientName: _zod.z.string().min(3, {
     message: "Il nome dell'ingrediente deve contenere almeno 3 caratteri"
   }).max(25, {
     message: "Il nome dell'ingrediente non deve contenere più di 25 caratteri"
   }),
-  measureUnit: _zod.z.array.string().min(1, {
+  measureUnit: _zod.z.string().min(1, {
     message: "la sigla dell'unità di misura deve contenere almeno 2 caratteri: esempio(gr, cl, ml)"
   }).max(20, {
     message: "la sigla dell'unità di misura non deve contenere più di 20 caratteri"
   }),
-  amount: _zod.z.array.string().min(1, {
+  amount: _zod.z.string().min(1, {
     message: "indicare la quantità dell'ingrediente in numeri, minimo 1 numero"
   }).max(20, {
     message: "indicare la quantità dell'ingrediente in numeri, massimo 4 numeri"

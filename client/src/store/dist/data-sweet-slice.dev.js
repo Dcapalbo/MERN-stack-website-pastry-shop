@@ -14,16 +14,16 @@ var dataSweetSlice = (0, _toolkit.createSlice)({
     sweetsData: []
   },
   reducers: {
-    setContactsData: function setContactsData(state, action) {
+    setSweetsData: function setSweetsData(state, action) {
       state.sweetsData = action.payload;
     },
-    setContactData: function setContactData(state, action) {
+    setSweetData: function setSweetData(state, action) {
       state.sweetData = action.payload;
     },
-    addContactData: function addContactData(state, action) {
+    addSweetData: function addSweetData(state, action) {
       state.sweetsData.push(action.payload);
     },
-    removeContactData: function removeContactData(state, action) {
+    removeSweetData: function removeSweetData(state, action) {
       state.sweetsData = state.sweetsData.filter(function (sweet) {
         return sweet._id !== action.payload._id;
       });

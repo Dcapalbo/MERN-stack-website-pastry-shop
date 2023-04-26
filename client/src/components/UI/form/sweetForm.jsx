@@ -19,7 +19,7 @@ const SweetForm = () => {
   const uriLocation = window.location.href;
 
   const dataUpdateSweet = useSelector(
-    (state) => state.dataSweet.SweetData ?? null
+    (state) => state.dataSweet.sweetData ?? null
   );
 
   const { register, handleSubmit, formState } = useForm({

@@ -7,16 +7,16 @@ const dataSweetSlice = createSlice({
     sweetsData: [],
   },
   reducers: {
-    setContactsData(state, action) {
+    setSweetsData(state, action) {
       state.sweetsData = action.payload;
     },
-    setContactData(state, action) {
+    setSweetData(state, action) {
       state.sweetData = action.payload;
     },
-    addContactData(state, action) {
+    addSweetData(state, action) {
       state.sweetsData.push(action.payload);
     },
-    removeContactData(state, action) {
+    removeSweetData(state, action) {
       state.sweetsData = state.sweetsData.filter(
         (sweet) => sweet._id !== action.payload._id
       );

@@ -15,7 +15,7 @@ import "./assets/reset.scss";
 // pages
 import Home from "./pages/Home";
 import AuthHome from "./pages/AuthHome";
-// import NewSweet from "./pages/NewSweet";
+import NewSweet from "./pages/NewSweet";
 import LoginForm from "./pages/LoginForm";
 // import UpdateSweet from "./pages/UpdateSweet";
 import AuthSignUp from "./pages/AuthSignUp";
@@ -70,10 +70,10 @@ const App = () => {
         )}
         {/* {isAuthenticated && tokenExpiration && (
           <Route path="/admin/sweets" element={<AllAuthSweets />} />
-        )}
+        )} */}
         {isAuthenticated && tokenExpiration && (
           <Route path="/admin/add-new-sweet" element={<NewSweet />} />
-        )} */}
+        )}
         {/* {isAuthenticated && tokenExpiration && (
           <Route path="/admin/update-sweet" element={<UpdateSweet />} />
         )} */}
