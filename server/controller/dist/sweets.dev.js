@@ -46,13 +46,13 @@ exports.getSweets = function _callee(req, res) {
 
 
 exports.addSweet = function _callee2(req, res) {
-  var _req$body, sweetName, ingredientName, measureUnit, amount, price, description, category, image, errors, existingSweet, sweet;
+  var _req$body, sweetName, ingredientName, measureUnit, amount, price, description, category, slug, image, errors, existingSweet, sweet;
 
   return regeneratorRuntime.async(function _callee2$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          _req$body = req.body, sweetName = _req$body.sweetName, ingredientName = _req$body.ingredientName, measureUnit = _req$body.measureUnit, amount = _req$body.amount, price = _req$body.price, description = _req$body.description, category = _req$body.category;
+          _req$body = req.body, sweetName = _req$body.sweetName, ingredientName = _req$body.ingredientName, measureUnit = _req$body.measureUnit, amount = _req$body.amount, price = _req$body.price, description = _req$body.description, category = _req$body.category, slug = _req$body.slug;
           image = req.file;
           errors = validationResult(req); // if there are errors
           // Send a response with the status and a json
@@ -66,7 +66,8 @@ exports.addSweet = function _callee2(req, res) {
                 amount: amount,
                 price: price,
                 description: description,
-                category: category
+                category: category,
+                slug: slug
               },
               message: "Validation errors are present",
               errorMessage: errors.array()[0].msg,
@@ -103,6 +104,7 @@ exports.addSweet = function _callee2(req, res) {
             price: price,
             description: description,
             category: category,
+            slug: slug,
             imageUrl: {
               data: fs.readFileSync("images/" + image.filename),
               contentType: "image/jpg"
@@ -134,13 +136,13 @@ exports.addSweet = function _callee2(req, res) {
 
 
 exports.editSweet = function _callee3(req, res) {
-  var _req$body2, sweetName, ingredientName, measureUnit, price, description, _id, image, imageUrl, update, errors, updatedSweet;
+  var _req$body2, sweetName, ingredientName, measureUnit, amount, price, description, category, slug, _id, image, imageUrl, update, errors, updatedSweet;
 
   return regeneratorRuntime.async(function _callee3$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
-          _req$body2 = req.body, sweetName = _req$body2.sweetName, ingredientName = _req$body2.ingredientName, measureUnit = _req$body2.measureUnit, price = _req$body2.price, description = _req$body2.description, _id = _req$body2._id;
+          _req$body2 = req.body, sweetName = _req$body2.sweetName, ingredientName = _req$body2.ingredientName, measureUnit = _req$body2.measureUnit, amount = _req$body2.amount, price = _req$body2.price, description = _req$body2.description, category = _req$body2.category, slug = _req$body2.slug, _id = _req$body2._id;
 
           if (!_id) {
             res.status(404).json({
@@ -157,8 +159,11 @@ exports.editSweet = function _callee3(req, res) {
             sweetName: sweetName,
             ingredientName: ingredientName,
             measureUnit: measureUnit,
+            amount: amount,
             price: price,
             description: description,
+            category: category,
+            slug: slug,
             imageUrl: imageUrl
           };
           console.log(req.body);
@@ -171,8 +176,11 @@ exports.editSweet = function _callee3(req, res) {
                 sweetName: sweetName,
                 ingredientName: ingredientName,
                 measureUnit: measureUnit,
+                amount: amount,
                 price: price,
-                description: description
+                description: description,
+                category: category,
+                slug: slug
               },
               message: "Validation errors are present",
               errorMessage: errors.array()[0].msg,

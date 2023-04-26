@@ -24,6 +24,7 @@ exports.addSweet = async (req, res) => {
     price,
     description,
     category,
+    slug,
   } = req.body;
 
   const image = req.file;
@@ -41,6 +42,7 @@ exports.addSweet = async (req, res) => {
         price,
         description,
         category,
+        slug,
       },
       message: "Validation errors are present",
       errorMessage: errors.array()[0].msg,
@@ -62,6 +64,7 @@ exports.addSweet = async (req, res) => {
       price,
       description,
       category,
+      slug,
       imageUrl: {
         data: fs.readFileSync("images/" + image.filename),
         contentType: "image/jpg",
@@ -79,8 +82,17 @@ exports.addSweet = async (req, res) => {
 
 // PUT => Editing a sweet
 exports.editSweet = async (req, res) => {
-  const { sweetName, ingredientName, measureUnit, price, description, _id } =
-    req.body;
+  const {
+    sweetName,
+    ingredientName,
+    measureUnit,
+    amount,
+    price,
+    description,
+    category,
+    slug,
+    _id,
+  } = req.body;
 
   if (!_id) {
     res.status(404).json({
@@ -99,8 +111,11 @@ exports.editSweet = async (req, res) => {
     sweetName,
     ingredientName,
     measureUnit,
+    amount,
     price,
     description,
+    category,
+    slug,
     imageUrl,
   };
 
@@ -115,8 +130,11 @@ exports.editSweet = async (req, res) => {
         sweetName,
         ingredientName,
         measureUnit,
+        amount,
         price,
         description,
+        category,
+        slug,
       },
       message: "Validation errors are present",
       errorMessage: errors.array()[0].msg,
