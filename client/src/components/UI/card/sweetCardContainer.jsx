@@ -15,22 +15,22 @@ const SweetCardContainer = () => {
   const typeData = useSelector((state) => state.dataType.dataType) || "";
   const [filteredData, setFilteredData] = useState([]);
 
-  let films;
+  let sweets;
   let loading;
   let error;
 
   if (
-    uriLocation === `${process.env.REACT_APP_CLIENT_LOCAL_PORT}/admin/films`
+    uriLocation === `${process.env.REACT_APP_CLIENT_LOCAL_PORT}/admin/sweets`
   ) {
     const apiData = ApiGetHook(
-      `${process.env.REACT_APP_API_LOCAL_PORT}/get-films`
+      `${process.env.REACT_APP_API_LOCAL_PORT}/get-sweets`
     );
 
-    films = apiData.films;
+    sweets = apiData.sweets;
     loading = apiData.loading;
     error = apiData.error;
 
-    dispatch(dataSweetActions.setSweetsData(films));
+    dispatch(dataSweetActions.setSweetsData(sweets));
   } else {
     //   const stateData = StateGetHook((state) => state.dataSweet.sweetsData);
 
@@ -81,21 +81,21 @@ const SweetCardContainer = () => {
           }
         >
           {filteredData.length > 0 ? (
-            filteredData.map((film) => (
+            filteredData.map((sweet) => (
               <SweetCard
-                title={film.title}
-                director={film.director}
-                production={film.production}
-                screenwriter={film.screenwriter}
-                directorOfPhotography={film.directorOfPhotography}
-                synopsis={film.synopsis}
-                imageUrl={`data:image/png;base64,${base64ArrayBuffer(film)}`}
-                duration={film.duration}
-                year={film.year}
-                slug={film.slug}
-                type={film.type}
-                key={film._id}
-                _id={film._id}
+                title={sweet.title}
+                director={sweet.director}
+                production={sweet.production}
+                screenwriter={sweet.screenwriter}
+                directorOfPhotography={sweet.directorOfPhotography}
+                synopsis={sweet.synopsis}
+                imageUrl={`data:image/png;base64,${base64ArrayBuffer(sweet)}`}
+                duration={sweet.duration}
+                year={sweet.year}
+                slug={sweet.slug}
+                type={sweet.type}
+                key={sweet._id}
+                _id={sweet._id}
               />
             ))
           ) : (
