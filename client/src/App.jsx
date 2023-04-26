@@ -1,7 +1,7 @@
 // importing the react router dom version 6
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { isAuth } from "./utils/isAuth";
 // importing the react traductions functions
 import { initReactI18next } from "react-i18next";
@@ -15,11 +15,11 @@ import "./assets/reset.scss";
 // pages
 import Home from "./pages/Home";
 import AuthHome from "./pages/AuthHome";
-// import NewFilm from "./pages/NewFilm";
+// import NewSweet from "./pages/NewSweet";
 import LoginForm from "./pages/LoginForm";
-// import UpdateFilm from "./pages/UpdateFilm";
+// import UpdateSweet from "./pages/UpdateSweet";
 import AuthSignUp from "./pages/AuthSignUp";
-// import AllAuthFilms from "./pages/AllAuthFilms";
+// import AllAuthFilms from "./pages/AllAuthSweets";
 import ResetPasswordForm from "./pages/ResetPassword";
 import ForgotPasswordForm from "./pages/ForgotPassword";
 

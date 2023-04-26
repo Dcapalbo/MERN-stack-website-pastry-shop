@@ -10,7 +10,6 @@ const MobileNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openMobileMenu = () => {
-    console.log("clicked");
     setIsOpen(!isOpen);
   };
 
