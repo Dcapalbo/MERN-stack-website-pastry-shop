@@ -3,7 +3,7 @@ const { deleteFile } = require("../util/functions");
 const Sweet = require("../model/sweet");
 const fs = require("fs");
 
-// GET => Getting all films
+// GET => Getting all sweets
 exports.getSweets = async (req, res) => {
   try {
     const sweets = await Sweet.find().sort({

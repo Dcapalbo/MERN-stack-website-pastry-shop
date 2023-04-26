@@ -8,7 +8,7 @@ var _require2 = require("../util/functions"),
 
 var Sweet = require("../model/sweet");
 
-var fs = require("fs"); // GET => Getting all films
+var fs = require("fs"); // GET => Getting all sweets
 
 
 exports.getSweets = function _callee(req, res) {
