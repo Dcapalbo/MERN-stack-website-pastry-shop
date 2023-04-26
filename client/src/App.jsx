@@ -19,7 +19,7 @@ import NewSweet from "./pages/NewSweet";
 import LoginForm from "./pages/LoginForm";
 // import UpdateSweet from "./pages/UpdateSweet";
 import AuthSignUp from "./pages/AuthSignUp";
-// import AllAuthFilms from "./pages/AllAuthSweets";
+import AuthAllSweets from "./pages/AuthAllSweets";
 import ResetPasswordForm from "./pages/ResetPassword";
 import ForgotPasswordForm from "./pages/ForgotPassword";
 
@@ -68,9 +68,9 @@ const App = () => {
         {isAuthenticated && tokenExpiration && (
           <Route path="/admin/home" element={<AuthHome />} />
         )}
-        {/* {isAuthenticated && tokenExpiration && (
-          <Route path="/admin/sweets" element={<AllAuthSweets />} />
-        )} */}
+        {isAuthenticated && tokenExpiration && (
+          <Route path="/admin/sweets" element={<AuthAllSweets />} />
+        )}
         {isAuthenticated && tokenExpiration && (
           <Route path="/admin/add-new-sweet" element={<NewSweet />} />
         )}
