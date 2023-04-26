@@ -253,7 +253,9 @@ h6 {
 .justify__content__center {
   justify-content: center;
   align-items: center;
+  height: fit-content;
   text-align: center;
+  padding: 10px 0px;
   flex-wrap: wrap;
   display: flex;
 }
