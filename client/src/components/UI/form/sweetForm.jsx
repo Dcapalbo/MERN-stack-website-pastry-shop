@@ -1,5 +1,6 @@
 import { useForm, useController } from "react-hook-form";
 import { sweetSchema } from "../../../schema/sweetSchema";
+import { slugCreation } from "../../../utils/functions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import PuffLoader from "react-spinners/PuffLoader";
 import classes from "./genericForm.module.scss";
@@ -68,6 +69,7 @@ const FilmForm = () => {
     formData.append("price", parseInt(price));
     formData.append("description", description);
     formData.append("category", category);
+    formData.append("slug", slugCreation(sweetName));
     formData.append("file", file);
 
     console.log(event);

@@ -101,9 +101,8 @@ const SweetCard = (props) => {
         {props.price && <input hidden id={props.price} />}
         {props.description && <p>{props.description}</p>}
         {props.category && <p>{props.category}</p>}
-        {props.year && <p>{props.year}</p>}
         {props.slug && <input hidden id={props.slug} />}
-        {props.type && <small>{props.type}</small>}
+        {props.category && <small>{props.category}</small>}
         {props._id && <input hidden id={props._id} />}
       </div>
       {isAuthenticated && (
