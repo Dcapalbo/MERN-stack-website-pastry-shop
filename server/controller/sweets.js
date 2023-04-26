@@ -18,6 +18,7 @@ exports.getSweets = async (req, res) => {
 exports.addSweet = async (req, res) => {
   const { sweetName, ingredientName, measureUnit, price, description } =
     req.body;
+  console.log(req.body);
   const image = req.file;
 
   const errors = validationResult(req);
@@ -57,6 +58,7 @@ exports.addSweet = async (req, res) => {
     });
 
     deleteFile("images/" + image.filename);
+    console.log("abbiamo creato lo sweet?", sweet);
     return res.status(201).send(sweet);
   } catch (error) {
     return res.status(500).json({ message: "Something went wrong." });

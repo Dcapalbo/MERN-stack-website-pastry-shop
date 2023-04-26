@@ -24,12 +24,17 @@ router.post("/add-sweet", [check("sweetName").isString().isLength({
 }).trim(), check("measureUnit").isString().isLength({
   min: 1,
   max: 20
+}).trim(), check("amount").isNumeric().isLength({
+  min: 1,
+  max: 20
 }).trim(), check("price").isNumeric().isLength({
-  min: 3,
+  min: 2,
   max: 5
 }).trim(), check("description").isString().isLength({
   min: 20,
   max: 150
+}).trim(), check("category").isString().isLength({
+  min: 1
 }).trim()], addSweet); //update-sweet => PUT
 
 router.put("/update-sweet", [check("sweetName").isString().isLength({
@@ -41,13 +46,18 @@ router.put("/update-sweet", [check("sweetName").isString().isLength({
 }).trim(), check("measureUnit").isString().isLength({
   min: 1,
   max: 20
+}).trim(), check("amount").isNumeric().isLength({
+  min: 1,
+  max: 20
 }).trim(), check("price").isNumeric().isLength({
-  min: 3,
+  min: 2,
   max: 5
 }).trim(), check("description").isString().isLength({
   min: 20,
   max: 150
+}).trim(), check("category").isString().isLength({
+  min: 1
 }).trim()], editSweet); //delete-sweet => DELETE
 
-router["delete"]("/delete-film", deleteSweet);
+router["delete"]("/delete-sweet", deleteSweet);
 module.exports = router;

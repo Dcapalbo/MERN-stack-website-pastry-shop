@@ -53,6 +53,7 @@ exports.addSweet = function _callee2(req, res) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _req$body = req.body, sweetName = _req$body.sweetName, ingredientName = _req$body.ingredientName, measureUnit = _req$body.measureUnit, price = _req$body.price, description = _req$body.description;
+          console.log(req.body);
           image = req.file;
           errors = validationResult(req); // if there are errors
           // Send a response with the status and a json
@@ -73,17 +74,17 @@ exports.addSweet = function _callee2(req, res) {
           } // saving the data inside the db
 
 
-          _context2.prev = 4;
-          _context2.next = 7;
+          _context2.prev = 5;
+          _context2.next = 8;
           return regeneratorRuntime.awrap(Sweet.findOne({
             sweetName: sweetName
           }));
 
-        case 7:
+        case 8:
           existingSweet = _context2.sent;
 
           if (!existingSweet) {
-            _context2.next = 10;
+            _context2.next = 11;
             break;
           }
 
@@ -91,8 +92,8 @@ exports.addSweet = function _callee2(req, res) {
             message: "The sweet exist already"
           }));
 
-        case 10:
-          _context2.next = 12;
+        case 11:
+          _context2.next = 13;
           return regeneratorRuntime.awrap(Sweet.create({
             sweetName: sweetName,
             ingredientName: ingredientName,
@@ -105,24 +106,25 @@ exports.addSweet = function _callee2(req, res) {
             }
           }));
 
-        case 12:
+        case 13:
           sweet = _context2.sent;
           deleteFile("images/" + image.filename);
+          console.log("abbiamo creato lo sweet?", sweet);
           return _context2.abrupt("return", res.status(201).send(sweet));
 
-        case 17:
-          _context2.prev = 17;
-          _context2.t0 = _context2["catch"](4);
+        case 19:
+          _context2.prev = 19;
+          _context2.t0 = _context2["catch"](5);
           return _context2.abrupt("return", res.status(500).json({
             message: "Something went wrong."
           }));
 
-        case 20:
+        case 22:
         case "end":
           return _context2.stop();
       }
     }
-  }, null, null, [[4, 17]]);
+  }, null, null, [[5, 19]]);
 }; // PUT => Editing a sweet
 
 
