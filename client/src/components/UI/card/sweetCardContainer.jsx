@@ -101,7 +101,7 @@ const SweetCardContainer = () => {
           ) : (
             <h1>
               Non ci sono elementi per questa ricerca, inserirli manualmente
-              presso la sezione del Database dedicata ai film
+              presso la sezione del Database dedicata ai dolci
             </h1>
           )}
         </div>
