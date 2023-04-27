@@ -1,10 +1,12 @@
+import { dataUserActions } from "../../../store/data-user-slice";
 import { signUpSchema } from "../../../schema/signUpSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import PuffLoader from "react-spinners/PuffLoader";
 import classes from "./genericForm.module.scss";
 import { useTranslation } from "react-i18next";
-import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
@@ -22,6 +24,7 @@ const SignUpForm = () => {
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const confirmHandler = (event) => {
     const { name, email, password } = event;
@@ -37,6 +40,7 @@ const SignUpForm = () => {
       .post(`${process.env.REACT_APP_API_LOCAL_PORT}/sign-up`, formData)
       .then((res) => {
         console.log(res.data);
+        dispatch(dataUserActions.logout());
         navigate("/login");
       })
       .catch((err) => {

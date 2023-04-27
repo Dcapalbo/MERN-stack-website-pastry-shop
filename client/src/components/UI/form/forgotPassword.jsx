@@ -17,6 +17,7 @@ const ForgotPassword = () => {
 
   const { errors } = formState;
 
+  const [resetMessage, setResetMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -32,6 +33,7 @@ const ForgotPassword = () => {
       .post(`${process.env.REACT_APP_API_LOCAL_PORT}/forgot-password`, formData)
       .then((res) => {
         console.log(res.data);
+        setResetMessage(true);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -53,6 +55,11 @@ const ForgotPassword = () => {
           <input {...register("email")} type="email" />
           {errors.email?.message && <small>{errors.email?.message}</small>}
         </div>
+        {resetMessage && (
+          <div className={classes.form__container__item}>
+            <small>{t("labels.resetPasswordMessage")}</small>
+          </div>
+        )}
         <div className={classes.form__container__item}>
           <button className={classes.primary__button} type="submit">
             {t("confirmAction")}

@@ -6,15 +6,13 @@ const translationEn = {
   forgotPassword: "Reset Password",
   vision: "Vision",
   visionDescription:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make",
-
-  ethics: "Ethics",
-  ethicsDescription:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make",
-
+    "Luana and Maria are two passionate pastry chefs who strive to create surprising and innovative desserts using high-quality ingredients and a balance of sweetness and lightness. Their vision is to create moments of joy and sharing through food, with desserts that are not only beautiful to look at but also delicious to taste. They believe that pastry is an art and aim to express their creativity in every dessert they create.",
+  sustainability: "Sustainability",
+  sustainabilityDescription:
+    "The two pastry chefs are mindful of sustainability, using local and organic ingredients, reducing waste, and offering options that are gluten-free, lactose-free, or vegan. They believe in creating inclusive desserts for everyone, without any discrimination. Moreover, they strive to collaborate with charitable associations or organizations that promote sustainability and social equity.",
   team: "The team",
   teamDescription:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make",
+    "The team of Luana and Maria is composed of highly skilled pastry chefs with years of experience in the pastry industry. Each of them has specialized skills in various areas, such as decoration or baking. The team shares a passion for creating delicious and surprising desserts, committed to crafting unique and memorable treats for their customers.",
   genericInfo: {
     name: "Name",
     surname: "Surname",
@@ -41,6 +39,8 @@ const translationEn = {
     loginLabel: "Login",
     passwordLabel: "Insert the new password",
     forgotLabel: "If you had forget the password click here",
+    resetPasswordMessage:
+      "Control your email, a link for the password reset should be arrived to you",
     emailLabel: "Insert your email",
     addDbSweet: "Add a sweet inside the database",
     modifyDbSweet: "Modify a sweet inside the database",

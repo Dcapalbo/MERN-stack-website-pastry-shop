@@ -15,7 +15,7 @@
       }
     }
   }
-  li:first-child {
+  .nav__links__user__logged {
     margin-right: 60px;
     display: flex;
     @media (max-width: $screen-lg-min) {

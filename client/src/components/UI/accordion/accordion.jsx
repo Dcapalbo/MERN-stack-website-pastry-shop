@@ -12,8 +12,8 @@ const Accordion = () => {
       description: t("visionDescription"),
     },
     {
-      headline: t("ethics"),
-      description: t("ethicsDescription"),
+      headline: t("sustainability"),
+      description: t("sustainabilityDescription"),
     },
     {
       headline: t("team"),

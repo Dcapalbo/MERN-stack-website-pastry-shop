@@ -1,11 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { useTranslation } from "react-i18next";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import classes from "./navLinks.module.scss";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { isAuth } from "../../utils/isAuth";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import i18n from "i18next";
+import { faFlag, faFlagUsa, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const NavLinks = () => {
   const { t } = useTranslation();
@@ -25,7 +26,7 @@ const NavLinks = () => {
   return (
     <ul className={classes.nav__links}>
       {isAuthenticated && tokenExpiration && (
-        <li>
+        <li className={classes.nav__links__user__logged}>
           <Link to="/admin/home">
             <FontAwesomeIcon icon={faUser} size="1x" />
           </Link>
@@ -59,6 +60,20 @@ const NavLinks = () => {
           <Link to="/forgot-password">{t("forgotPassword")}</Link>
         </li>
       )}
+
+      <li style={{ margin: "1rem" }}>
+        {i18n.language === "it" ? (
+          <FontAwesomeIcon
+            icon={faFlagUsa}
+            onClick={() => i18n.changeLanguage("en")}
+          />
+        ) : (
+          <FontAwesomeIcon
+            icon={faFlag}
+            onClick={() => i18n.changeLanguage("it")}
+          />
+        )}
+      </li>
     </ul>
   );
 };

@@ -12,10 +12,10 @@ const Footer = () => {
       <div className={classes.footer__container}>
         <div className={classes.footer__container__elm}>
           <p>Partita Iva: 364667737727</p>
-          <p>Pasticceria delizie s.r.l.</p>
+          <p>Pasticceria Luana&Maria s.r.l.</p>
           <p>Telefono: 06 1234567</p>
-          <p>Email: info@pasticceriadelizie.it</p>
-          <p>Copyright © 2023 Pasticceria delizie s.r.l.</p>
+          <p>Email: info@pasticcerialuana&maria.it</p>
+          <p>Copyright © 2023 Pasticceria Luana&Maria s.r.l.</p>
         </div>
         <div className={classes.footer__container__elm}>
           <p>Orari di apertura:</p>

@@ -13,11 +13,11 @@ var translationIt = {
   addSweet: "Aggiungi un dolce",
   forgotPassword: "Reimposta la password",
   vision: "Visione",
-  visionDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make",
-  ethics: "Etica",
-  ethicsDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make",
+  visionDescription: "Luana e Maria sono due pasticcere appassionate che cercano di creare dolci sorprendenti e innovativi, con ingredienti di alta qualità e un equilibrio tra dolcezza e leggerezza. La loro visione è quella di creare momenti di gioia e condivisione attraverso il cibo, con dolci belli da vedere e deliziosi da gustare. Sono convinte che la pasticceria sia un'arte e cercano di esprimere la loro creatività in ogni dolce che creano.",
+  sustainability: "Sostenibilità",
+  sustainabilityDescription: "Le due pasticcere sono attente alla sostenibilità, utilizzando ingredienti locali e biologici, riducendo gli sprechi e offrendo opzioni senza glutine, senza lattosio o vegane. Credono nella creazione di dolci inclusivi per tutti, senza discriminazioni di alcun genere. Inoltre, cercano di collaborare con associazioni benefiche o organizzazioni che promuovono la sostenibilità e l'equità sociale.",
   team: "Il team",
-  teamDescription: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make",
+  teamDescription: "Il team di Luana e Maria è composto da pasticcere altamente qualificate con anni di esperienza nel settore della pasticceria. Ognuna di loro ha competenze specializzate in diverse aree, come la decorazione o la panificazione. Il team condivide la passione per la creazione di dolci prelibati e sorprendenti, impegnandosi a creare dolci unici e memorabili per i loro clienti.",
   genericInfo: {
     name: "Nome",
     surname: "Cognome",
@@ -44,6 +44,7 @@ var translationIt = {
     loginLabel: "Login",
     passwordLabel: "Inserisci la nuova password",
     forgotLabel: "Se hai dimenticato la password clicca qui",
+    resetPasswordMessage: "Controlla la tua email dovrebbe esserti arrivato un link per il reset della password",
     emailLabel: "Inserisci la tua email",
     addDbSweet: "Aggiungere un Dolce al database",
     modifyDbSweet: "Modificare un Dolce del database"
