@@ -19,18 +19,28 @@
   }
 
   .hamburgher {
-    color: #e58a8a;
+    color: #d27b7b;
+    transition: 0.4s;
     font-size: 30px;
+  }
+  .hamburgher:hover {
+    color: #8d2a46;
+    transition: 0.4s;
     cursor: pointer;
   }
 
   .cross__button {
-    color: #e58a8a;
+    color: #d27b7b;
     position: absolute;
-    cursor: pointer;
+    transition: 0.4s;
     font-size: 30px;
     right: 25px;
     top: 20px;
+  }
+  .cross__button:hover {
+    color: #8d2a46;
+    transition: 0.4s;
+    cursor: pointer;
   }
 
   .clicked__mobile__navigation {

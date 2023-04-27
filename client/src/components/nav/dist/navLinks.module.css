@@ -16,6 +16,15 @@
   color: #8d2a46;
   transition: 0.4s;
 }
+.nav__links li svg {
+  color: #d27b7b;
+  transition: 0.4s;
+}
+.nav__links li svg:hover {
+  color: #8d2a46;
+  transition: 0.4s;
+  cursor: pointer;
+}
 .nav__links .nav__links__user__logged {
   margin-right: 60px;
   display: flex;

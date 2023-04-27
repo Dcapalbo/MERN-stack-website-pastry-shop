@@ -19,17 +19,27 @@
   }
   .hamburgher {
     color: $fourthColor;
+    transition: 0.4s;
     font-size: 30px;
-    cursor: pointer;
+    &:hover {
+      color: $firstColor;
+      transition: 0.4s;
+      cursor: pointer;
+    }
   }
 
   .cross__button {
     color: $fourthColor;
     position: absolute;
-    cursor: pointer;
+    transition: 0.4s;
     font-size: 30px;
     right: 25px;
     top: 20px;
+    &:hover {
+      color: $firstColor;
+      transition: 0.4s;
+      cursor: pointer;
+    }
   }
 
   .clicked__mobile__navigation {

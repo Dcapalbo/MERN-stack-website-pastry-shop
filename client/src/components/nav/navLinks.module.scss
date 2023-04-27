@@ -14,6 +14,15 @@
         transition: 0.4s;
       }
     }
+    svg {
+      color: $fourthColor;
+      transition: 0.4s;
+      &:hover {
+        color: $firstColor;
+        transition: 0.4s;
+        cursor: pointer;
+      }
+    }
   }
   .nav__links__user__logged {
     margin-right: 60px;

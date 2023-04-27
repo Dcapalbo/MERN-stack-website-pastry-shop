@@ -61,19 +61,21 @@ const NavLinks = () => {
         </li>
       )}
 
-      <li style={{ margin: "1rem" }}>
-        {i18n.language === "it" ? (
+      {i18n.language === "it" ? (
+        <li>
           <FontAwesomeIcon
             icon={faFlagUsa}
             onClick={() => i18n.changeLanguage("en")}
           />
-        ) : (
+        </li>
+      ) : (
+        <li>
           <FontAwesomeIcon
             icon={faFlag}
             onClick={() => i18n.changeLanguage("it")}
           />
-        )}
-      </li>
+        </li>
+      )}
     </ul>
   );
 };
