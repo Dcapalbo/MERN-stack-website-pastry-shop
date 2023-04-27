@@ -22,28 +22,26 @@ li {
 a {
   text-transform: capitalize;
   text-decoration: none;
-  color: #7c96ab;
   transition: 0.4s;
   font-weight: 400;
+  font-size: 18px;
   padding: 0;
   margin: 0;
 }
-a:hover, a:active {
-  color: #7c96ab;
+a:hover, a:active, a:focus {
   transition: 0.4s;
 }
 
 p,
 small,
 label {
-  font-weight: 200;
+  font-weight: 400;
   padding: 0;
   margin: 0;
 }
 
 p,
 small {
-  color: #7c96ab;
   font-size: 18px;
 }
 @media (max-width: 992px) {
@@ -52,15 +50,8 @@ small {
     font-size: 16px;
   }
 }
-@media (max-width: 576px) {
-  p,
-small {
-    font-size: 14px;
-  }
-}
 
 small {
-  color: #7c96ab;
   font-size: 16px;
 }
 
@@ -92,7 +83,9 @@ textarea {
 
 input,
 textarea {
+  border: 1px solid #e58a8a;
   border-radius: 10px;
+  color: #9e3251;
   padding: 10px;
 }
 input:hover,
@@ -122,7 +115,6 @@ h4,
 h5,
 h6 {
   text-transform: capitalize;
-  color: red;
   padding: 0;
   margin: 0;
 }
@@ -194,21 +186,20 @@ h6 {
 }
 
 .primary__button {
-  border-color: #7c96ab;
-  background-color: #f3d7c8;
-  color: #b7b7b7;
-  transition: 0.4s;
+  background-color: #f3e8eb;
+  color: #9e3251;
   font-size: 18px;
+  transition: 1s;
   height: 45px;
   width: 130px;
   border: 1px;
 }
-.primary__button:hover, .primary__button:active {
-  background-color: #edc6b1;
-  border-color: #edc6b1;
-  color: #7c96ab;
-  transition: 0.4s;
+.primary__button:hover, .primary__button:active, .primary__button:focus {
+  background-color: #9e3251;
+  border-radius: 10px;
+  color: #f3e8eb;
   cursor: pointer;
+  transition: 1s;
 }
 
 .generic__margin__top {
@@ -230,9 +221,9 @@ h6 {
 }
 
 .form__container {
-  background-color: #7c96ab;
+  background-color: #9e3251;
   border-radius: 10px;
-  padding: 35px 60px;
+  padding: 20px 60px;
   max-height: 100vh;
   flex-wrap: wrap;
   overflow: auto;
@@ -240,16 +231,23 @@ h6 {
   margin: auto;
   width: 100%;
 }
+.form__container h4,
+.form__container label,
+.form__container a {
+  color: #e58a8a;
+}
 .form__container h4 {
+  margin-bottom: 20px;
   text-align: center;
-  margin: 10px;
 }
 .form__container small {
-  color: #f3d7c8;
+  color: #fd2a2a;
+  text-align: center;
+  width: 100%;
 }
 .form__container .form__container__item {
+  margin-bottom: 10px 0px;
   text-align: center;
-  margin: 10px 0px;
   width: 100%;
 }
 .form__container .form__container__item input {
@@ -257,14 +255,22 @@ h6 {
 }
 .form__container .form__container__item a {
   margin-bottom: 20px;
-  color: #7c96ab;
   display: block;
   cursor: pointer;
+}
+.form__container .form__container__item a:hover {
+  color: #fd2a2a;
 }
 @media (max-width: 992px) {
   .form__container {
     padding: 10px 30px;
   }
+}
+.form__container .form__container__item:first-child {
+  margin-bottom: 10px;
+}
+.form__container .form__container__item:last-child {
+  margin-top: 10px;
 }
 
 .color {

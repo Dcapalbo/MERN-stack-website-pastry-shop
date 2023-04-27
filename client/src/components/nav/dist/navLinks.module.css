@@ -5,11 +5,22 @@
   display: flex;
   z-index: 10;
 }
+.nav__links li {
+  color: #e58a8a;
+}
+.nav__links li a {
+  color: #e58a8a;
+  transition: 0.4s;
+}
+.nav__links li a:hover {
+  color: #a83253;
+  transition: 0.4s;
+}
 .nav__links li:first-child {
   margin-right: 60px;
   display: flex;
 }
-@media (max-width: 828px) {
+@media (max-width: 992px) {
   .nav__links li:first-child {
     margin-right: 0px;
   }
@@ -19,9 +30,9 @@
 }
 .nav__links li:first-child > svg {
   margin-right: 10px;
-  color: #7c96ab;
+  color: #e58a8a;
 }
-@media (max-width: 828px) {
+@media (max-width: 992px) {
   .nav__links {
     justify-content: center;
     flex-direction: column;

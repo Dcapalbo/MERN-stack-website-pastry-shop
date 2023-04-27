@@ -1,7 +1,7 @@
 @import "../../assets/variables.scss";
 @import "../../assets/mixin.scss";
 footer {
-  background-color: $bgColor;
+  background-color: $thirdColor;
   margin-top: 50px;
   width: 100%;
   .footer__container {
@@ -17,14 +17,14 @@ footer {
       padding: 10px;
       p,
       li {
-        color: $typographyColor;
+        color: $fourthColor;
         padding: 0;
       }
       a {
         transition: 0.4s;
-        color: $typographyColor;
+        color: $fourthColor;
         &:hover {
-          color: $hoverColor;
+          color: $firstColor;
           transition: 0.4s;
         }
       }

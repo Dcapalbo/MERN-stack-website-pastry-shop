@@ -31,31 +31,38 @@ const Aside = () => {
   return (
     <aside className={classes.auth__aside}>
       <ul className={classes.auth__aside__nav}>
-        <li>
+        <li className={classes.auth__aside__personal__area__color}>
           <p>Area Personale</p>
         </li>
-        <li>
-          <p>Utente loggato: {userName}</p>
+        <li className={classes.auth__aside__personal__area__color}>
+          <p>Utente loggato:</p>
+          <p>{userName}</p>
         </li>
-        <li className={classes.auth__aside__nav__margin}>
+        <li
+          className={
+            classes.auth__aside__nav__margin +
+            " " +
+            classes.auth__aside__generic__color
+          }
+        >
           <Link to={"/home"}>{t("home")}</Link>
         </li>
-        <li>
+        <li className={classes.auth__aside__generic__color}>
           <Link to={"/about"}>{t("about")}</Link>
         </li>
-        <li>
+        <li className={classes.auth__aside__generic__color}>
           <Link to={"/admin/sweets"}>{t("sweetsList")}</Link>
         </li>
-        <li>
+        <li className={classes.auth__aside__generic__color}>
           <Link to={"/admin/add-new-sweet"}>{t("addSweet")}</Link>
         </li>
-        <li>
+        <li className={classes.auth__aside__generic__color}>
           <Link to={"/sign-up"}>{t("signUp")}</Link>
         </li>
-        <li>
+        <li className={classes.auth__aside__generic__color}>
           <Link to={"/login"}>{t("login")}</Link>
         </li>
-        <li>
+        <li className={classes.auth__aside__generic__color}>
           <Link to="/forgot-password">{t("forgotPassword")}</Link>
         </li>
       </ul>

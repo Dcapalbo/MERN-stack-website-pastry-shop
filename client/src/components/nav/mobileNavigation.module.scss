@@ -11,20 +11,20 @@
   width: 80px;
 }
 
-@media (max-width: $screen-md-min) {
+@media (max-width: $screen-lg-min) {
   .mobile__navigation {
     @include flex-between;
     transition: 1s;
     width: 100%;
   }
   .hamburgher {
-    color: $typographyColor;
+    color: $fourthColor;
     font-size: 30px;
     cursor: pointer;
   }
 
   .cross__button {
-    color: $typographyColor;
+    color: $fourthColor;
     position: absolute;
     cursor: pointer;
     font-size: 30px;

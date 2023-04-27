@@ -8,7 +8,7 @@
   width: 80px;
 }
 
-@media (max-width: 828px) {
+@media (max-width: 992px) {
   .mobile__navigation {
     justify-content: space-between;
     align-items: center;
@@ -19,13 +19,13 @@
   }
 
   .hamburgher {
-    color: #7c96ab;
+    color: #e58a8a;
     font-size: 30px;
     cursor: pointer;
   }
 
   .cross__button {
-    color: #7c96ab;
+    color: #e58a8a;
     position: absolute;
     cursor: pointer;
     font-size: 30px;

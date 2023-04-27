@@ -25,14 +25,14 @@ li {
 a {
   text-transform: capitalize;
   text-decoration: none;
-  color: $typographyColor;
   transition: 0.4s;
   font-weight: 400;
+  font-size: 18px;
   padding: 0;
   margin: 0;
   &:hover,
-  &:active {
-    color: $typographyColor;
+  &:active,
+  &:focus {
     transition: 0.4s;
   }
 }
@@ -41,7 +41,7 @@ a {
 p,
 small,
 label {
-  font-weight: 200;
+  font-weight: 400;
   padding: 0;
   margin: 0;
 }
@@ -49,7 +49,6 @@ label {
 //paragraphs
 p,
 small {
-  color: $typographyColor;
   font-size: 18px;
   @media (max-width: $screen-lg-min) {
     font-size: 16px;
@@ -57,7 +56,6 @@ small {
 }
 
 small {
-  color: $typographyColor;
   font-size: 16px;
 }
 
@@ -89,7 +87,9 @@ textarea {
 // inputs && textarea
 input,
 textarea {
+  border: 1px solid $fourthColor;
   border-radius: 10px;
+  color: $firstColor;
   padding: 10px;
   &:hover {
     cursor: pointer;
@@ -122,7 +122,6 @@ h4,
 h5,
 h6 {
   text-transform: capitalize;
-  color: red;
   padding: 0;
   margin: 0;
 }
@@ -177,21 +176,21 @@ h6 {
 // buttons
 // primary button
 .primary__button {
-  border-color: $typographyColor;
-  background-color: $bgColor;
-  color: $buttonsColor;
-  transition: 0.4s;
+  background-color: $thirdColor;
+  color: $firstColor;
   font-size: 18px;
+  transition: 1s;
   height: 45px;
   width: 130px;
   border: 1px;
   &:hover,
-  &:active {
-    background-color: $hoverColor;
-    border-color: $hoverColor;
-    color: $typographyColor;
-    transition: 0.4s;
+  &:active,
+  &:focus {
+    background-color: $firstColor;
+    border-radius: 10px;
+    color: $thirdColor;
     cursor: pointer;
+    transition: 1s;
   }
 }
 

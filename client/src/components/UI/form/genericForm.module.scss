@@ -10,38 +10,53 @@
   }
 }
 .form__container {
-  background-color: $typographyColor;
+  background-color: $firstColor;
   border-radius: 10px;
-  padding: 35px 60px;
+  padding: 20px 60px;
   max-height: 100vh;
   flex-wrap: wrap;
   overflow: auto;
   display: flex;
   margin: auto;
   width: 100%;
+  h4,
+  label,
+  a {
+    color: $fourthColor;
+  }
   h4 {
+    margin-bottom: 20px;
     text-align: center;
-    margin: 10px;
   }
   small {
-    color: $bgColor;
+    color: $errorColor;
+    text-align: center;
+    width: 100%;
   }
   .form__container__item {
+    margin-bottom: 10px 0px;
     text-align: center;
-    margin: 10px 0px;
     width: 100%;
     input {
       width: 100%;
     }
     a {
       margin-bottom: 20px;
-      color: $typographyColor;
       display: block;
       cursor: pointer;
+      &:hover {
+        color: $errorColor;
+      }
     }
   }
   @media (max-width: $screen-lg-min) {
     padding: 10px 30px;
+  }
+  .form__container__item:first-child {
+    margin-bottom: 10px;
+  }
+  .form__container__item:last-child {
+    margin-top: 10px;
   }
 }
 

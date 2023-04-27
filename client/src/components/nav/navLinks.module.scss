@@ -4,10 +4,21 @@
 .nav__links {
   @include flex-between;
   z-index: 10;
+  li {
+    color: $fourthColor;
+    a {
+      color: $fourthColor;
+      transition: 0.4s;
+      &:hover {
+        color: $firstColor;
+        transition: 0.4s;
+      }
+    }
+  }
   li:first-child {
     margin-right: 60px;
     display: flex;
-    @media (max-width: $screen-md-min) {
+    @media (max-width: $screen-lg-min) {
       margin-right: 0px;
     }
     p {
@@ -15,10 +26,10 @@
     }
     > svg {
       margin-right: 10px;
-      color: $typographyColor;
+      color: $fourthColor;
     }
   }
-  @media (max-width: $screen-md-min) {
+  @media (max-width: $screen-lg-min) {
     @include flex-column;
   }
 }

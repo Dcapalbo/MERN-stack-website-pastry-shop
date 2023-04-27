@@ -27,18 +27,18 @@
   padding: 10px 20px;
   cursor: pointer;
   .accordion__title {
-    color: $typographyColor;
+    color: $firstColor;
   }
   .accordion__description {
     transition: all 0.4s cubic-bezier(0, 1, 0, 1);
-    color: $typographyColor;
+    color: $firstColor;
     margin-top: 10px;
     overflow: hidden;
     max-height: 0;
   }
   .accordion__description__show {
     transition: all 0.4s cubic-bezier(1, 0, 1, 0);
-    color: $typographyColor;
+    color: $firstColor;
     max-height: 9999px;
     overflow: hidden;
     margin-top: 10px;
@@ -46,6 +46,6 @@
 }
 
 .active {
-  color: $hoverColor;
+  color: #fff;
   transition: 0.5s;
 }

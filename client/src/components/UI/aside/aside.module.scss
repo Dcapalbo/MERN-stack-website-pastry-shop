@@ -2,8 +2,8 @@
 @import "../../../assets/mixin.scss";
 
 .auth__aside {
-  background-color: $typographyColor;
   justify-content: space-between;
+  background-color: $thirdColor;
   width: calc(100% - 75%);
   flex-direction: column;
   width: fit-content;
@@ -20,29 +20,40 @@
   @media (max-width: $screen-sm-min) {
     width: calc(100% - 75%);
   }
-  p {
-    color: $bgColor;
+  .auth__aside__generic__color {
+    a {
+      color: $fourthColor;
+    }
   }
   li {
     a {
-      color: $bgColor;
       &:hover {
-        color: $hoverColor;
+        color: $firstColor;
       }
     }
   }
   .auth__aside__logout {
     width: 100%;
     p {
+      color: $fourthColor;
+      width: fit-content;
       padding: 10px 15px;
-      color: $bgColor;
+      transition: 0.4s;
+      font-weight: 600;
       cursor: pointer;
       &:hover {
-        color: $hoverColor;
+        color: $firstColor;
+        transition: 0.4s;
       }
       @media (max-width: $screen-md-min) {
         padding: 10px 5px;
       }
+    }
+  }
+  .auth__aside__personal__area__color {
+    p {
+      color: $firstColor;
+      font-weight: 600;
     }
   }
 }

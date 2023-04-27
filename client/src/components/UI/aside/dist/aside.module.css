@@ -1,6 +1,6 @@
 .auth__aside {
-  background-color: #7c96ab;
   justify-content: space-between;
+  background-color: #f3e8eb;
   width: calc(100% - 75%);
   flex-direction: column;
   width: fit-content;
@@ -22,30 +22,35 @@
     width: calc(100% - 75%);
   }
 }
-.auth__aside p {
-  color: #f3d7c8;
-}
-.auth__aside li a {
-  color: #f3d7c8;
+.auth__aside .auth__aside__generic__color a {
+  color: #d27b7b;
 }
 .auth__aside li a:hover {
-  color: #edc6b1;
+  color: #8d2a46;
 }
 .auth__aside .auth__aside__logout {
   width: 100%;
 }
 .auth__aside .auth__aside__logout p {
+  color: #d27b7b;
+  width: fit-content;
   padding: 10px 15px;
-  color: #f3d7c8;
+  transition: 0.4s;
+  font-weight: 600;
   cursor: pointer;
 }
 .auth__aside .auth__aside__logout p:hover {
-  color: #edc6b1;
+  color: #8d2a46;
+  transition: 0.4s;
 }
 @media (max-width: 828px) {
   .auth__aside .auth__aside__logout p {
     padding: 10px 5px;
   }
+}
+.auth__aside .auth__aside__personal__area__color p {
+  color: #8d2a46;
+  font-weight: 600;
 }
 
 .auth__aside__nav__margin {

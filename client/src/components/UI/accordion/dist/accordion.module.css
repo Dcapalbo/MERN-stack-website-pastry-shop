@@ -1,5 +1,5 @@
 .wrapper__accordion {
-  background-color: #ffe4e1;
+  background-color: #f3d7c8;
   justify-content: center;
   align-items: center;
   padding: 30px 0px;
@@ -29,24 +29,24 @@
   cursor: pointer;
 }
 .item .accordion__title {
-  color: #3c2f2f;
+  color: #a83253;
 }
 .item .accordion__description {
   transition: all 0.4s cubic-bezier(0, 1, 0, 1);
-  color: #3c2f2f;
+  color: #a83253;
   margin-top: 10px;
   overflow: hidden;
   max-height: 0;
 }
 .item .accordion__description__show {
   transition: all 0.4s cubic-bezier(1, 0, 1, 0);
-  color: #3c2f2f;
+  color: #a83253;
   max-height: 9999px;
   overflow: hidden;
   margin-top: 10px;
 }
 
 .active {
-  color: #ffd700;
+  color: #fff;
   transition: 0.5s;
 }
