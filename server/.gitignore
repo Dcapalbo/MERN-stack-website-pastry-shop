@@ -10,7 +10,10 @@
 
 # production
 /build
-/dist
+/controller/dist
+/routes/dist
+/seeders/dist
+/model/dist
 
 # misc
 .DS_Store
