@@ -129,9 +129,9 @@ exports.forgotPassword = async (req, res) => {
     const automaticEmailData = {
       from: process.env.SMTP_EMAIL,
       to: email,
-      subject: "Fabrique entertainment link per il reset della password",
+      subject: "Laura&Maria pasticceria link per il reset della password",
       html: `
-            <h2>Questo link ha validità di 5 minutiPer favore clicca sul link qui sotto per resettare la tua password,</h2>
+            <h2>Questo link ha validità di 5 minuti, per favore clicca sul link qui sotto per completare il reset della tua nuova password,</h2>
             <a href="${process.env.CLIENT_LOCAL_URL}/reset-password?token=${token}">${token}</a>
         `,
     };
