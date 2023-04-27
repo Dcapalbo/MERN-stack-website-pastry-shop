@@ -5,13 +5,15 @@ import { Link, useNavigate } from "react-router-dom";
 import PuffLoader from "react-spinners/PuffLoader";
 import { useTranslation } from "react-i18next";
 import classes from "./genericForm.module.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+
+  const isLoggedIn = useSelector((state) => state.userLogin.isLoggedIn);
 
   const {
     register,
@@ -58,7 +60,7 @@ const LoginForm = () => {
   };
 
   return (
-    <section className={classes.form__wrapper}>
+    <section className={classes.form__wrapper + " " + classes.margin__top}>
       <form
         onSubmit={handleSubmit(confirmHandler)}
         className={classes.form__container}
@@ -81,8 +83,12 @@ const LoginForm = () => {
         {errors.confirmPassword?.message && (
           <small>{errors.confirmPassword?.message}</small>
         )}
+        {isLoggedIn && (
+          <div className={classes.form__container__item}>
+            <Link to="/forgot-password">{t("labels.forgotLabel")}</Link>
+          </div>
+        )}
         <div className={classes.form__container__item}>
-          <Link to="/forgot-password">{t("labels.forgotLabel")}</Link>
           <button className={classes.primary__button} type="submit">
             {t("signInAction")}
           </button>
@@ -97,7 +103,7 @@ const LoginForm = () => {
               height: "100px",
               margin: "auto",
             }}
-            color={"#cc0000"}
+            color={"#d27b7b"}
             size={100}
           />
         )}

@@ -3,7 +3,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import PuffLoader from "react-spinners/PuffLoader";
 import classes from "./genericForm.module.scss";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
@@ -17,7 +16,6 @@ const ForgotPassword = () => {
   });
 
   const { errors } = formState;
-  const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -35,7 +33,6 @@ const ForgotPassword = () => {
       .then((res) => {
         console.log(res.data);
         setIsLoading(false);
-        navigate("/");
       })
       .catch((err) => {
         console.error("there is an error for the login form: ", err);
@@ -45,7 +42,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <section className={classes.form__wrapper}>
+    <section className={classes.form__wrapper + " " + classes.margin__top}>
       <form
         onSubmit={handleSubmit(confirmHandler)}
         className={classes.form__container}
@@ -71,7 +68,7 @@ const ForgotPassword = () => {
               height: "100px",
               margin: "auto",
             }}
-            color={"#cc0000"}
+            color={"#d27b7b"}
             size={100}
           />
         )}

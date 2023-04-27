@@ -246,7 +246,7 @@ const FilmForm = () => {
               height: "100px",
               margin: "auto",
             }}
-            color={"#cc0000"}
+            color={"#d27b7b"}
             size={100}
           />
         )}

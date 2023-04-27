@@ -83,9 +83,9 @@ textarea {
 
 input,
 textarea {
-  border: 1px solid #e58a8a;
+  border: 1px solid #d27b7b;
   border-radius: 10px;
-  color: #9e3251;
+  color: #8d2a46;
   padding: 10px;
 }
 input:hover,
@@ -187,7 +187,7 @@ h6 {
 
 .primary__button {
   background-color: #f3e8eb;
-  color: #9e3251;
+  color: #8d2a46;
   font-size: 18px;
   transition: 1s;
   height: 45px;
@@ -195,7 +195,7 @@ h6 {
   border: 1px;
 }
 .primary__button:hover, .primary__button:active, .primary__button:focus {
-  background-color: #9e3251;
+  background-color: #d27b7b;
   border-radius: 10px;
   color: #f3e8eb;
   cursor: pointer;

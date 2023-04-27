@@ -47,7 +47,7 @@ const ResetPassword = () => {
   };
 
   return (
-    <section className={classes.form__wrapper}>
+    <section className={classes.form__wrapper + " " + classes.margin__top}>
       <form
         onSubmit={handleSubmit(confirmHandler)}
         className={classes.form__container}
@@ -80,7 +80,7 @@ const ResetPassword = () => {
               height: "100px",
               margin: "auto",
             }}
-            color={"#cc0000"}
+            color={"#d27b7b"}
             size={100}
           />
         )}

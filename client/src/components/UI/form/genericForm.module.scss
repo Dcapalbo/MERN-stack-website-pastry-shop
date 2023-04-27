@@ -12,7 +12,7 @@
 .form__container {
   background-color: $firstColor;
   border-radius: 10px;
-  padding: 20px 60px;
+  padding: 30px 60px;
   max-height: 100vh;
   flex-wrap: wrap;
   overflow: auto;
@@ -34,8 +34,8 @@
     width: 100%;
   }
   .form__container__item {
-    margin-bottom: 10px 0px;
     text-align: center;
+    margin: 10px 0px;
     width: 100%;
     input {
       width: 100%;
@@ -49,18 +49,23 @@
       }
     }
   }
-  @media (max-width: $screen-lg-min) {
-    padding: 10px 30px;
+  .form__container__item:last-child {
+    @include flex-center;
+    margin-bottom: 0px;
   }
   .form__container__item:first-child {
-    margin-bottom: 10px;
+    margin-top: 0px;
   }
-  .form__container__item:last-child {
-    margin-top: 10px;
+  @media (max-width: $screen-lg-min) {
+    padding: 10px 30px;
   }
 }
 
 .color {
   background-color: black;
   color: red;
+}
+
+.margin__top {
+  margin-top: 50px;
 }
