@@ -36,6 +36,9 @@ const translationIt = {
   confirmAction: "Conferma",
   signInAction: "Accedi",
   createAccount: "Crea account",
+  modifySweetCard: "Modifica dolce",
+  deleteSweetCard: "Elimina dolce",
+  filterSweets: "Filtra i dolci per categoria",
   labels: {
     signUpLabel: "Crea il tuo account",
     loginLabel: "Login",
@@ -58,6 +61,10 @@ const translationIt = {
       "Problema durante la richiesta di ripristino della password, provare a rieffettuare i passaggi",
     resetPassword:
       "Problema durante il ripristino della password, provare a rieffettuare i passaggi",
+    emptySweets:
+      "Non ci sono elementi per questa ricerca, inserirli manualmente presso la sezione del Database dedicata ai dolci",
+    errorSweetDelete:
+      "Problema nell' eliminazione del singolo dolce, riprovare",
   },
 };
 

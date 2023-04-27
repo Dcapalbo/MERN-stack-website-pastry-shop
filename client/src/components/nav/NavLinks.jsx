@@ -1,3 +1,4 @@
+import { faFlag, faFlagUsa, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -6,7 +7,6 @@ import { isAuth } from "../../utils/isAuth";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import i18n from "i18next";
-import { faFlag, faFlagUsa, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const NavLinks = () => {
   const { t } = useTranslation();

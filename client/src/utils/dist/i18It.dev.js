@@ -39,6 +39,9 @@ var translationIt = {
   confirmAction: "Conferma",
   signInAction: "Accedi",
   createAccount: "Crea account",
+  modifySweetCard: "Modifica dolce",
+  deleteSweetCard: "Elimina dolce",
+  filterSweets: "Filtra i dolci per categoria",
   labels: {
     signUpLabel: "Crea il tuo account",
     loginLabel: "Login",
@@ -54,7 +57,9 @@ var translationIt = {
     signUp: "Problema durante la creazione dell'account, compilare nuovamente il form, i dati potrebbero essere errati.",
     login: "Problema durante l'accesso, compilare nuovamente il form, i dati potrebbero essere errati.",
     forgotPassword: "Problema durante la richiesta di ripristino della password, provare a rieffettuare i passaggi",
-    resetPassword: "Problema durante il ripristino della password, provare a rieffettuare i passaggi"
+    resetPassword: "Problema durante il ripristino della password, provare a rieffettuare i passaggi",
+    emptySweets: "Non ci sono elementi per questa ricerca, inserirli manualmente presso la sezione del Database dedicata ai dolci",
+    errorSweetDelete: "Problema nell' eliminazione del singolo dolce, riprovare"
   }
 };
 exports.translationIt = translationIt;

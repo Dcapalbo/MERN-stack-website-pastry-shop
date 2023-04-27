@@ -1,26 +1,34 @@
+import { faEuroSign, faTag } from "@fortawesome/free-solid-svg-icons";
 import { dataSweetActions } from "../../../store/data-sweet-slice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "../../../assets/card.module.scss";
 import PuffLoader from "react-spinners/PuffLoader";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { isAuth } from "../../../utils/isAuth";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
 
 const SweetCard = (props) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const uriLocation = window.location.href;
 
   const isLoggedIn = useSelector((state) => state.userLogin.isLoggedIn);
+  const token = useSelector((state) => state.userLogin.token);
 
+  const [tokenExpiration, setTokenExpiration] = useState(() => {});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsAuthenticated(isLoggedIn);
-  }, [isLoggedIn, dispatch]);
+    setTokenExpiration(isAuth(token));
+  }, [isLoggedIn, dispatch, token]);
 
   const sendSweetToFormHandler = () => {
     dispatch(
@@ -49,8 +57,8 @@ const SweetCard = (props) => {
         price: props.price.toString(),
         description: props.description,
         category: props.category,
-        slug: props.slug,
         imageUrl: props.imageUrl,
+        slug: props.slug,
         _id: props._id,
       })
     );
@@ -100,27 +108,43 @@ const SweetCard = (props) => {
           loading="lazy"
         />
       )}
-      <div className={classes.card__description}>
-        {props.sweetName && <h2>{props.sweetName}</h2>}
-        {props.ingredientName && <h3>{props.ingredientName}</h3>}
+      <div className={classes.card__internal__description}>
+        {props.description && <p>{props.description}</p>}
+        {props.ingredientName && <p>{props.ingredientName}</p>}
         {props.measureUnit && <p>{props.measureUnit}</p>}
         {props.amount && <p>{props.amount}</p>}
-        {props.price && <p>{props.price} euro</p>}
-        {props.description && <p>{props.description}</p>}
         {props.slug && <input hidden id={props.slug} />}
-        {props.category && <small>{props.category}</small>}
         {props._id && <input hidden id={props._id} />}
       </div>
-      {isAuthenticated && (
+      {props.sweetName && <h2>{props.sweetName}</h2>}
+      <div className={classes.card__external__informations}>
+        <div className={classes.card__external__informations__item}>
+          {props.price && (
+            <>
+              <FontAwesomeIcon icon={faEuroSign} />
+              <small>{props.price}</small>
+            </>
+          )}
+        </div>
+        <div className={classes.card__external__informations__item}>
+          {props.category && (
+            <>
+              <FontAwesomeIcon icon={faTag} />
+              <small>{props.category}</small>
+            </>
+          )}
+        </div>
+      </div>
+      {isAuthenticated && tokenExpiration && (
         <div className={classes.card__button__wrapper}>
           <button
             onClick={sendSweetToFormHandler}
             className={classes.card__cta}
           >
-            Modifica dolce
+            {t("modifySweetCard")}
           </button>
           <button onClick={deleteSweetHandler} className={classes.card__cta}>
-            Elimina dolce
+            {t("deleteSweetCard")}
           </button>
         </div>
       )}
@@ -137,9 +161,7 @@ const SweetCard = (props) => {
           size={100}
         />
       )}
-      {error && (
-        <small>Problema nell' eliminazione del singolo dolce, riprovare</small>
-      )}
+      {error && <small>{t("errorSweetDelete")}</small>}
     </div>
   );
 };

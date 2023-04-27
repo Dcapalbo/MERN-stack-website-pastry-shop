@@ -2,6 +2,7 @@
 @import "../../../assets/mixin.scss";
 
 .auth__aside {
+  border-right: 2px solid $firstColor;
   justify-content: space-between;
   background-color: $thirdColor;
   width: calc(100% - 75%);

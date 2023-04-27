@@ -2,32 +2,37 @@
 @import "./mixin.scss";
 
 .card {
-  border: 2px solid $buttonsColor;
+  box-shadow: 2px 4px 10px rgba(141, 42, 70);
+  border: 1px solid $fourthColor;
+  background-color: $thirdColor;
   max-height: calc(100% - 40px);
-  background-color: $bgColor;
-  transition: transform 0.1s;
   width: calc(100% / 3 - 100px);
+  transition: transform 0.2s;
   @include flex-column;
+  border-radius: 20px;
+  padding: 10px 10px;
   position: relative;
   margin: 24px;
   &:hover {
-    background-color: transparent;
-    transform: scale(1.1);
-    border-radius: 1%;
+    background-color: $thirdColor;
+    transform: scale(1.05);
     transition: 0.2s;
   }
 
-  .card__description {
+  .card__internal__description {
     transform: translate(-50%, -80%);
-    transition: transform 0.1s;
+    transition: transform 0.2s;
     left: calc(100% / 2);
     top: calc(100% / 2);
     position: absolute;
-    line-height: 40px;
+    line-height: 20px;
     padding: 0 10px;
     display: none;
     width: 100%;
     height: 60%;
+    p {
+      color: $firstColor;
+    }
     &:hover {
       display: block;
     }
@@ -35,8 +40,33 @@
       opacity: 0;
     }
   }
+  h2 {
+    margin: 10px 0px;
+    color: $firstColor;
+  }
+  .card__external__informations {
+    @include flex-around;
+    height: 100%;
+    width: 100%;
+    .card__external__informations__item {
+      background-color: $firstColor;
+      @include flex-center;
+      border-radius: 50px;
+      width: fit-content;
+      padding: 0px 12px;
+      height: 30px;
+      svg {
+        color: $thirdColor;
+        margin-right: 5px;
+      }
+      small {
+        color: $thirdColor;
+      }
+    }
+  }
 
   .card__image {
+    border-radius: 20px;
     position: relative;
     object-fit: cover;
     transition: 0.2s;
@@ -45,36 +75,36 @@
     width: 100%;
     z-index: 1;
     opacity: 1;
-    &:hover + .card__description {
-      transition: 0.3s;
-      display: block;
+    &:hover + .card__internal__description {
+      @include flex-column;
+      transition: 0.2s;
     }
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
       transition: 0.2s;
       opacity: 0;
     }
   }
 
   .card__button__wrapper {
-    flex-direction: column;
-    align-items: center;
-    display: flex;
+    @include flex-around;
     height: 20%;
     .card__cta {
-      border: 1px solid #cc0000;
+      border: 1px solid $fourthColor;
+      background-color: $thirdColor;
+      color: $firstColor;
       font-family: $Lato;
-      color: $buttonsColor;
       padding: 15px 15px;
+      transition: 0.2s;
       margin: 10px 0px;
-      transition: 0.3s;
       font-size: 20px;
-      width: 225px;
+      width: 160px;
       z-index: 2;
       &:hover {
-        background-color: $hoverColor;
-        color: $typographyColor;
-        transition: 0.3s;
+        background-color: $firstColor;
+        border-radius: 10px;
+        color: $thirdColor;
+        transition: 0.2s;
         cursor: pointer;
       }
     }

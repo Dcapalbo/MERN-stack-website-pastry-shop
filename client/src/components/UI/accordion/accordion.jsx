@@ -23,7 +23,7 @@ const Accordion = () => {
 
   const toggleAccordion = (i) => {
     if (selected === i) {
-      setSelected(null);
+      setSelected(null); // Set selected to null if user clicks on already selected item
     } else {
       setSelected(i);
     }

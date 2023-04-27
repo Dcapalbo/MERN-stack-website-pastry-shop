@@ -7,6 +7,8 @@ exports.translationEn = void 0;
 var translationEn = {
   home: "Home",
   about: "About",
+  signUp: "Create an account",
+  login: "Login",
   sweetsList: "All the sweets",
   addSweet: "Add a sweet",
   forgotPassword: "Reset Password",
@@ -37,6 +39,9 @@ var translationEn = {
   confirmAction: "Confirm",
   signInAction: "Sign in",
   createAccount: "Create account",
+  modifySweetCard: "Modify sweet",
+  deleteSweetCard: "Delete sweet",
+  filterSweets: "Filter the sweets by category",
   labels: {
     signUpLabel: "Create your account",
     loginLabel: "Login",
@@ -52,7 +57,9 @@ var translationEn = {
     signUp: "Problem during the account creation, try to compile the form again.",
     login: "Problem during the sign in, try to compile the form again.",
     forgotPassword: "Problem during the request of password reset, try to make a new request",
-    resetPassword: "Problema during the reset of the password, try to make a new request"
+    resetPassword: "Problema during the reset of the password, try to make a new request",
+    emptySweets: "There are no items for this search, please manually enter them in the section of the Database dedicated to desserts.",
+    errorSweetDelete: "Problem during the delete of the single sweet, try again"
   }
 };
 exports.translationEn = translationEn;

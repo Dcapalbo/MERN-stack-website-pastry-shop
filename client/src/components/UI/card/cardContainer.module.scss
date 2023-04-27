@@ -7,6 +7,10 @@
   height: auto;
   margin: auto;
   width: 100%;
+  h1 {
+    padding: 20px;
+    color: $firstColor;
+  }
   .card__container {
     @include flex-start;
     padding: 10px 0px;
@@ -43,6 +47,10 @@
   overflow: auto;
   height: auto;
   margin: auto;
+  h1 {
+    padding: 20px;
+    color: $firstColor;
+  }
   @media (max-width: $screen-md-min) {
     width: calc(100% - 20%);
   }

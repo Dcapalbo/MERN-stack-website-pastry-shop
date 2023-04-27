@@ -9,10 +9,10 @@
   display: flex;
   width: 100%;
   label {
-    color: $buttonsColor;
+    color: $firstColor;
   }
   .filter__data__select {
-    background-color: $buttonsColor;
+    background-color: $firstColor;
     color: $hoverColor;
     width: 20%;
     @media (max-width: $screen-lg-min) {

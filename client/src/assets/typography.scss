@@ -86,7 +86,8 @@ textarea {
 
 // inputs && textarea
 input,
-textarea {
+textarea,
+select {
   border: 1px solid $fourthColor;
   border-radius: 10px;
   color: $firstColor;
@@ -98,14 +99,8 @@ textarea {
 
 // selects
 select {
-  border-radius: 10px;
-  border: solid;
-  padding: 5px;
   height: 35px;
   width: 100%;
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 // div

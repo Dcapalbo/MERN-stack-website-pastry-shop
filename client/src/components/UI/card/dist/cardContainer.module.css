@@ -22,28 +22,26 @@ li {
 a {
   text-transform: capitalize;
   text-decoration: none;
-  color: #7c96ab;
   transition: 0.4s;
   font-weight: 400;
+  font-size: 18px;
   padding: 0;
   margin: 0;
 }
-a:hover, a:active {
-  color: #7c96ab;
+a:hover, a:active, a:focus {
   transition: 0.4s;
 }
 
 p,
 small,
 label {
-  font-weight: 200;
+  font-weight: 400;
   padding: 0;
   margin: 0;
 }
 
 p,
 small {
-  color: #7c96ab;
   font-size: 18px;
 }
 @media (max-width: 992px) {
@@ -54,7 +52,6 @@ small {
 }
 
 small {
-  color: #7c96ab;
   font-size: 16px;
 }
 
@@ -85,24 +82,22 @@ textarea {
 }
 
 input,
-textarea {
+textarea,
+select {
+  border: 1px solid #d27b7b;
   border-radius: 10px;
+  color: #8d2a46;
   padding: 10px;
 }
 input:hover,
-textarea:hover {
+textarea:hover,
+select:hover {
   cursor: pointer;
 }
 
 select {
-  border-radius: 10px;
-  border: solid;
-  padding: 5px;
   height: 35px;
   width: 100%;
-}
-select:hover {
-  cursor: pointer;
 }
 
 div {
@@ -116,7 +111,6 @@ h4,
 h5,
 h6 {
   text-transform: capitalize;
-  color: red;
   padding: 0;
   margin: 0;
 }
@@ -188,21 +182,20 @@ h6 {
 }
 
 .primary__button {
-  border-color: #7c96ab;
-  background-color: #f3d7c8;
-  color: #b7b7b7;
-  transition: 0.4s;
+  background-color: #f3e8eb;
+  color: #8d2a46;
   font-size: 18px;
+  transition: 1s;
   height: 45px;
   width: 130px;
   border: 1px;
 }
-.primary__button:hover, .primary__button:active {
-  background-color: #edc6b1;
-  border-color: #edc6b1;
-  color: #7c96ab;
-  transition: 0.4s;
+.primary__button:hover, .primary__button:active, .primary__button:focus {
+  background-color: #d27b7b;
+  border-radius: 10px;
+  color: #f3e8eb;
   cursor: pointer;
+  transition: 1s;
 }
 
 .generic__margin__top {
@@ -214,10 +207,14 @@ h6 {
 }
 
 .wrapper__card__container {
-  background-color: #f3d7c8;
+  background-color: #f3d4c3;
   height: auto;
   margin: auto;
   width: 100%;
+}
+.wrapper__card__container h1 {
+  padding: 20px;
+  color: #8d2a46;
 }
 .wrapper__card__container .card__container {
   justify-content: flex-start;
@@ -266,6 +263,10 @@ h6 {
   overflow: auto;
   height: auto;
   margin: auto;
+}
+.admin__wrapper__card__container h1 {
+  padding: 20px;
+  color: #8d2a46;
 }
 @media (max-width: 828px) {
   .admin__wrapper__card__container {
