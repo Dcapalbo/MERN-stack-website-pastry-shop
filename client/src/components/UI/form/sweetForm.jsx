@@ -1,6 +1,8 @@
+import { dataSweetActions } from "../../../store/data-sweet-slice";
 import { useForm, useController } from "react-hook-form";
 import { sweetSchema } from "../../../schema/sweetSchema";
 import { slugCreation } from "../../../utils/functions";
+import { useDispatch, useSelector } from "react-redux";
 import { zodResolver } from "@hookform/resolvers/zod";
 import PuffLoader from "react-spinners/PuffLoader";
 import classes from "./genericForm.module.scss";
@@ -10,11 +12,11 @@ import TypeSelect from "../select/typeSelect";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
-import { useSelector } from "react-redux";
 
 const FilmForm = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const uriLocation = window.location.href;
 
   const dataUpdateSweets = useSelector(
@@ -27,20 +29,21 @@ const FilmForm = () => {
   });
 
   useEffect(() => {
-    if (uriLocation.includes("/admin/update-film")) {
-      setIsUpdate(false);
-    } else {
+    if (uriLocation.includes("/admin/update-sweet")) {
       setIsUpdate(true);
+    } else {
+      dispatch(dataSweetActions.resetSweetData());
+      setIsUpdate(false);
     }
-  }, [uriLocation]);
+  }, [uriLocation, dispatch]);
 
   const { errors } = formState;
 
   const { field } = useController({ name: "category", control });
 
   const [enteredFileIsValid, setEnteredFileisValid] = useState(true);
-  const [isUpdate, setIsUpdate] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isUpdate, setIsUpdate] = useState(false);
   const [error, setError] = useState(null);
   const [file, setFile] = useState(null);
 
