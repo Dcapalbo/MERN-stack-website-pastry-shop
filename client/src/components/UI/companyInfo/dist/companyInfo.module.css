@@ -1,0 +1,28 @@
+.companyInfo {
+  text-align: center;
+  padding: 12px;
+  margin: auto;
+  width: 80%;
+}
+.companyInfo h1 {
+  font-size: 30px;
+  color: #8d2a46;
+  margin-bottom: 30px;
+}
+.companyInfo p {
+  line-height: 35px;
+  color: #8d2a46;
+  font-size: 22px;
+}
+@media (max-width: 992px) {
+  .companyInfo {
+    padding: 12px;
+    width: 80%;
+  }
+}
+@media (max-width: 576px) {
+  .companyInfo {
+    padding: 12px;
+    width: 80%;
+  }
+}

@@ -6,6 +6,8 @@ const translationEn = {
   sweetsList: "All the sweets",
   addSweet: "Add a sweet",
   forgotPassword: "Reset Password",
+  backOffice: "Back office",
+  welcome: "Welcome",
   vision: "Vision",
   visionDescription:
     "Luana and Maria are two passionate pastry chefs who strive to create surprising and innovative desserts using high-quality ingredients and a balance of sweetness and lightness. Their vision is to create moments of joy and sharing through food, with desserts that are not only beautiful to look at but also delicious to taste. They believe that pastry is an art and aim to express their creativity in every dessert they create.",

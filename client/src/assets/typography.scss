@@ -35,6 +35,9 @@ a {
   &:focus {
     transition: 0.4s;
   }
+  @media (max-width: $screen-sm-min) {
+    font-size: 14px;
+  }
 }
 
 // generic typography
@@ -124,23 +127,23 @@ h6 {
 //headliners
 h1 {
   line-height: 40px;
-  font-size: 28px;
+  font-size: 26px;
   @media (max-width: $screen-lg-min) {
     font-size: 24px;
   }
   @media (max-width: $screen-sm-min) {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
 
 h2 {
   line-height: 36px;
-  font-size: 26px;
+  font-size: 24px;
   @media (max-width: $screen-lg-min) {
     font-size: 22px;
   }
   @media (max-width: $screen-sm-min) {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
@@ -151,7 +154,7 @@ h3 {
     font-size: 20px;
   }
   @media (max-width: $screen-sm-min) {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
@@ -161,10 +164,10 @@ h6 {
   line-height: 32px;
   font-size: 22px;
   @media (max-width: $screen-lg-min) {
-    font-size: 18px;
+    font-size: 20px;
   }
   @media (max-width: $screen-sm-min) {
-    font-size: 14px;
+    font-size: 18px;
   }
 }
 

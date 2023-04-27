@@ -12,6 +12,8 @@ var translationIt = {
   sweetsList: "Tutti i dolci",
   addSweet: "Aggiungi un dolce",
   forgotPassword: "Reimposta la password",
+  backOffice: "Area personale",
+  welcome: "Benvenuto",
   vision: "Visione",
   visionDescription: "Luana e Maria sono due pasticcere appassionate che cercano di creare dolci sorprendenti e innovativi, con ingredienti di alta qualità e un equilibrio tra dolcezza e leggerezza. La loro visione è quella di creare momenti di gioia e condivisione attraverso il cibo, con dolci belli da vedere e deliziosi da gustare. Sono convinte che la pasticceria sia un'arte e cercano di esprimere la loro creatività in ogni dolce che creano.",
   sustainability: "Sostenibilità",

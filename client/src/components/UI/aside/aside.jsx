@@ -32,10 +32,10 @@ const Aside = () => {
     <aside className={classes.auth__aside}>
       <ul className={classes.auth__aside__nav}>
         <li className={classes.auth__aside__personal__area__color}>
-          <p>Area Personale</p>
+          <p>{t("backOffice")}</p>
         </li>
         <li className={classes.auth__aside__personal__area__color}>
-          <p>Utente loggato:</p>
+          <p>{t("welcome")}</p>
           <p>{userName}</p>
         </li>
         <li

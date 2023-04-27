@@ -1,24 +1,28 @@
-@import '../../../assets/variables.scss';
-@import '../../../assets/mixin.scss';
+@import "../../../assets/variables.scss";
+@import "../../../assets/mixin.scss";
 
 .companyInfo {
-    text-align:  center;
+  text-align: center;
+  padding: 12px;
+  margin: auto;
+  width: 80%;
+  h1 {
+    font-size: 30px;
+    color: $firstColor;
+    margin-bottom: 30px;
+  }
+  p {
+    line-height: 35px;
+    color: $firstColor;
+    font-size: 22px;
+  }
+  @media (max-width: $screen-lg-min) {
     padding: 12px;
-    margin: auto;
-    width: 60%;
-    h2 {
-        margin-bottom: 30px;
-    }
-    p {
-        line-height: 35px;
-    }
-    @media (max-width:$screen-lg-min) {
-        padding: 12px;
-        width: 80%;
-    }
+    width: 80%;
+  }
 
-    @media (max-width:$screen-sm-min) {
-        padding: 12px;
-        width: 80%;
-    }
+  @media (max-width: $screen-sm-min) {
+    padding: 12px;
+    width: 80%;
+  }
 }

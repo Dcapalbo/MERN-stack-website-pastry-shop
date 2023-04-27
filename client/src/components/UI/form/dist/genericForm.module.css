@@ -31,6 +31,11 @@ a {
 a:hover, a:active, a:focus {
   transition: 0.4s;
 }
+@media (max-width: 576px) {
+  a {
+    font-size: 14px;
+  }
+}
 
 p,
 small,
@@ -117,7 +122,7 @@ h6 {
 
 h1 {
   line-height: 40px;
-  font-size: 28px;
+  font-size: 26px;
 }
 @media (max-width: 992px) {
   h1 {
@@ -126,13 +131,13 @@ h1 {
 }
 @media (max-width: 576px) {
   h1 {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
 
 h2 {
   line-height: 36px;
-  font-size: 26px;
+  font-size: 24px;
 }
 @media (max-width: 992px) {
   h2 {
@@ -141,7 +146,7 @@ h2 {
 }
 @media (max-width: 576px) {
   h2 {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
@@ -156,7 +161,7 @@ h3 {
 }
 @media (max-width: 576px) {
   h3 {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
@@ -170,14 +175,14 @@ h6 {
   h4,
 h5,
 h6 {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 @media (max-width: 576px) {
   h4,
 h5,
 h6 {
-    font-size: 14px;
+    font-size: 18px;
   }
 }
 
@@ -271,8 +276,4 @@ h6 {
   .form__container {
     padding: 10px 30px;
   }
-}
-
-.generic__margin {
-  margin: 50px 0px;
 }
