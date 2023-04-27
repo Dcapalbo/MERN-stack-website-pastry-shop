@@ -2,7 +2,6 @@
 @import "../../assets/mixin.scss";
 footer {
   background-color: $thirdColor;
-  margin-top: 50px;
   width: 100%;
   .footer__container {
     @include flex-start;

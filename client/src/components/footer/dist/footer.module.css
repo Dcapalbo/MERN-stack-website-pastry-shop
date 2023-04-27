@@ -1,6 +1,5 @@
 footer {
-  background-color: #fef2f4;
-  margin-top: 50px;
+  background-color: #f3e8eb;
   width: 100%;
 }
 footer .footer__container {
@@ -25,15 +24,15 @@ footer .footer__container .footer__container__elm {
 }
 footer .footer__container .footer__container__elm p,
 footer .footer__container .footer__container__elm li {
-  color: #ffabab;
+  color: #d27b7b;
   padding: 0;
 }
 footer .footer__container .footer__container__elm a {
   transition: 0.4s;
-  color: #ffabab;
+  color: #d27b7b;
 }
 footer .footer__container .footer__container__elm a:hover {
-  color: #d14d72;
+  color: #8d2a46;
   transition: 0.4s;
 }
 @media (max-width: 576px) {

@@ -84,7 +84,7 @@ const SweetCardContainer = () => {
               />
             ))
           ) : (
-            <h1>{t("emptySweets")}</h1>
+            <h1>{t("errors.emptySweets")}</h1>
           )}
         </div>
       </section>

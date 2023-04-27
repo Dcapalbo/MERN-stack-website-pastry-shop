@@ -44,7 +44,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <section className={classes.form__wrapper + " " + classes.margin__top}>
+    <section className={classes.form__wrapper + " " + classes.generic__margin}>
       <form
         onSubmit={handleSubmit(confirmHandler)}
         className={classes.form__container}

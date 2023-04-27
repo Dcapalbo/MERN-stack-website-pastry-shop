@@ -161,7 +161,7 @@ const SweetCard = (props) => {
           size={100}
         />
       )}
-      {error && <small>{t("errorSweetDelete")}</small>}
+      {error && <small>{t("errors.errorSweetDelete")}</small>}
     </div>
   );
 };

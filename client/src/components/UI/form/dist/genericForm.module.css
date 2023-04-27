@@ -82,26 +82,22 @@ textarea {
 }
 
 input,
-textarea {
+textarea,
+select {
   border: 1px solid #d27b7b;
   border-radius: 10px;
   color: #8d2a46;
   padding: 10px;
 }
 input:hover,
-textarea:hover {
+textarea:hover,
+select:hover {
   cursor: pointer;
 }
 
 select {
-  border-radius: 10px;
-  border: solid;
-  padding: 5px;
   height: 35px;
   width: 100%;
-}
-select:hover {
-  cursor: pointer;
 }
 
 div {
@@ -277,6 +273,6 @@ h6 {
   }
 }
 
-.margin__top {
-  margin-top: 50px;
+.generic__margin {
+  margin: 50px 0px;
 }
