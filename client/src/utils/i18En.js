@@ -41,6 +41,15 @@ const translationEn = {
   modifySweetCard: "Modify sweet",
   deleteSweetCard: "Delete sweet",
   filterSweets: "Filter the sweets by category",
+  filterOptions: {
+    all: "All",
+    cakes: "Cakes",
+    breads: "Bread",
+    biscuits: "Biscuits",
+    tarts: "Tarts",
+    glutenFree: "Gluten free",
+    lactoseFree: "Lactose free",
+  },
   labels: {
     signUpLabel: "Create your account",
     loginLabel: "Login",
@@ -51,6 +60,12 @@ const translationEn = {
     emailLabel: "Insert your email",
     addDbSweet: "Add a sweet inside the database",
     modifyDbSweet: "Modify a sweet inside the database",
+    vatNumber: "Vat number",
+    pastry: "Pastry",
+    phoneNumber: "Phone number",
+    hours: "Hours of work",
+    monday: "Monday",
+    saturday: "Saturday",
   },
   errors: {
     dbCrud:

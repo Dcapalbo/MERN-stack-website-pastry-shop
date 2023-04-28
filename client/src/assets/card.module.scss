@@ -8,11 +8,14 @@
   max-height: calc(100% - 40px);
   width: calc(100% / 3 - 100px);
   transition: transform 0.2s;
-  @include flex-column;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
   border-radius: 20px;
   padding: 10px 10px;
-  min-height: 470px;
   position: relative;
+  min-height: 470px;
+  display: flex;
   margin: 24px;
   &:hover {
     background-color: $thirdColor;
@@ -47,6 +50,7 @@
   }
   .card__external__informations {
     @include flex-around;
+    margin: 15px 0px;
     height: 100%;
     width: 100%;
     .card__external__informations__item {
@@ -89,6 +93,7 @@
 
   .card__button__wrapper {
     @include flex-around;
+    width: 100%;
     height: 20%;
     .card__cta {
       border: 1px solid $fourthColor;

@@ -18,4 +18,30 @@ const slugCreation = (string) => {
   return string.toLowerCase().replaceAll(" ", "-");
 };
 
-export { decodeToken, slugCreation };
+const calculateSweetPrices = (sweets) => {
+  const currentDate = new Date();
+  const sweetPrices = sweets.map((sweet) => {
+    const daysElapsed = Math.floor(
+      (currentDate - sweet.dateAdded) / (24 * 60 * 60 * 1000)
+    );
+    let discountedPrice;
+    if (daysElapsed === 0) {
+      discountedPrice = sweet.price;
+    } else if (daysElapsed === 1) {
+      discountedPrice = sweet.price * 0.8;
+    } else if (daysElapsed === 2) {
+      discountedPrice = sweet.price * 0.2;
+    } else {
+      discountedPrice = 0;
+    }
+    return {
+      name: sweet.name,
+      price: sweet.price,
+      discountedPrice,
+    };
+  });
+  console.log("some error happens, no sweets found");
+  return sweetPrices;
+};
+
+export { decodeToken, slugCreation, calculateSweetPrices };

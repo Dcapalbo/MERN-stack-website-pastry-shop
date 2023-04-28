@@ -1,10 +1,13 @@
+import { faFlag, faFlagUsa } from "@fortawesome/free-solid-svg-icons";
 import { dataSweetActions } from "../../../store/data-sweet-slice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { dataUserActions } from "../../../store/data-user-slice";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import ApiGetHook from "../../../hooks/apiGetHook";
 import { useTranslation } from "react-i18next";
 import classes from "./aside.module.scss";
+import i18n from "i18next";
 import React from "react";
 
 const Aside = () => {
@@ -38,6 +41,21 @@ const Aside = () => {
           <p>{t("welcome")}</p>
           <p>{userName}</p>
         </li>
+        {i18n.language === "it" ? (
+          <li className={classes.auth__aside__generic__color}>
+            <FontAwesomeIcon
+              icon={faFlagUsa}
+              onClick={() => i18n.changeLanguage("en")}
+            />
+          </li>
+        ) : (
+          <li>
+            <FontAwesomeIcon
+              icon={faFlag}
+              onClick={() => i18n.changeLanguage("it")}
+            />
+          </li>
+        )}
         <li
           className={
             classes.auth__aside__nav__margin +

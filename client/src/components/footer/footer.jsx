@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTranslation } from "react-i18next";
 import {
   faFacebookF,
   faInstagram,
@@ -7,19 +8,23 @@ import {
 import classes from "./footer.module.scss";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className={classes.footer}>
       <div className={classes.footer__container}>
         <div className={classes.footer__container__elm}>
-          <p>Partita Iva: 364667737727</p>
-          <p>Pasticceria Luana&Maria s.r.l.</p>
-          <p>Telefono: 06 1234567</p>
+          <p>{t("footer.vatNumber")}: 364667737727</p>
+          <p>{t("footer.pastry")} Luana&Maria s.r.l.</p>
+          <p>{t("footer.phoneNumber")}: 06 1234567</p>
           <p>Email: info@pasticcerialuana&maria.it</p>
           <p>Copyright © 2023 Pasticceria Luana&Maria s.r.l.</p>
         </div>
         <div className={classes.footer__container__elm}>
-          <p>Orari di apertura:</p>
-          <p>Lunedi - Sabato</p>
+          <p>{t("footer.hours")}:</p>
+          <p>
+            {t("footer.monday")} - {t("footer.saturday")}
+          </p>
           <p>08:00 - 13:00</p>
           <p>14:00 - 19:00</p>
         </div>

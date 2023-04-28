@@ -8,19 +8,31 @@ const FilterDataSelect = (props) => {
   const options = [
     {
       value: "",
-      label: "Tutti",
+      label: t("filterOptions.all"),
     },
     {
-      value: "Torte",
-      label: "Torte",
+      value: t("filterOptions.cakes"),
+      label: t("filterOptions.cakes"),
     },
     {
-      value: "Pane",
-      label: "Pane",
+      value: t("filterOptions.breads"),
+      label: t("filterOptions.breads"),
     },
     {
-      value: "Biscotti",
-      label: "Biscotti",
+      value: t("filterOptions.biscuits"),
+      label: t("filterOptions.biscuits"),
+    },
+    {
+      value: t("filterOptions.tarts"),
+      label: t("filterOptions.tarts"),
+    },
+    {
+      value: t("filterOptions.glutenFree"),
+      label: t("filterOptions.glutenFree"),
+    },
+    {
+      value: t("filterOptions.lactoseFree"),
+      label: t("filterOptions.lactoseFree"),
     },
   ];
 

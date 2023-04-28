@@ -29,6 +29,15 @@
 .auth__aside li a:hover {
   color: #8d2a46;
 }
+.auth__aside li svg {
+  color: #d27b7b;
+  transition: 0.4s;
+}
+.auth__aside li svg:hover {
+  color: #8d2a46;
+  transition: 0.4s;
+  cursor: pointer;
+}
 .auth__aside .auth__aside__logout {
   width: 100%;
 }

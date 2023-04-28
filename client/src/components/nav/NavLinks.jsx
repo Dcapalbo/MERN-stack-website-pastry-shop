@@ -60,7 +60,6 @@ const NavLinks = () => {
           <Link to="/forgot-password">{t("forgotPassword")}</Link>
         </li>
       )}
-
       {i18n.language === "it" ? (
         <li>
           <FontAwesomeIcon

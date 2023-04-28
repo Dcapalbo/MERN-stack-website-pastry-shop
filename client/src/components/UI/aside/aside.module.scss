@@ -32,6 +32,15 @@
         color: $firstColor;
       }
     }
+    svg {
+      color: $fourthColor;
+      transition: 0.4s;
+      &:hover {
+        color: $firstColor;
+        transition: 0.4s;
+        cursor: pointer;
+      }
+    }
   }
   .auth__aside__logout {
     width: 100%;

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.slugCreation = exports.decodeToken = void 0;
+exports.calculateSweetPrices = exports.slugCreation = exports.decodeToken = void 0;
 
 var decodeToken = function decodeToken(token) {
   var base64Url = token.split(".")[1];
@@ -21,3 +21,31 @@ var slugCreation = function slugCreation(string) {
 };
 
 exports.slugCreation = slugCreation;
+
+var calculateSweetPrices = function calculateSweetPrices(sweets) {
+  var currentDate = new Date();
+  var sweetPrices = sweets.map(function (sweet) {
+    var daysElapsed = Math.floor((currentDate - sweet.dateAdded) / (24 * 60 * 60 * 1000));
+    var discountedPrice;
+
+    if (daysElapsed === 0) {
+      discountedPrice = sweet.price;
+    } else if (daysElapsed === 1) {
+      discountedPrice = sweet.price * 0.8;
+    } else if (daysElapsed === 2) {
+      discountedPrice = sweet.price * 0.2;
+    } else {
+      discountedPrice = 0;
+    }
+
+    return {
+      name: sweet.name,
+      price: sweet.price,
+      discountedPrice: discountedPrice
+    };
+  });
+  console.log("some error happens, no sweets found");
+  return sweetPrices;
+};
+
+exports.calculateSweetPrices = calculateSweetPrices;

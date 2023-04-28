@@ -44,6 +44,15 @@ var translationIt = {
   modifySweetCard: "Modifica dolce",
   deleteSweetCard: "Elimina dolce",
   filterSweets: "Filtra i dolci per categoria",
+  filterOptions: {
+    all: "Tutti",
+    cakes: "Torte",
+    breads: "Pane",
+    biscuits: "Biscotti",
+    tarts: "Crostate",
+    glutenFree: "Senza Glutine",
+    lactoseFree: "Senza lattosio"
+  },
   labels: {
     signUpLabel: "Crea il tuo account",
     loginLabel: "Login",
@@ -62,6 +71,14 @@ var translationIt = {
     resetPassword: "Problema durante il ripristino della password, provare a rieffettuare i passaggi",
     emptySweets: "Non ci sono elementi per questa ricerca, inserirli manualmente presso la sezione del Database dedicata ai dolci",
     errorSweetDelete: "Problema nell' eliminazione del singolo dolce, riprovare"
+  },
+  footer: {
+    vatNumber: "Partita iva",
+    pastry: "Pasticceria",
+    phoneNumber: "Telefono",
+    hours: "Orari di apertura",
+    monday: "Lunedì",
+    saturday: "Sabato"
   }
 };
 exports.translationIt = translationIt;
