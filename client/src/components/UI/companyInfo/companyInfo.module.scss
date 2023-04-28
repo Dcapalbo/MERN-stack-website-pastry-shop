@@ -3,7 +3,7 @@
 
 .companyInfo {
   text-align: center;
-  padding: 12px;
+  padding: 50px;
   margin: auto;
   width: 80%;
   h1 {
@@ -17,12 +17,14 @@
     font-size: 22px;
   }
   @media (max-width: $screen-lg-min) {
+    max-height: 100vh;
+    overflow: auto;
     padding: 12px;
-    width: 80%;
+    height: 100vh;
+    width: 70%;
   }
 
   @media (max-width: $screen-sm-min) {
-    padding: 12px;
-    width: 80%;
+    width: 60%;
   }
 }

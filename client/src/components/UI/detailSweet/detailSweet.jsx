@@ -49,7 +49,7 @@ const Sweetsweet = () => {
             className={classes.detail__sweet__about__card__image}
             src={sweet.imageUrl ?? ""}
             alt={sweet.sweetName ?? ""}
-            sweetName={sweet.sweetName ?? ""}
+            sweetname={sweet.sweetName ?? ""}
             loading="lazy"
           />
           <div className={classes.detail__sweet__about__card__info}>

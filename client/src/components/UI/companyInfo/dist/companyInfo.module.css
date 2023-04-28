@@ -1,6 +1,6 @@
 .companyInfo {
   text-align: center;
-  padding: 12px;
+  padding: 50px;
   margin: auto;
   width: 80%;
 }
@@ -16,13 +16,15 @@
 }
 @media (max-width: 992px) {
   .companyInfo {
+    max-height: 100vh;
+    overflow: auto;
     padding: 12px;
-    width: 80%;
+    height: 100vh;
+    width: 70%;
   }
 }
 @media (max-width: 576px) {
   .companyInfo {
-    padding: 12px;
-    width: 80%;
+    width: 60%;
   }
 }

@@ -82,10 +82,7 @@ const FilmForm = () => {
     }
 
     if (formData !== {}) {
-      if (
-        uriLocation ===
-        `${process.env.REACT_APP_CLIENT_LOCAL_PORT}/admin/add-new-sweet`
-      ) {
+      if (uriLocation.includes("/admin/add-new-sweet")) {
         setIsLoading(true);
         axios
           .post(`${process.env.REACT_APP_API_LOCAL_PORT}/add-sweet`, formData)
@@ -101,12 +98,8 @@ const FilmForm = () => {
             setIsLoading(false);
             navigate("/admin/sweets");
           });
-      } else if (
-        uriLocation ===
-        `${process.env.REACT_APP_CLIENT_LOCAL_PORT}/admin/update-sweet`
-      ) {
+      } else {
         setIsLoading(true);
-
         axios
           .put(`${process.env.REACT_APP_API_LOCAL_PORT}/update-sweet`, formData)
           .then((res) => {
@@ -131,9 +124,11 @@ const FilmForm = () => {
         className={classes.form__container}
       >
         <div className={classes.form__container__item}>
-          {!isUpdate
-            ? !isUpdate && <h4>{t("labels.addDbSweet")}</h4>
-            : isUpdate && <h4>{t("labels.modifyDbSweet")}</h4>}
+          {!isUpdate ? (
+            <h4>{t("labels.addDbSweet")}</h4>
+          ) : (
+            isUpdate && <h4>{t("labels.modifyDbSweet")}</h4>
+          )}
           <label htmlFor="SweetName">{t("sweetName")}</label>
           <input
             defaultValue={formState.defaultValues?.payload?.sweetName ?? ""}
@@ -218,27 +213,27 @@ const FilmForm = () => {
           <small>Campo obbligatorio, inserire la cover del film</small>
         )}
         <div className={classes.form__container__item}>
-          {!isUpdate
-            ? !isUpdate && (
-                <>
-                  <button className={classes.primary__button} type="submit">
-                    {t("insertAction")}
-                  </button>
-                  <div className={classes.generic__margin__top}>
-                    {error && <small>{t("errors.dbCrud")}</small>}
-                  </div>
-                </>
-              )
-            : isUpdate && (
-                <>
-                  <button className={classes.primary__button} type="submit">
-                    {t("modifyAction")}
-                  </button>
-                  <div className={classes.generic__margin__top}>
-                    {error && <small>{t("errors.dbCrud")}</small>}
-                  </div>
-                </>
-              )}
+          {!isUpdate ? (
+            <>
+              <button className={classes.primary__button} type="submit">
+                {t("insertAction")}
+              </button>
+              <div className={classes.generic__margin__top}>
+                {error && <small>{t("errors.dbCrud")}</small>}
+              </div>
+            </>
+          ) : (
+            isUpdate && (
+              <>
+                <button className={classes.primary__button} type="submit">
+                  {t("modifyAction")}
+                </button>
+                <div className={classes.generic__margin__top}>
+                  {error && <small>{t("errors.dbCrud")}</small>}
+                </div>
+              </>
+            )
+          )}
         </div>
         {isLoading && (
           <PuffLoader

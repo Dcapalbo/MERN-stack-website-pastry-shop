@@ -35,7 +35,6 @@ const CompanyInfo = () => {
           seguendo le istruzioni fornite. Una volta inserita la nuova password,
           potete accedere nuovamente al back office.
         </p>
-        <p>Buona giornata</p>
         <p>Il team di sviluppo</p>
       </div>
     </section>
