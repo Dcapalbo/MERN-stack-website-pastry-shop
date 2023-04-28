@@ -5,7 +5,7 @@
 .form__wrapper {
   padding: 50px 0px;
   margin: auto;
-  width: 50%;
+  width: 40%;
   @media (max-width: $screen-xl-min) {
     width: 60%;
   }
@@ -58,7 +58,7 @@
     margin-top: 0px;
   }
   @media (max-width: $screen-lg-min) {
-    padding: 10px 30px;
+    padding: 20px 30px;
   }
 }
 
