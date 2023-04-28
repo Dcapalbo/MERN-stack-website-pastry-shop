@@ -1,13 +1,12 @@
+import { faEuroSign, faTag } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PuffLoader from "react-spinners/PuffLoader";
 import classes from "./detailSweet.module.scss";
-import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import React from "react";
 
 const Sweetsweet = () => {
-  const { t } = useTranslation();
-
   const sweet = useSelector((state) => state.dataSweets.sweetData);
   const [loading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -44,99 +43,101 @@ const Sweetsweet = () => {
   } else {
     return (
       sweet && (
-        <section className={classes.detail__sweet__about__container}>
-          <img
-            className={classes.detail__sweet__about__card__image}
-            src={sweet.imageUrl ?? ""}
-            alt={sweet.sweetName ?? ""}
-            sweetname={sweet.sweetName ?? ""}
-            loading="lazy"
-          />
-          <div className={classes.detail__sweet__about__card__info}>
-            {sweet.sweetName && (
-              <div
-                className={classes.detail__sweet__about__card__info__wrapper}
-              >
-                <div>
-                  <h2>{t("sweetName")}:</h2>
-                </div>
-                <div>
-                  <h2>{sweet.sweetName ?? ""}</h2>
+        <section className={classes.detail__sweet__container}>
+          <div className={classes.detail__sweet__card__container}>
+            <img
+              className={classes.detail__sweet__card__image}
+              src={sweet.imageUrl ?? ""}
+              alt={sweet.sweetName ?? ""}
+              sweetname={sweet.sweetName ?? ""}
+              loading="lazy"
+            />
+            <div className={classes.detail__sweet__card__info__flex}>
+              <div className={classes.detail__sweet__card}>
+                {sweet.sweetName && (
+                  <div className={classes.detail__sweet__card__info__wrapper}>
+                    <h2>{sweet.sweetName ?? ""}</h2>
+                  </div>
+                )}
+                {sweet?.ingredientName && (
+                  <div className={classes.detail__sweet__card__info__wrapper}>
+                    <h2>{sweet?.ingredientName ?? ""}</h2>
+                  </div>
+                )}
+                {sweet?.measureUnit && (
+                  <div className={classes.detail__sweet__card__info__wrapper}>
+                    <h2>{sweet?.measureUnit ?? ""}</h2>
+                  </div>
+                )}
+                {sweet?.amount && (
+                  <div className={classes.detail__sweet__card__info__wrapper}>
+                    <p>{sweet?.amount ?? ""}</p>
+                  </div>
+                )}
+                {sweet.description && (
+                  <div className={classes.detail__sweet__card__info__wrapper}>
+                    <p>{sweet.description ?? ""}</p>
+                  </div>
+                )}
+                {sweet.price && (
+                  <>
+                    <div className={classes.detail__sweet__card__info__wrapper}>
+                      <div
+                        className={
+                          classes.detail__sweet__card__info__wrapper__item
+                        }
+                      >
+                        <>
+                          <FontAwesomeIcon icon={faEuroSign} />
+                          <small>{sweet.price}</small>
+                        </>
+                      </div>
+                      <div
+                        className={
+                          classes.detail__sweet__card__info__wrapper__item
+                        }
+                      >
+                        <>
+                          <FontAwesomeIcon icon={faEuroSign} />
+                          <small>{sweet.price}</small>
+                        </>
+                      </div>
+                    </div>
+                  </>
+                )}
+                {sweet.category && (
+                  <div className={classes.detail__sweet__card__info__wrapper}>
+                    <div
+                      className={
+                        classes.detail__sweet__card__info__wrapper__item
+                      }
+                    >
+                      <>
+                        <FontAwesomeIcon icon={faTag} />
+                        <small>{sweet.category}</small>
+                      </>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className={classes.detail__sweet__card}>
+                <div
+                  className={
+                    classes.detail__sweet__card__ingredients__container
+                  }
+                >
+                  <div>
+                    <p>Ingrediente numero 1</p>
+                  </div>
+                  <div
+                    className={classes.detail__sweet__card__ingredients__item}
+                  >
+                    <small>100</small>
+                    <small>gr</small>
+                  </div>
                 </div>
               </div>
-            )}
-            {sweet?.ingredientName && (
-              <div
-                className={classes.detail__sweet__about__card__info__wrapper}
-              >
-                <div>
-                  <h2>{t("ingredientName")}:</h2>
-                </div>
-                <div>
-                  <h2>{sweet?.ingredientName ?? ""}</h2>
-                </div>
-              </div>
-            )}
-            {sweet?.measureUnit && (
-              <div
-                className={classes.detail__sweet__about__card__info__wrapper}
-              >
-                <div>
-                  <h2>{t("measureUnit")}:</h2>
-                </div>
-                <div>
-                  <h2>{sweet?.measureUnit ?? ""}</h2>
-                </div>
-              </div>
-            )}
-            {sweet?.amount && (
-              <div
-                className={classes.detail__sweet__about__card__info__wrapper}
-              >
-                <div>
-                  <p>{t("amount")}:</p>
-                </div>
-                <div>
-                  <p>{sweet?.amount ?? ""}</p>
-                </div>
-              </div>
-            )}
-            {sweet.price && (
-              <div
-                className={classes.detail__sweet__about__card__info__wrapper}
-              >
-                <div>
-                  <p>{t("price")}:</p>
-                </div>
-                <div>
-                  <p>{sweet.price ?? ""}</p>
-                </div>
-              </div>
-            )}
-            {sweet.description && (
-              <div
-                className={classes.detail__sweet__about__card__info__wrapper}
-              >
-                <div>
-                  <p>{t("description")}:</p>
-                </div>
-                <div>
-                  <p>{sweet.description ?? ""}</p>
-                </div>
-              </div>
-            )}
-            {sweet.category && (
-              <div
-                className={classes.detail__sweet__about__card__info__wrapper}
-              >
-                <div>
-                  <p>{t("category")}:</p>
-                </div>
-                <div>
-                  <p>{sweet.category ?? ""}</p>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
         </section>
       )

@@ -70,10 +70,10 @@ const SweetCardContainer = () => {
           {filteredSweets.length > 0 ? (
             filteredSweets.map((sweet) => (
               <SweetCard
-                sweetname={sweet.sweetName}
-                ingredientname={sweet.ingredientName}
-                measureunit={sweet.measureUnit}
-                amount={sweet.amount}
+                sweetName={sweet.sweetName}
+                // ingredientname={sweet.ingredientName}
+                // measureunit={sweet.measureUnit}
+                // amount={sweet.amount}
                 price={sweet.price}
                 description={sweet.description}
                 slug={sweet.slug}

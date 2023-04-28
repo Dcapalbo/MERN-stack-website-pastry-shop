@@ -1,63 +1,108 @@
 @import "../../../assets/variables.scss";
 @import "../../../assets/mixin.scss";
 
-.detail__sweet__about__container {
-  justify-content: space-between;
-  height: fit-content;
-  display: flex;
+.detail__sweet__container {
+  padding: 50px 0px;
   margin: auto;
-  width: 80%;
+  height: 100%;
+  width: 50%;
+  @media (max-width: $screen-lg-min) {
+    width: 60%;
+  }
   @media (max-width: $screen-sm-min) {
-    flex-direction: column;
     width: 90%;
   }
-  @media (max-width: $screen-md-min) {
+  .detail__sweet__card__container {
+    box-shadow: 2px 4px 10px rgba(141, 42, 70);
+    background-color: $thirdColor;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
-    width: 90%;
-  }
-  .detail__sweet__about__card__image {
-    object-fit: contain;
-    width: 45%;
-    @media (max-width: $screen-sm-min) {
-      width: 100%;
-    }
-    @media (max-width: $screen-md-min) {
-      width: 100%;
-    }
-  }
-  .detail__sweet__about__card__info {
-    width: calc(100% - 45%);
-    @include flex-column;
-    padding: 10px 0px;
-    text-align: right;
+    border-radius: 10px;
+    display: flex;
+    padding: 10px;
     height: 100%;
-    @media (max-width: $screen-sm-min) {
+    width: 100%;
+    .detail__sweet__card__image {
+      object-fit: contain;
+      border-radius: 10px;
       width: 100%;
     }
-    @media (max-width: $screen-md-min) {
-      width: 100%;
-    }
-    h2,
-    h3,
-    p {
-      margin-bottom: 10px;
-    }
-    .detail__sweet__about__card__info__wrapper {
-      justify-content: space-between;
+    .detail__sweet__card__info__flex {
+      justify-content: flex-start;
+      align-items: flex-start;
       display: flex;
       width: 100%;
-      div {
-        width: calc(100% / 2 - 15px);
-        margin-left: 15px;
-        @media (max-width: $screen-lg-min) {
-          width: calc(120% / 2);
-          margin-left: 10px;
-        }
+      @media (max-width: $screen-lg-min) {
+        flex-direction: column;
       }
-      div:first-child {
-        text-align: left;
+      .detail__sweet__card {
+        width: calc(100% / 2);
+        text-align: right;
+        padding: 10px;
         @media (max-width: $screen-lg-min) {
-          width: calc(100% - 40% - 10px);
+          width: 100%;
+        }
+        .detail__sweet__card__info__wrapper {
+          color: $firstColor;
+          display: flex;
+          width: 100%;
+          @media (max-width: $screen-lg-min) {
+            justify-content: center;
+            text-align: center;
+          }
+          div {
+            width: 100%;
+          }
+          div:first-child {
+            text-align: left;
+          }
+          .detail__sweet__card__info__wrapper__item {
+            background-color: $firstColor;
+            @include flex-center;
+            border-radius: 50px;
+            margin-bottom: 10px;
+            margin-right: 5px;
+            width: fit-content;
+            padding: 0px 12px;
+            height: 30px;
+            svg {
+              color: $thirdColor;
+              margin-right: 5px;
+            }
+            small {
+              color: $thirdColor;
+            }
+          }
+        }
+        h2,
+        h3,
+        p {
+          margin-bottom: 10px;
+        }
+        .detail__sweet__card__ingredients__container {
+          border-bottom: 1px solid $firstColor;
+          @include flex-between;
+          margin-top: 5px;
+          width: 100%;
+          p {
+            color: $firstColor;
+          }
+          .detail__sweet__card__ingredients__item {
+            background-color: $firstColor;
+            @include flex-center;
+            border-radius: 50px;
+            margin-bottom: 10px;
+            width: fit-content;
+            padding: 0px 12px;
+            height: 30px;
+            small {
+              color: $thirdColor;
+            }
+            small:last-child {
+              margin-left: 5px;
+            }
+          }
         }
       }
     }

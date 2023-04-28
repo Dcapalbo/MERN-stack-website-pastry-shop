@@ -1,80 +1,126 @@
-.detail__sweet__about__container {
-  justify-content: space-between;
-  height: fit-content;
-  display: flex;
+.detail__sweet__container {
+  padding: 50px 0px;
   margin: auto;
-  width: 80%;
-}
-@media (max-width: 576px) {
-  .detail__sweet__about__container {
-    flex-direction: column;
-    width: 90%;
-  }
-}
-@media (max-width: 828px) {
-  .detail__sweet__about__container {
-    flex-direction: column;
-    width: 90%;
-  }
-}
-.detail__sweet__about__container .detail__sweet__about__card__image {
-  object-fit: contain;
-  width: 45%;
-}
-@media (max-width: 576px) {
-  .detail__sweet__about__container .detail__sweet__about__card__image {
-    width: 100%;
-  }
-}
-@media (max-width: 828px) {
-  .detail__sweet__about__container .detail__sweet__about__card__image {
-    width: 100%;
-  }
-}
-.detail__sweet__about__container .detail__sweet__about__card__info {
-  width: calc(100% - 45%);
-  justify-content: center;
-  flex-direction: column;
-  display: flex;
-  padding: 10px 0px;
-  text-align: right;
   height: 100%;
+  width: 50%;
+}
+@media (max-width: 992px) {
+  .detail__sweet__container {
+    width: 60%;
+  }
 }
 @media (max-width: 576px) {
-  .detail__sweet__about__container .detail__sweet__about__card__info {
-    width: 100%;
+  .detail__sweet__container {
+    width: 90%;
   }
 }
-@media (max-width: 828px) {
-  .detail__sweet__about__container .detail__sweet__about__card__info {
-    width: 100%;
-  }
+.detail__sweet__container .detail__sweet__card__container {
+  box-shadow: 2px 4px 10px #8d2a46;
+  background-color: #f3e8eb;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  border-radius: 10px;
+  display: flex;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
 }
-.detail__sweet__about__container .detail__sweet__about__card__info h2,
-.detail__sweet__about__container .detail__sweet__about__card__info h3,
-.detail__sweet__about__container .detail__sweet__about__card__info p {
-  margin-bottom: 10px;
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__image {
+  object-fit: contain;
+  border-radius: 10px;
+  width: 100%;
 }
-.detail__sweet__about__container .detail__sweet__about__card__info .detail__sweet__about__card__info__wrapper {
-  justify-content: space-between;
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex {
+  justify-content: flex-start;
+  align-items: flex-start;
   display: flex;
   width: 100%;
 }
-.detail__sweet__about__container .detail__sweet__about__card__info .detail__sweet__about__card__info__wrapper div {
-  width: calc(100% / 2 - 15px);
-  margin-left: 15px;
-}
 @media (max-width: 992px) {
-  .detail__sweet__about__container .detail__sweet__about__card__info .detail__sweet__about__card__info__wrapper div {
-    width: calc(120% / 2);
-    margin-left: 10px;
+  .detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex {
+    flex-direction: column;
   }
 }
-.detail__sweet__about__container .detail__sweet__about__card__info .detail__sweet__about__card__info__wrapper div:first-child {
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card {
+  width: calc(100% / 2);
+  text-align: right;
+  padding: 10px;
+}
+@media (max-width: 992px) {
+  .detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card {
+    width: 100%;
+  }
+}
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card .detail__sweet__card__info__wrapper {
+  color: #8d2a46;
+  display: flex;
+  width: 100%;
+}
+@media (max-width: 992px) {
+  .detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card .detail__sweet__card__info__wrapper {
+    justify-content: center;
+    text-align: center;
+  }
+}
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card .detail__sweet__card__info__wrapper div {
+  width: 100%;
+}
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card .detail__sweet__card__info__wrapper div:first-child {
   text-align: left;
 }
-@media (max-width: 992px) {
-  .detail__sweet__about__container .detail__sweet__about__card__info .detail__sweet__about__card__info__wrapper div:first-child {
-    width: calc(100% - 40% - 10px);
-  }
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card .detail__sweet__card__info__wrapper .detail__sweet__card__info__wrapper__item {
+  background-color: #8d2a46;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  width: fit-content;
+  padding: 0px 12px;
+  height: 30px;
+}
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card .detail__sweet__card__info__wrapper .detail__sweet__card__info__wrapper__item svg {
+  color: #f3e8eb;
+  margin-right: 5px;
+}
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card .detail__sweet__card__info__wrapper .detail__sweet__card__info__wrapper__item small {
+  color: #f3e8eb;
+}
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card h2,
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card h3,
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card p {
+  margin-bottom: 10px;
+}
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card .detail__sweet__card__ingredients__container {
+  border-bottom: 1px solid #8d2a46;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  margin-top: 5px;
+  width: 100%;
+}
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card .detail__sweet__card__ingredients__container p {
+  color: #8d2a46;
+}
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card .detail__sweet__card__ingredients__container .detail__sweet__card__ingredients__item {
+  background-color: #8d2a46;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  width: fit-content;
+  padding: 0px 12px;
+  height: 30px;
+}
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card .detail__sweet__card__ingredients__container .detail__sweet__card__ingredients__item small {
+  color: #f3e8eb;
+}
+.detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card .detail__sweet__card__ingredients__container .detail__sweet__card__ingredients__item small:last-child {
+  margin-left: 5px;
 }

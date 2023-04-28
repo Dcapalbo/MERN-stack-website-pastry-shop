@@ -5,8 +5,8 @@
   max-height: calc(100% - 40px);
   width: calc(100% / 3 - 100px);
   transition: transform 0.2s;
+  justify-content: flex-start;
   flex-direction: column;
-  justify-content: start;
   align-items: center;
   border-radius: 20px;
   padding: 10px 10px;
@@ -75,9 +75,9 @@
   border-radius: 20px;
   position: relative;
   object-fit: cover;
-  min-height: 300px;
   transition: 0.2s;
   cursor: pointer;
+  height: 300px;
   width: 100%;
   z-index: 1;
   opacity: 1;

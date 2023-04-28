@@ -28,7 +28,7 @@ const SweetCard = (props) => {
   useEffect(() => {
     setIsAuthenticated(isLoggedIn);
     setTokenExpiration(isAuth(token));
-  }, [isLoggedIn, dispatch, token]);
+  }, [isLoggedIn, token]);
 
   const sendSweetToFormHandler = () => {
     dispatch(
