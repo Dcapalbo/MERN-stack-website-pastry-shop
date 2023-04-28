@@ -3,6 +3,7 @@
 @import "../../../assets/mixin.scss";
 
 .form__wrapper {
+  padding: 50px 0px;
   margin: auto;
   width: 50%;
   @media (max-width: $screen-xl-min) {
@@ -59,4 +60,8 @@
   @media (max-width: $screen-lg-min) {
     padding: 10px 30px;
   }
+}
+
+.generic__padding {
+  padding: 50px 0px;
 }

@@ -60,7 +60,7 @@ const LoginForm = () => {
   };
 
   return (
-    <section className={classes.form__wrapper + " " + classes.generic__margin}>
+    <section className={classes.form__wrapper + " " + classes.generic__padding}>
       <form
         onSubmit={handleSubmit(confirmHandler)}
         className={classes.form__container}
