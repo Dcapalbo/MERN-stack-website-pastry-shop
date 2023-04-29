@@ -34,7 +34,7 @@ function calculateSweetPrices(sweets) {
   const currentDate = new Date();
   const sweetPrices = sweets.map((sweet) => {
     const daysElapsed = Math.floor(
-      (currentDate - sweet.dateAdded) / (24 * 60 * 60 * 1000)
+      (currentDate - sweet.createdAt) / (24 * 60 * 60 * 1000)
     );
     let discountedPrice;
     if (daysElapsed === 0) {
@@ -47,12 +47,18 @@ function calculateSweetPrices(sweets) {
       discountedPrice = 0;
     }
     return {
-      name: sweet.name,
+      sweetName: sweet.sweetName,
+      sweetQuantity: sweet.sweetQuantity,
       price: sweet.price,
+      description: sweet.description,
+      category: sweet.category,
+      slug: sweet.slug,
+      imageUrl: sweet.imageUrl,
+      ingredients: sweet.ingredients,
+      createdAt: sweet.createdAt,
       discountedPrice,
     };
   });
-  console.log("some error happens, no sweets found");
   return sweetPrices;
 }
 

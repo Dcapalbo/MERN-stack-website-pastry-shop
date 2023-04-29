@@ -12,6 +12,7 @@ const fs = require("fs");
 exports.getSweets = async (req, res) => {
   try {
     const sweets = await Sweet.find().sort({ price: -1 });
+
     const sweetPricesFiltered = calculateSweetPrices(sweets);
     res.status(200).send(sweetPricesFiltered);
   } catch (err) {
@@ -22,6 +23,7 @@ exports.getSweets = async (req, res) => {
 exports.addSweet = async (req, res) => {
   const {
     sweetName,
+    sweetQuantity,
     ingredientName,
     measureUnit,
     amount,
@@ -40,6 +42,7 @@ exports.addSweet = async (req, res) => {
     res.status(422).json({
       sweet: {
         sweetName,
+        sweetQuantity,
         ingredientName,
         measureUnit,
         amount,
@@ -64,6 +67,7 @@ exports.addSweet = async (req, res) => {
 
     const sweet = await Sweet.create({
       sweetName,
+      sweetQuantity,
       ingredientName,
       measureUnit,
       amount,
@@ -90,6 +94,7 @@ exports.addSweet = async (req, res) => {
 exports.editSweet = async (req, res) => {
   const {
     sweetName,
+    sweetQuantity,
     ingredientName,
     measureUnit,
     amount,
@@ -117,6 +122,7 @@ exports.editSweet = async (req, res) => {
 
   const update = {
     sweetName,
+    sweetQuantity,
     ingredientName,
     measureUnit,
     amount,
@@ -136,6 +142,7 @@ exports.editSweet = async (req, res) => {
     res.status(422).json({
       sweet: {
         sweetName,
+        sweetQuantity,
         ingredientName,
         measureUnit,
         amount,
