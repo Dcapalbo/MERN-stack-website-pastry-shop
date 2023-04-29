@@ -3,14 +3,21 @@ import { z } from "zod";
 const sweetSchema = z.object({
   sweetName: z
     .string()
-    .nonempty({ meesage: "inserire un valore" })
+    .nonempty({ meesage: "inserire il nome del dolce" })
     .min(3, { message: "Il nome del dolce deve contenere almeno 3 caratteri" })
     .max(25, {
       message: "il nome del dolce non deve contenere più di 25 caratteri",
     }),
+  sweetQuantity: z
+    .number()
+    .int()
+    .nonempty({ message: "Inserire la quantità del dolce" })
+    .min(1, { message: "La quantità del dolce deve essere di almeno 1 unità" })
+    .max(99, { message: "Non si possono aggiungere più di 99 unità" }),
+
   ingredientName: z
     .string()
-    .nonempty({ meesage: "inserire un valore" })
+    .nonempty({ meesage: "inserire il nome dell'ingrediente" })
     .min(3, {
       message: "Il nome dell'ingrediente deve contenere almeno 3 caratteri",
     })
@@ -20,29 +27,29 @@ const sweetSchema = z.object({
     }),
   measureUnit: z
     .string()
-    .nonempty({ meesage: "inserire un valore" })
+    .nonempty({ meesage: "inserire l'unità di misura dell'ingrediente" })
     .min(2, {
       message:
         "la sigla dell'unità di misura deve contenere almeno 2 caratteri: esempio(gr, cl, ml)",
     })
-    .max(20, {
+    .max(2, {
       message:
-        "la sigla dell'unità di misura non deve contenere più di 20 caratteri",
+        "la sigla dell'unità di misura non deve contenere più di 2 caratteri",
     }),
   amount: z
-    .string()
-    .nonempty({ meesage: "inserire un valore" })
+    .number()
+    .nonempty({ meesage: "inserire la quantità dell'ingrediente" })
     .min(1, {
       message:
         "indicare la quantità dell'ingrediente in numeri, minimo 1 numero",
     })
-    .max(5, {
+    .max(4, {
       message:
         "indicare la quantità dell'ingrediente in numeri, massimo 5 numeri",
     }),
   price: z
-    .string()
-    .nonempty({ meesage: "inserire un valore" })
+    .number()
+    .nonempty({ meesage: "inserire il prezzo" })
     .min(2, {
       message: "il prezzo deve essere di almeno due cifre",
     })
@@ -51,12 +58,12 @@ const sweetSchema = z.object({
     }),
   description: z
     .string()
-    .nonempty({ meesage: "inserire un valore" })
+    .nonempty({ meesage: "inserire la descrizione" })
     .min(10, {
       message:
         "la descrizione del prodotto di pasticceria deve essere di almeno 20 caratteri",
     })
-    .max(150, {
+    .max(250, {
       message:
         "la descrizione del prodotto di pasticceria non può superare i 150 caratteri",
     }),

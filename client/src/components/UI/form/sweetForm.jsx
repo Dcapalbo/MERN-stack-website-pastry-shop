@@ -44,21 +44,22 @@ const FilmForm = () => {
   const [enteredFileIsValid, setEnteredFileisValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [isUpdate, setIsUpdate] = useState(false);
+  const [fileVaue, setFileValue] = useState(null);
   const [error, setError] = useState(null);
-  const [file, setFile] = useState(null);
 
   const handleSelectChange = (option) => {
     field.onChange(option.target.value);
   };
 
   const confirmHandler = (event) => {
-    const enteredFileIsValid = file !== null && file !== "";
-    setEnteredFileisValid(enteredFileIsValid);
+    let validFile = fileVaue !== null && fileVaue !== "";
+    setEnteredFileisValid(validFile);
 
     const formData = new FormData();
 
     const {
       sweetName,
+      sweetQuantity,
       ingredientName,
       measureUnit,
       amount,
@@ -68,14 +69,15 @@ const FilmForm = () => {
     } = event;
 
     formData.append("sweetName", sweetName);
+    formData.append("sweetQuantity", sweetQuantity);
     formData.append("ingredientName", ingredientName);
     formData.append("measureUnit", measureUnit);
-    formData.append("amount", parseInt(amount));
-    formData.append("price", parseInt(price));
+    formData.append("amount", amount);
+    formData.append("price", price);
     formData.append("description", description);
     formData.append("category", category);
     formData.append("slug", slugCreation(sweetName));
-    formData.append("file", file);
+    formData.append("file", fileVaue);
 
     if (dataUpdateSweets?._id) {
       formData.append("_id", dataUpdateSweets?._id);
@@ -140,6 +142,17 @@ const FilmForm = () => {
           )}
         </div>
         <div className={classes.form__container__item}>
+          <label htmlFor="SweetQuantity">{t("sweetQuantity")}</label>
+          <input
+            defaultValue={formState.defaultValues?.payload?.sweetQuantity ?? ""}
+            {...register("sweetQuantity")}
+            type="text"
+          />
+          {errors.sweetQuantity?.message && (
+            <small>{errors.sweetQuantity?.message}</small>
+          )}
+        </div>
+        <div className={classes.form__container__item}>
           <label htmlFor="IngredientName">{t("ingredientName")}</label>
           <input
             defaultValue={
@@ -199,16 +212,17 @@ const FilmForm = () => {
             <small>{errors.category?.message}</small>
           )}
         </div>
-        <label htmlFor="Image">{t("cover")}</label>
-        <input
-          onChange={(event) => {
-            const file = event.target.files[0];
-            setFile(file);
-          }}
-          type="file"
-          name="Image"
-          required
-        />
+        <div className={classes.form__container__item}>
+          <label htmlFor="Image">{t("cover")}</label>
+          <input
+            onChange={(event) => {
+              setFileValue(event.target.files[0]);
+            }}
+            type="file"
+            name="Image"
+            required
+          />
+        </div>
         {!enteredFileIsValid && (
           <small>Campo obbligatorio, inserire la cover del film</small>
         )}
