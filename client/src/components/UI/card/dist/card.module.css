@@ -53,8 +53,14 @@
   height: 100%;
   width: 100%;
 }
+.card .card__external__informations div:first-child {
+  align-items: center;
+  display: flex;
+}
 @media (max-width: 828px) {
   .card .card__external__informations {
+    flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
   }
 }
@@ -67,12 +73,8 @@
   border-radius: 50px;
   width: fit-content;
   padding: 0px 12px;
+  margin: 10px 5px;
   height: 30px;
-}
-@media (max-width: 828px) {
-  .card .card__external__informations .card__external__informations__item {
-    margin: 10px 5px;
-  }
 }
 .card .card__external__informations .card__external__informations__item svg {
   color: #f3e8eb;
@@ -155,4 +157,9 @@
     width: calc(100%);
     margin: 12px;
   }
+}
+
+.discount__price {
+  text-decoration-color: #fd2a2a !important;
+  text-decoration: line-through;
 }

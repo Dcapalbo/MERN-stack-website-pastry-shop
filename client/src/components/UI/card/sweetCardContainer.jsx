@@ -18,6 +18,8 @@ const SweetCardContainer = () => {
     (state) => state.dataSweets.sweetsData
   );
 
+  console.log(sweets);
+
   useEffect(() => {
     if (sweets) {
       setFilteredSweets(sweets);
@@ -76,6 +78,7 @@ const SweetCardContainer = () => {
                 // measureunit={sweet.measureUnit}
                 // amount={sweet.amount}
                 price={sweet.price}
+                discountedPrice={sweet.discountedPrice}
                 description={sweet.description}
                 category={sweet.category}
                 slug={sweet.slug}

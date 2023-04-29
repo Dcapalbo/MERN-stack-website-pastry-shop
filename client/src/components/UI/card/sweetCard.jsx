@@ -2,16 +2,18 @@ import {
   faEuroSign,
   faShoppingBasket,
   faTag,
+  faMinus,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { dataSweetActions } from "../../../store/data-sweet-slice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
-import classes from "../../../assets/card.module.scss";
 import PuffLoader from "react-spinners/PuffLoader";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { isAuth } from "../../../utils/isAuth";
 import { useState, useEffect } from "react";
+import classes from "./card.module.scss";
 import axios from "axios";
 import React from "react";
 
@@ -26,6 +28,11 @@ const SweetCard = (props) => {
 
   const [tokenExpiration, setTokenExpiration] = useState(() => {});
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [newQuantity, setNewQuantity] = useState(0);
+
+  const incrementNewQuantity = () => setNewQuantity(newQuantity + 1);
+  const decrementNewQuantity = () => setNewQuantity(newQuantity - 1);
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -56,11 +63,12 @@ const SweetCard = (props) => {
     dispatch(
       dataSweetActions.setSweetData({
         sweetName: props.sweetName,
-        sweetQuantity: props.sweetQuantity.toString(),
+        sweetQuantity: props.sweetQuantity,
+        price: props.price,
+        discountedPrice: props.discountedPrice,
         // ingredientName: props.ingredientName,
         // measureUnit: props.measureUnit,
-        // amount: props.amount.toString(),
-        price: props.price.toString(),
+        // amount: props.amount,
         description: props.description,
         category: props.category,
         imageUrl: props.imageUrl,
@@ -69,6 +77,38 @@ const SweetCard = (props) => {
       })
     );
     navigate(`/sweet/${props.slug}`);
+  };
+
+  const modifySweetQuantity = () => {
+    setIsLoading(true);
+
+    const dataQuantity = {
+      newQuantity: parseInt(newQuantity),
+      _id: props._id,
+    };
+
+    axios
+      .put(`${process.env.REACT_APP_API_LOCAL_PORT}/edit-sweet-quantity`, {
+        dataQuantity,
+      })
+      .then((res) => {
+        dispatch(
+          dataSweetActions.updateSweetQuantity({
+            _id: props._id,
+            sweetQuantity: parseInt(newQuantity),
+          })
+        );
+        setIsLoading(false);
+        setNewQuantity("");
+      })
+      .catch((err) => {
+        console.error(
+          "there is an error for deleting the specific sweet: ",
+          err.name
+        );
+        setIsLoading(false);
+        setError(err);
+      });
   };
 
   const deleteSweetHandler = () => {
@@ -124,12 +164,32 @@ const SweetCard = (props) => {
       </div>
       {props.sweetName && <h2>{props.sweetName}</h2>}
       <div className={classes.card__external__informations}>
-        <div className={classes.card__external__informations__item}>
-          {props.price && (
-            <>
-              <FontAwesomeIcon icon={faEuroSign} />
-              <small>{props.price}</small>
-            </>
+        <div>
+          <div className={classes.card__external__informations__item}>
+            {props.price && (
+              <>
+                <FontAwesomeIcon icon={faEuroSign} />
+                <small
+                  className={
+                    props.discountedPrice !== props.price
+                      ? classes.discount__price
+                      : ""
+                  }
+                >
+                  {props.price}
+                </small>
+              </>
+            )}
+          </div>
+          {props.discountedPrice !== props.price && (
+            <div className={classes.card__external__informations__item}>
+              {props.discountedPrice && (
+                <>
+                  <FontAwesomeIcon icon={faEuroSign} />
+                  <small>{props.discountedPrice.toFixed(2)}</small>
+                </>
+              )}
+            </div>
           )}
         </div>
         <div className={classes.card__external__informations__item}>
@@ -150,17 +210,35 @@ const SweetCard = (props) => {
         </div>
       </div>
       {isAuthenticated && tokenExpiration && (
-        <div className={classes.card__button__wrapper}>
-          <button
-            onClick={sendSweetToFormHandler}
-            className={classes.card__cta}
-          >
-            {t("modifySweetCard")}
-          </button>
-          <button onClick={deleteSweetHandler} className={classes.card__cta}>
-            {t("deleteSweetCard")}
-          </button>
-        </div>
+        <>
+          <div className={classes.card__button__wrapper}>
+            <button
+              onClick={sendSweetToFormHandler}
+              className={classes.card__cta}
+            >
+              {t("modifySweetCard")}
+            </button>
+            <button onClick={deleteSweetHandler} className={classes.card__cta}>
+              {t("deleteSweetCard")}
+            </button>
+          </div>
+          <div className={classes.card__button__wrapper}>
+            <button onClick={decrementNewQuantity}>
+              <FontAwesomeIcon icon={faMinus} />
+            </button>
+            <input
+              type="number"
+              value={newQuantity}
+              onChange={(e) => setNewQuantity(e.target.value)}
+            />
+            <button onClick={incrementNewQuantity}>
+              <FontAwesomeIcon icon={faPlus} />
+            </button>
+            <button onClick={modifySweetQuantity} className={classes.card__cta}>
+              Modifica quantità
+            </button>
+          </div>
+        </>
       )}
       {isLoading && (
         <PuffLoader

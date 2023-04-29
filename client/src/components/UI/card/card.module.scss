@@ -1,5 +1,5 @@
-@import "./variables.scss";
-@import "./mixin.scss";
+@import "../../../assets/variables.scss";
+@import "../../../assets/mixin.scss";
 
 .card {
   box-shadow: 2px 4px 10px rgba(141, 42, 70);
@@ -53,12 +53,22 @@
     margin: 15px 0px;
     height: 100%;
     width: 100%;
+    div:first-child {
+      align-items: center;
+      display: flex;
+    }
+    @media (max-width: $screen-md-min) {
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+    }
     .card__external__informations__item {
       background-color: $firstColor;
       @include flex-center;
       border-radius: 50px;
       width: fit-content;
       padding: 0px 12px;
+      margin: 10px 5px;
       height: 30px;
       svg {
         color: $thirdColor;
@@ -69,7 +79,6 @@
       }
     }
   }
-
   .card__image {
     border-radius: 20px;
     position: relative;
@@ -90,11 +99,13 @@
       opacity: 0;
     }
   }
-
   .card__button__wrapper {
     @include flex-around;
     width: 100%;
     height: 20%;
+    @media (max-width: $screen-sm-min) {
+      padding: 0px 15px;
+    }
     .card__cta {
       border: 1px solid $fourthColor;
       background-color: $thirdColor;
@@ -115,7 +126,6 @@
       }
     }
   }
-
   @media (max-width: $screen-lg-min) {
     width: calc(100% / 2 - 48px);
     margin: 16px;
@@ -126,11 +136,15 @@
     width: 100%;
   }
 }
-
 .auth__card {
   width: calc(100% / 2 - 48px);
   @media (max-width: $screen-lg-min) {
     width: calc(100%);
     margin: 12px;
   }
+}
+
+.discount__price {
+  text-decoration-color: $errorColor !important;
+  text-decoration: line-through;
 }
