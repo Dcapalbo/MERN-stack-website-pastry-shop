@@ -222,18 +222,20 @@ const SweetCard = (props) => {
               {t("deleteSweetCard")}
             </button>
           </div>
-          <div className={classes.card__button__wrapper}>
-            <button onClick={decrementNewQuantity}>
-              <FontAwesomeIcon icon={faMinus} />
-            </button>
-            <input
-              type="number"
-              value={newQuantity}
-              onChange={(e) => setNewQuantity(e.target.value)}
-            />
-            <button onClick={incrementNewQuantity}>
-              <FontAwesomeIcon icon={faPlus} />
-            </button>
+          <div className={classes.card__button__quantity__wrapper}>
+            <div>
+              <button onClick={decrementNewQuantity}>
+                <FontAwesomeIcon icon={faMinus} />
+              </button>
+              <input
+                type="number"
+                value={newQuantity}
+                onChange={(e) => setNewQuantity(e.target.value)}
+              />
+              <button onClick={incrementNewQuantity}>
+                <FontAwesomeIcon icon={faPlus} />
+              </button>
+            </div>
             <button onClick={modifySweetQuantity} className={classes.card__cta}>
               Modifica quantità
             </button>

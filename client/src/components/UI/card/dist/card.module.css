@@ -117,25 +117,6 @@
     padding: 0px 15px;
   }
 }
-.card .card__button__wrapper .card__cta {
-  border: 1px solid #d27b7b;
-  background-color: #f3e8eb;
-  color: #8d2a46;
-  font-family: "Lato", sans-serif;
-  padding: 15px 15px;
-  transition: 0.2s;
-  margin: 10px 0px;
-  font-size: 20px;
-  width: 160px;
-  z-index: 2;
-}
-.card .card__button__wrapper .card__cta:hover {
-  background-color: #8d2a46;
-  border-radius: 10px;
-  color: #f3e8eb;
-  transition: 0.2s;
-  cursor: pointer;
-}
 @media (max-width: 992px) {
   .card {
     width: calc(100% / 2 - 48px);
@@ -147,6 +128,34 @@
     margin: 12px;
     width: 100%;
   }
+}
+.card .card__button__quantity__wrapper {
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  width: 80%;
+}
+.card .card__button__quantity__wrapper div {
+  width: 100%;
+}
+.card .card__button__quantity__wrapper div button {
+  background-color: #f3e8eb;
+  border: 1px solid #8d2a46;
+  color: #8d2a46;
+  transition: 0.2s;
+  height: 30px;
+  width: 30px;
+}
+.card .card__button__quantity__wrapper div button:hover {
+  background-color: #8d2a46;
+  color: #f3e8eb;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.card .card__button__quantity__wrapper div input {
+  margin: 10px;
+  width: calc(100% / 2);
 }
 
 .auth__card {
@@ -162,4 +171,24 @@
 .discount__price {
   text-decoration-color: #fd2a2a !important;
   text-decoration: line-through;
+}
+
+.card__cta {
+  border: 1px solid #d27b7b;
+  background-color: #f3e8eb;
+  color: #8d2a46;
+  font-family: "Lato", sans-serif;
+  padding: 15px 15px;
+  transition: 0.2s;
+  margin: 10px 0px;
+  font-size: 18px;
+  width: 180px;
+  z-index: 2;
+}
+.card__cta:hover {
+  background-color: #8d2a46;
+  border-radius: 10px;
+  color: #f3e8eb;
+  transition: 0.2s;
+  cursor: pointer;
 }

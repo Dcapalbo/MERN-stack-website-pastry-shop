@@ -106,25 +106,6 @@
     @media (max-width: $screen-sm-min) {
       padding: 0px 15px;
     }
-    .card__cta {
-      border: 1px solid $fourthColor;
-      background-color: $thirdColor;
-      color: $firstColor;
-      font-family: $Lato;
-      padding: 15px 15px;
-      transition: 0.2s;
-      margin: 10px 0px;
-      font-size: 20px;
-      width: 160px;
-      z-index: 2;
-      &:hover {
-        background-color: $firstColor;
-        border-radius: 10px;
-        color: $thirdColor;
-        transition: 0.2s;
-        cursor: pointer;
-      }
-    }
   }
   @media (max-width: $screen-lg-min) {
     width: calc(100% / 2 - 48px);
@@ -134,6 +115,34 @@
   @media (max-width: $screen-sm-min) {
     margin: 12px;
     width: 100%;
+  }
+  .card__button__quantity__wrapper {
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    width: 80%;
+    div {
+      width: 100%;
+      button {
+        background-color: $thirdColor;
+        border: 1px solid $firstColor;
+        color: $firstColor;
+        transition: 0.2s;
+        height: 30px;
+        width: 30px;
+        &:hover {
+          background-color: $firstColor;
+          color: $thirdColor;
+          transition: 0.2s;
+          cursor: pointer;
+        }
+      }
+      input {
+        margin: 10px;
+        width: calc(100% / 2);
+      }
+    }
   }
 }
 .auth__card {
@@ -147,4 +156,24 @@
 .discount__price {
   text-decoration-color: $errorColor !important;
   text-decoration: line-through;
+}
+
+.card__cta {
+  border: 1px solid $fourthColor;
+  background-color: $thirdColor;
+  color: $firstColor;
+  font-family: $Lato;
+  padding: 15px 15px;
+  transition: 0.2s;
+  margin: 10px 0px;
+  font-size: 18px;
+  width: 180px;
+  z-index: 2;
+  &:hover {
+    background-color: $firstColor;
+    border-radius: 10px;
+    color: $thirdColor;
+    transition: 0.2s;
+    cursor: pointer;
+  }
 }
