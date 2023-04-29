@@ -30,9 +30,6 @@ const SweetCard = (props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [newQuantity, setNewQuantity] = useState(0);
 
-  const incrementNewQuantity = () => setNewQuantity(newQuantity + 1);
-  const decrementNewQuantity = () => setNewQuantity(newQuantity - 1);
-
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -40,6 +37,9 @@ const SweetCard = (props) => {
     setIsAuthenticated(isLoggedIn);
     setTokenExpiration(isAuth(token));
   }, [isLoggedIn, token]);
+
+  const incrementNewQuantity = () => setNewQuantity(newQuantity + 1);
+  const decrementNewQuantity = () => setNewQuantity(newQuantity - 1);
 
   const sendSweetToFormHandler = () => {
     dispatch(
