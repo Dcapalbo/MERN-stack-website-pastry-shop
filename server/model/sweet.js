@@ -8,6 +8,10 @@ const sweetSchema = new Schema({
     type: String,
     required: true,
   },
+  sweetQuantity: {
+    type: Number,
+    required: true,
+  },
   ingredients: {
     type: [ingredient.schema],
     required: true,
@@ -22,10 +26,6 @@ const sweetSchema = new Schema({
   },
   category: {
     type: String,
-    required: true,
-  },
-  quantity: {
-    type: Number,
     required: true,
   },
   slug: {
