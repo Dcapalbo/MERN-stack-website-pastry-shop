@@ -3,6 +3,7 @@ const {
   addSweet,
   editSweet,
   deleteSweet,
+  editSweetQuantity,
 } = require("../controller/sweets");
 const { check } = require("express-validator");
 const express = require("express");
@@ -38,6 +39,8 @@ router.put(
   ],
   editSweet
 );
+//update-sweet-quantity => PUT
+router.put("/edit-sweet-quantity", editSweetQuantity);
 //delete-sweet => DELETE
 router.delete("/delete-sweet", deleteSweet);
 

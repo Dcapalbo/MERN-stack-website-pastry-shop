@@ -39,26 +39,33 @@ function getContentType(fileExtension) {
 function calculateSweetPrices(sweets) {
   var currentDate = new Date();
   var sweetPrices = sweets.map(function (sweet) {
-    var daysElapsed = Math.floor((currentDate - sweet.dateAdded) / (24 * 60 * 60 * 1000));
+    var minutesElapsed = Math.floor((currentDate - sweet.createdAt) / (60 * 1000));
     var discountedPrice;
 
-    if (daysElapsed === 0) {
+    if (minutesElapsed < 1) {
       discountedPrice = sweet.price;
-    } else if (daysElapsed === 1) {
+    } else if (minutesElapsed > 3) {
       discountedPrice = sweet.price * 0.8;
-    } else if (daysElapsed === 2) {
+    } else if (minutesElapsed > 10) {
       discountedPrice = sweet.price * 0.2;
     } else {
       discountedPrice = 0;
     }
 
     return {
-      name: sweet.name,
+      sweetName: sweet.sweetName,
+      sweetQuantity: sweet.sweetQuantity,
       price: sweet.price,
-      discountedPrice: discountedPrice
+      discountedPrice: discountedPrice,
+      description: sweet.description,
+      category: sweet.category,
+      imageUrl: sweet.imageUrl,
+      _id: sweet._id,
+      slug: sweet.slug,
+      ingredients: sweet.ingredients,
+      createdAt: sweet.createdAt
     };
   });
-  console.log("some error happens, no sweets found");
   return sweetPrices;
 }
 

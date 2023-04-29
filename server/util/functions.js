@@ -33,15 +33,15 @@ function getContentType(fileExtension) {
 function calculateSweetPrices(sweets) {
   const currentDate = new Date();
   const sweetPrices = sweets.map((sweet) => {
-    const daysElapsed = Math.floor(
-      (currentDate - sweet.createdAt) / (24 * 60 * 60 * 1000)
+    const minutesElapsed = Math.floor(
+      (currentDate - sweet.createdAt) / (60 * 1000)
     );
     let discountedPrice;
-    if (daysElapsed === 0) {
+    if (minutesElapsed < 1) {
       discountedPrice = sweet.price;
-    } else if (daysElapsed === 1) {
+    } else if (minutesElapsed > 3) {
       discountedPrice = sweet.price * 0.8;
-    } else if (daysElapsed === 2) {
+    } else if (minutesElapsed > 10) {
       discountedPrice = sweet.price * 0.2;
     } else {
       discountedPrice = 0;
@@ -50,13 +50,14 @@ function calculateSweetPrices(sweets) {
       sweetName: sweet.sweetName,
       sweetQuantity: sweet.sweetQuantity,
       price: sweet.price,
+      discountedPrice,
       description: sweet.description,
       category: sweet.category,
-      slug: sweet.slug,
       imageUrl: sweet.imageUrl,
+      _id: sweet._id,
+      slug: sweet.slug,
       ingredients: sweet.ingredients,
       createdAt: sweet.createdAt,
-      discountedPrice,
     };
   });
   return sweetPrices;
