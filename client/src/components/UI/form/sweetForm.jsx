@@ -69,11 +69,11 @@ const FilmForm = () => {
     } = event;
 
     formData.append("sweetName", sweetName);
-    formData.append("sweetQuantity", sweetQuantity);
+    formData.append("sweetQuantity", parseInt(sweetQuantity));
     formData.append("ingredientName", ingredientName);
     formData.append("measureUnit", measureUnit);
-    formData.append("amount", amount);
-    formData.append("price", price);
+    formData.append("amount", parseInt(amount));
+    formData.append("price", parseInt(price));
     formData.append("description", description);
     formData.append("category", category);
     formData.append("slug", slugCreation(sweetName));
@@ -148,7 +148,7 @@ const FilmForm = () => {
           <input
             defaultValue={formState.defaultValues?.payload?.sweetQuantity ?? ""}
             {...register("sweetQuantity")}
-            type="number"
+            type="text"
           />
           {errors.sweetQuantity?.message && (
             <small>{errors.sweetQuantity?.message}</small>

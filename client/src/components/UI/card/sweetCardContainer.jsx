@@ -71,13 +71,14 @@ const SweetCardContainer = () => {
             filteredSweets.map((sweet) => (
               <SweetCard
                 sweetName={sweet.sweetName}
+                sweetQuantity={sweet.sweetQuantity}
                 // ingredientname={sweet.ingredientName}
                 // measureunit={sweet.measureUnit}
                 // amount={sweet.amount}
                 price={sweet.price}
                 description={sweet.description}
-                slug={sweet.slug}
                 category={sweet.category}
+                slug={sweet.slug}
                 imageUrl={`data:image/png;base64,${base64ArrayBuffer(sweet)}`}
                 key={sweet._id}
                 _id={sweet._id}

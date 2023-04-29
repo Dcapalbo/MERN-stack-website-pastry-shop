@@ -8,7 +8,7 @@ const sweetSchema = z.object({
       message: "il nome del dolce non deve contenere più di 25 caratteri",
     }),
   sweetQuantity: z
-    .number()
+    .string()
     .min(1, { message: "La quantità del dolce deve essere di almeno 1 unità" })
     .max(99, { message: "Non si possono aggiungere più di 99 unità" }),
 
@@ -31,9 +31,13 @@ const sweetSchema = z.object({
     .max(2, {
       message:
         "la sigla dell'unità di misura non deve contenere più di 2 caratteri: esempio (gr, cl, ml)",
+    })
+    .refine((val) => val === "gr" || val === "cl" || val === "ml", {
+      message: "la sigla dell'unità di misura deve essere 'gr', 'cl', o 'ml'",
     }),
+
   amount: z
-    .number()
+    .string()
     .min(1, {
       message:
         "indicare la quantità dell'ingrediente in numeri, minimo 1 numero",
@@ -43,7 +47,7 @@ const sweetSchema = z.object({
         "indicare la quantità dell'ingrediente in numeri, massimo 5 numeri",
     }),
   price: z
-    .number()
+    .string()
     .min(2, {
       message: "il prezzo deve essere di almeno due cifre",
     })
@@ -54,7 +58,7 @@ const sweetSchema = z.object({
     .string()
     .min(10, {
       message:
-        "la descrizione del prodotto di pasticceria deve essere di almeno 40 caratteri",
+        "la descrizione del prodotto di pasticceria deve essere di almeno 10 caratteri",
     })
     .max(250, {
       message:

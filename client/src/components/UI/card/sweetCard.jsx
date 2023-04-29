@@ -1,4 +1,8 @@
-import { faEuroSign, faTag } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEuroSign,
+  faShoppingBasket,
+  faTag,
+} from "@fortawesome/free-solid-svg-icons";
 import { dataSweetActions } from "../../../store/data-sweet-slice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
@@ -34,6 +38,7 @@ const SweetCard = (props) => {
     dispatch(
       dataSweetActions.setSweetData({
         sweetName: props.sweetName,
+        sweetQuantity: props.sweetQuantity.toString(),
         // ingredientName: props.ingredientName,
         // measureUnit: props.measureUnit,
         // amount: props.amount.toString(),
@@ -51,6 +56,7 @@ const SweetCard = (props) => {
     dispatch(
       dataSweetActions.setSweetData({
         sweetName: props.sweetName,
+        sweetQuantity: props.sweetQuantity.toString(),
         // ingredientName: props.ingredientName,
         // measureUnit: props.measureUnit,
         // amount: props.amount.toString(),
@@ -131,6 +137,14 @@ const SweetCard = (props) => {
             <>
               <FontAwesomeIcon icon={faTag} />
               <small>{props.category}</small>
+            </>
+          )}
+        </div>
+        <div className={classes.card__external__informations__item}>
+          {props.sweetQuantity && (
+            <>
+              <FontAwesomeIcon icon={faShoppingBasket} />
+              <small>{props.sweetQuantity}</small>
             </>
           )}
         </div>
