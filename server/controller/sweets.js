@@ -1,16 +1,20 @@
 const { validationResult } = require("express-validator");
-const { deleteFile } = require("../util/functions");
 const Sweet = require("../model/sweet");
+const {
+  deleteFile,
+  calculateSweetPrices,
+  getContentType,
+} = require("../util/functions");
+const path = require("path");
 const fs = require("fs");
 
-// GET => Getting all sweets
+// GET => Getting all sweets and calculate the discount of them all
 exports.getSweets = async (req, res) => {
   try {
-    const sweets = await Sweet.find().sort({
-      price: -1,
-    });
-    res.status(200).send(sweets);
-  } catch {
+    const sweets = await Sweet.find().sort({ price: -1 });
+    const sweetPricesFiltered = calculateSweetPrices(sweets);
+    res.status(200).send(sweetPricesFiltered);
+  } catch (err) {
     res.status(404).json({ message: "sweets was not found" });
   }
 };
@@ -56,6 +60,8 @@ exports.addSweet = async (req, res) => {
       return res.status(400).json({ message: "The sweet exist already" });
     }
 
+    const contentType = getContentType(path.extname(image.originalname));
+
     const sweet = await Sweet.create({
       sweetName,
       ingredientName,
@@ -67,7 +73,7 @@ exports.addSweet = async (req, res) => {
       slug,
       imageUrl: {
         data: fs.readFileSync("images/" + image.filename),
-        contentType: "image/jpg",
+        contentType: contentType,
       },
     });
 
@@ -102,9 +108,11 @@ exports.editSweet = async (req, res) => {
   }
 
   const image = req.file;
+
+  const contentType = getContentType(path.extname(image.originalname));
   const imageUrl = {
-    data: fs.readFileSync("images/" + image.filename),
-    contentType: image.mimetype,
+    data: fs.readFileSync(image.path),
+    contentType: contentType,
   };
 
   const update = {

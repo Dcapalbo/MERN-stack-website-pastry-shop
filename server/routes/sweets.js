@@ -16,11 +16,12 @@ router.post(
   [
     check("sweetName").isString().isLength({ min: 3, max: 25 }).trim(),
     check("ingredientName").isString().isLength({ min: 3, max: 25 }).trim(),
-    check("measureUnit").isString().isLength({ min: 2, max: 20 }).trim(),
-    check("amount").isNumeric().isLength({ min: 1, max: 5 }).trim(),
+    check("measureUnit").isString().isLength({ min: 2, max: 2 }).trim(),
+    check("amount").isNumeric().isLength({ min: 1, max: 4 }).trim(),
     check("price").isNumeric().isLength({ min: 2, max: 5 }).trim(),
-    check("description").isString().isLength({ min: 10, max: 150 }).trim(),
+    check("description").isString().isLength({ min: 10, max: 250 }).trim(),
     check("category").isString().notEmpty().trim(),
+    check("createdAt").isDate().notEmpty().trim(),
   ],
   addSweet
 );
@@ -30,11 +31,12 @@ router.put(
   [
     check("sweetName").isString().isLength({ min: 3, max: 25 }).trim(),
     check("ingredientName").isString().isLength({ min: 3, max: 25 }).trim(),
-    check("measureUnit").isString().isLength({ min: 2, max: 20 }).trim(),
-    check("amount").isNumeric().isLength({ min: 1, max: 5 }).trim(),
+    check("measureUnit").isString().isLength({ min: 2, max: 2 }).trim(),
+    check("amount").isNumeric().isLength({ min: 1, max: 4 }).trim(),
     check("price").isNumeric().isLength({ min: 2, max: 5 }).trim(),
-    check("description").isString().isLength({ min: 10, max: 150 }).trim(),
+    check("description").isString().isLength({ min: 10, max: 250 }).trim(),
     check("category").isString().notEmpty().trim(),
+    check("createdAt").isDate().notEmpty().trim(),
   ],
   editSweet
 );

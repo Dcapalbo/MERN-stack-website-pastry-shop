@@ -13,7 +13,7 @@ const sweetSchema = new Schema({
     required: true,
   },
   price: {
-    type: mongoose.Types.Decimal128,
+    type: Number,
     required: true,
   },
   description: {
@@ -24,6 +24,10 @@ const sweetSchema = new Schema({
     type: String,
     required: true,
   },
+  quantity: {
+    type: Number,
+    required: true,
+  },
   slug: {
     type: String,
     required: true,
@@ -31,6 +35,10 @@ const sweetSchema = new Schema({
   imageUrl: {
     data: Buffer,
     contentType: String,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 

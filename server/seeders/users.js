@@ -1,5 +1,6 @@
-const mongoose = require("mongoose");
 const User = require("../model/user");
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
 // Define the users to seed
@@ -20,7 +21,7 @@ const users = [
 const seedUsers = async () => {
   try {
     // Connect to the database
-    mongoose.connect(
+    await mongoose.connect(
       `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}${process.env.MONGO_CLUSTER}.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`,
       {
         useNewUrlParser: true,
@@ -31,8 +32,17 @@ const seedUsers = async () => {
     // Drop the existing users collection
     await User.collection.drop();
 
-    // Insert the users into the database
-    await User.insertMany(users);
+    // Hash the passwords
+    const saltRounds = 10;
+    const hashedUsers = await Promise.all(
+      users.map(async (user) => {
+        const hashedPassword = await bcrypt.hash(user.password, saltRounds);
+        return { ...user, password: hashedPassword };
+      })
+    );
+
+    // Insert the hashed users into the database
+    await User.insertMany(hashedUsers);
 
     // Log success message
     console.log("Users seeded successfully!");
