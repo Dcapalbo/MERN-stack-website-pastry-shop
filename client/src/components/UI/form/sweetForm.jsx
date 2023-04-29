@@ -120,7 +120,9 @@ const FilmForm = () => {
   };
 
   return (
-    <section className={classes.form__wrapper}>
+    <section
+      className={classes.form__wrapper + " " + classes.resetting__padding}
+    >
       <form
         onSubmit={handleSubmit(confirmHandler)}
         className={classes.form__container}
@@ -146,7 +148,7 @@ const FilmForm = () => {
           <input
             defaultValue={formState.defaultValues?.payload?.sweetQuantity ?? ""}
             {...register("sweetQuantity")}
-            type="text"
+            type="number"
           />
           {errors.sweetQuantity?.message && (
             <small>{errors.sweetQuantity?.message}</small>

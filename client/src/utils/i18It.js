@@ -26,6 +26,7 @@ const translationIt = {
   password: "Password",
   confirmPassword: "Conferma password",
   sweetName: "Nome del dolce",
+  sweetQuantity: "Quantità del dolce",
   ingredientName: "Nome dell'ingrediente",
   measureUnit: "Unita di misura dell'ingrediente",
   amount: "Quantità dell'ingrediente",

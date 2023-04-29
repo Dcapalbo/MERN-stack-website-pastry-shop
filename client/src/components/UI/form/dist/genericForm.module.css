@@ -282,3 +282,7 @@ h6 {
 .generic__padding {
   padding: 50px 0px;
 }
+
+.resetting__padding {
+  padding: 0px;
+}
