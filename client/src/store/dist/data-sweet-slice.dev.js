@@ -29,19 +29,22 @@ var dataSweetSlice = (0, _toolkit.createSlice)({
         return sweet._id !== _id;
       });
     },
-    // update sweet Quantity
+    // update sweet Quantity of a single element in the store
     updateSweetQuantity: function updateSweetQuantity(state, action) {
       var _action$payload = action.payload,
           _id = _action$payload._id,
           sweetQuantity = _action$payload.sweetQuantity;
       console.log(action.payload);
-      console.log(_id, sweetQuantity);
+      console.log(_id, sweetQuantity); // finding the index of the element
+
       var index = state.sweetsData.findIndex(function (sweet) {
         return sweet._id === _id;
-      });
+      }); // if there is
 
       if (index !== -1) {
-        var newQuantity = state.sweetsData[index].sweetQuantity + sweetQuantity;
+        // add the quantity
+        var newQuantity = state.sweetsData[index].sweetQuantity + sweetQuantity; // Ensure that updateQuantity is not less than 0
+
         state.sweetsData[index].sweetQuantity = newQuantity >= 0 ? newQuantity : 0;
       }
     },

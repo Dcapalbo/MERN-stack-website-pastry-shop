@@ -20,15 +20,19 @@ const dataSweetSlice = createSlice({
       const { _id } = action.payload;
       state.sweetsData = state.sweetsData.filter((sweet) => sweet._id !== _id);
     },
-    // update sweet Quantity
+    // update sweet Quantity of a single element in the store
     updateSweetQuantity(state, action) {
       const { _id, sweetQuantity } = action.payload;
       console.log(action.payload);
       console.log(_id, sweetQuantity);
+      // finding the index of the element
       const index = state.sweetsData.findIndex((sweet) => sweet._id === _id);
+      // if there is
       if (index !== -1) {
+        // add the quantity
         const newQuantity =
           state.sweetsData[index].sweetQuantity + sweetQuantity;
+        // Ensure that updateQuantity is not less than 0
         state.sweetsData[index].sweetQuantity =
           newQuantity >= 0 ? newQuantity : 0;
       }
