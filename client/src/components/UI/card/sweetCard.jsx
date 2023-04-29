@@ -99,7 +99,7 @@ const SweetCard = (props) => {
           })
         );
         setIsLoading(false);
-        setNewQuantity("");
+        setNewQuantity(0);
       })
       .catch((err) => {
         console.error(
