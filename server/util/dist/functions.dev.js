@@ -44,7 +44,7 @@ function calculateSweetPrices(sweets) {
 
     if (daysElapsed < 1) {
       discountedPrice = sweet.price;
-    } else if (daysElapsed === 1) {
+    } else if (daysElapsed >= 1 && daysElapsed < 3) {
       discountedPrice = sweet.price * 0.8;
     } else if (daysElapsed === 3) {
       discountedPrice = sweet.price * 0.2;

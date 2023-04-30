@@ -18,8 +18,8 @@ const sweets = [
     category: "torte",
     slug: "torta-di-mele",
     imageUrl: {
-      data: readImageData("../images/cake.jpg"),
-      contentType: getContentType(".jpg"),
+      data: readImageData("../images/cake.jpeg"),
+      contentType: getContentType(".jpeg"),
     },
     createdAt: new Date(Date.now() - 24 * 60 * 60 * 1000),
   },
@@ -32,32 +32,33 @@ const sweets = [
       { ingredientName: "Burro", measureUnit: "gr", amount: 100 },
       { ingredientName: "Nocciole tritate", measureUnit: "gr", amount: 100 },
       { ingredientName: "Uova", measureUnit: "gr", amount: 50 },
+      { ingredientName: "Cioccolato tritato", measureUnit: "gr", amount: 30 },
     ],
     price: 8,
-    description: "Una torta di mele classica con un pizzico di cannella",
+    description: "Biscotti alla nocciola con pezzetti di cioccolato",
     category: "biscotti",
     slug: "biscotti-alla-nocciola",
     imageUrl: {
-      data: readImageData("../images/biscuit.jpg"),
-      contentType: getContentType(".jpg"),
+      data: readImageData("../images/biscuit.jpeg"),
+      contentType: getContentType(".jpeg"),
     },
     createdAt: new Date(),
   },
   {
-    sweetName: "Torta al mirtillo",
+    sweetName: "Torta ai mirtilli",
     sweetQuantity: 15,
     ingredients: [
-      { ingredientName: "Floro", measureUnit: "gr", amount: 150 },
+      { ingredientName: "Farina", measureUnit: "gr", amount: 150 },
       { ingredientName: "Zucchero", measureUnit: "gr", amount: 100 },
       { ingredientName: "Mirtilli", measureUnit: "gr", amount: 200 },
     ],
     price: 12,
-    description: "Torta al mirtillo",
+    description: "Torta ai mirtilli senza glutine",
     category: "Senza glutine",
-    slug: "torta-al-mirtillo",
+    slug: "torta-ai-mirtilli",
     imageUrl: {
-      data: readImageData("../images/senza_glutine.jpg"),
-      contentType: getContentType(".jpg"),
+      data: readImageData("../images/senza_glutine.jpeg"),
+      contentType: getContentType(".jpeg"),
     },
     createdAt: new Date(Date.now() - 48 * 60 * 60 * 1000),
   },
@@ -68,14 +69,16 @@ const sweets = [
       { ingredientName: "Floro", measureUnit: "gr", amount: 150 },
       { ingredientName: "Zucchero", measureUnit: "gr", amount: 100 },
       { ingredientName: "Mirtilli", measureUnit: "gr", amount: 200 },
+      { ingredientName: "Frutti di bosco", measureUnit: "gr", amount: 150 },
+      { ingredientName: "Fragole", measureUnit: "gr", amount: 100 },
     ],
     price: 12,
     description: "Crostata alla frutta, con frutti di bosco e fragole",
     category: "crostate",
     slug: "crostata-alla-frutta",
     imageUrl: {
-      data: readImageData("../images/senza_glutine.jpg"),
-      contentType: getContentType(".jpg"),
+      data: readImageData("../images/tart.jpeg"),
+      contentType: getContentType(".jpeg"),
     },
     createdAt: new Date(Date.now() - 48 * 60 * 60 * 1000),
   },
@@ -103,8 +106,8 @@ const sweets = [
     category: "senza lattosio",
     slug: "torta-senza-lattosio",
     imageUrl: {
-      data: readImageData("../images/senza_lattosio.jpg"),
-      contentType: getContentType(".jpg"),
+      data: readImageData("../images/senza_lattosio.jpeg"),
+      contentType: getContentType(".jpeg"),
     },
     createdAt: new Date(Date.now() - 72 * 60 * 60 * 1000),
   },
@@ -127,7 +130,6 @@ const seedSweets = async () => {
 
     // Insert the films into the database
     await Sweet.insertMany(sweets);
-
     // Log success message
     console.log("Sweets seeded successfully!");
   } catch (err) {
