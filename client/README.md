@@ -1,15 +1,29 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
-In the project directory, you can run:
+In the folder `client`, you must run the following commands:
+
+### `npm install` (the node modules and packgage-lock.json will be created.)
+
+### create a file .env, and write the following env variables inside of it:
+
+    NODE_ENV=development
+    REACT_APP_CLIENT_LOCAL_PORT=http://localhost:3000
+    REACT_APP_API_LOCAL_PORT=http://localhost:5000
+
+running application:
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+if there are some problmes on the 3000
+Runs the app on the following PORT
+
+### `PORT=3010 npm run start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3010](http://localhost:3010) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
