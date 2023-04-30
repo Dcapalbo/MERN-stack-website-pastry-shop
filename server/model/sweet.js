@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 // creating the Mongoose db Schema
 const Schema = mongoose.Schema;
-const ingredient = require("./ingredient.js");
 // sweet Schema
 const sweetSchema = new Schema({
   sweetName: {
@@ -12,10 +11,22 @@ const sweetSchema = new Schema({
     type: Number,
     required: true,
   },
-  ingredients: {
-    type: [ingredient.schema],
-    required: true,
-  },
+  ingredients: [
+    {
+      ingredientName: {
+        type: String,
+        required: true,
+      },
+      measureUnit: {
+        type: String,
+        required: true,
+      },
+      amount: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
   price: {
     type: Number,
     required: true,
