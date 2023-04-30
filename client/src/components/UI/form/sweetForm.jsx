@@ -24,8 +24,6 @@ const SweetForm = () => {
     (state) => state.dataSweets.sweetData ?? ""
   );
 
-  console.log(dataUpdateSweets);
-
   const { register, control, handleSubmit, formState } = useForm({
     defaultValues: dataUpdateSweets ?? "",
     resolver: zodResolver(sweetSchema),
@@ -162,7 +160,7 @@ const SweetForm = () => {
             type="text"
           />
           {errors.sweetName?.message && (
-            <ErrorMessage error={errors.sweetName?.message} />
+            <ErrorMessage error={errors.sweetName} />
           )}
         </div>
         <div className={classes.form__container__item}>
@@ -173,7 +171,7 @@ const SweetForm = () => {
             type="number"
           />
           {errors.sweetQuantity?.message && (
-            <ErrorMessage error={errors.sweetQuantity?.message} />
+            <ErrorMessage error={errors.sweetQuantity} />
           )}
         </div>
         {ingredientsObject.map((ingredient, index) => (
@@ -193,10 +191,9 @@ const SweetForm = () => {
               type="text"
             />
             {errors.ingredients?.[index]?.ingredientName?.message && (
-              <ErrorMessage
-                error={errors.ingredients?.[index]?.ingredientName}
-                index={index}
-              />
+              <small>
+                {errors.ingredients?.[index]?.ingredientName.message}
+              </small>
             )}
             <label className={classes.margin__top} htmlFor="MeasureUnit">
               {t("measureUnit")}
@@ -210,10 +207,7 @@ const SweetForm = () => {
               type="text"
             />
             {errors.ingredients?.[index]?.measureUnit?.message && (
-              <ErrorMessage
-                error={errors.ingredients?.[index]?.measureUnit}
-                index={index}
-              />
+              <small>{errors.ingredients?.[index]?.measureUnit.message}</small>
             )}
             <label className={classes.margin__top} htmlFor="Amount">
               {t("amount")}
@@ -229,10 +223,9 @@ const SweetForm = () => {
               type="number"
             />
             {errors.ingredients?.[index]?.amount?.message && (
-              <ErrorMessage
-                error={errors.ingredients?.[index]?.amount}
-                index={index}
-              />
+              <div>
+                <p>{errors.ingredients?.[index]?.amount.message}</p>
+              </div>
             )}
             {index !== 0 && (
               <button
@@ -284,6 +277,7 @@ const SweetForm = () => {
         <div className={classes.form__container__item}>
           <label htmlFor="Image">{t("cover")}</label>
           <input
+            className={classes.form__container__item__image__input}
             onChange={(event) => {
               const file = event.target.files[0];
               setFile(file);

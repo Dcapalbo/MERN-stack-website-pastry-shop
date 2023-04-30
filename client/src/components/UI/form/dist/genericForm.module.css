@@ -189,18 +189,25 @@ h6 {
 .primary__button {
   background-color: #f3e8eb;
   color: #8d2a46;
+  width: fit-content;
+  padding: 5px 20px;
+  transition: 0.2s;
   font-size: 18px;
-  transition: 1s;
   height: 45px;
-  width: 130px;
   border: 1px;
 }
 .primary__button:hover, .primary__button:active, .primary__button:focus {
   background-color: #d27b7b;
   border-radius: 10px;
   color: #f3e8eb;
+  transition: 0.2s;
   cursor: pointer;
-  transition: 1s;
+}
+@media (max-width: 576px) {
+  .primary__button {
+    padding: 5px 5px;
+    width: 160px;
+  }
 }
 
 .generic__margin__top {
@@ -242,9 +249,11 @@ h6 {
   margin-bottom: 20px;
   text-align: center;
 }
-.form__container small {
+.form__container small,
+.form__container p {
   color: #fd2a2a;
   text-align: center;
+  margin-bottom: 10px;
   width: 100%;
 }
 .form__container .form__container__item {
@@ -262,6 +271,18 @@ h6 {
 }
 .form__container .form__container__item a:hover {
   color: #fd2a2a;
+}
+.form__container .form__container__item .form__container__item__image__input[type=file] {
+  background-color: #f3e8eb;
+  transition: 0.2s;
+  cursor: pointer;
+  height: 45px;
+  width: 100%;
+}
+.form__container .form__container__item .form__container__item__image__input[type=file]:hover {
+  background-color: #d27b7b;
+  color: #fd2a2a;
+  transition: 0.2s;
 }
 .form__container .form__container__item:last-child {
   justify-content: center;

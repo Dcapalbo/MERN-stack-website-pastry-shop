@@ -190,9 +190,9 @@ h6 {
   background-color: #f3e8eb;
   color: #8d2a46;
   width: fit-content;
-  padding: 5px 10px;
+  padding: 5px 20px;
+  transition: 0.2s;
   font-size: 18px;
-  transition: 1s;
   height: 45px;
   border: 1px;
 }
@@ -200,8 +200,14 @@ h6 {
   background-color: #d27b7b;
   border-radius: 10px;
   color: #f3e8eb;
+  transition: 0.2s;
   cursor: pointer;
-  transition: 1s;
+}
+@media (max-width: 576px) {
+  .primary__button {
+    padding: 5px 5px;
+    width: 160px;
+  }
 }
 
 .generic__margin__top {

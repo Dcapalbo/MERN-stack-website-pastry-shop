@@ -29,9 +29,11 @@
     margin-bottom: 20px;
     text-align: center;
   }
-  small {
+  small,
+  p {
     color: $errorColor;
     text-align: center;
+    margin-bottom: 10px;
     width: 100%;
   }
   .form__container__item {
@@ -47,6 +49,18 @@
       cursor: pointer;
       &:hover {
         color: $errorColor;
+      }
+    }
+    .form__container__item__image__input[type="file"] {
+      background-color: $thirdColor;
+      transition: 0.2s;
+      cursor: pointer;
+      height: 45px;
+      width: 100%;
+      &:hover {
+        background-color: $fourthColor;
+        color: $errorColor;
+        transition: 0.2s;
       }
     }
   }

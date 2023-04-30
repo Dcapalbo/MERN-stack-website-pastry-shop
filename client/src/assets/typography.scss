@@ -177,9 +177,9 @@ h6 {
   background-color: $thirdColor;
   color: $firstColor;
   width: fit-content;
-  padding: 5px 10px;
+  padding: 5px 20px;
+  transition: 0.2s;
   font-size: 18px;
-  transition: 1s;
   height: 45px;
   border: 1px;
   &:hover,
@@ -188,8 +188,12 @@ h6 {
     background-color: $fourthColor;
     border-radius: 10px;
     color: $thirdColor;
+    transition: 0.2s;
     cursor: pointer;
-    transition: 1s;
+  }
+  @media (max-width: $screen-sm-min) {
+    padding: 5px 5px;
+    width: 160px;
   }
 }
 
