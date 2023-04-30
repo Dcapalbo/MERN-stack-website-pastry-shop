@@ -64,22 +64,22 @@ const Aside = () => {
             classes.auth__aside__generic__color
           }
         >
-          <Link to={"/home"}>{t("home")}</Link>
+          <Link to="/">{t("home")}</Link>
         </li>
         <li className={classes.auth__aside__generic__color}>
-          <Link to={"/about"}>{t("about")}</Link>
+          <Link to="/about">{t("about")}</Link>
         </li>
         <li className={classes.auth__aside__generic__color}>
-          <Link to={"/admin/sweets"}>{t("sweetsList")}</Link>
+          <Link to="/admin/sweets">{t("sweetsList")}</Link>
         </li>
         <li className={classes.auth__aside__generic__color}>
-          <Link to={"/admin/add-new-sweet"}>{t("addSweet")}</Link>
+          <Link to="/admin/add-new-sweet">{t("addSweet")}</Link>
         </li>
         <li className={classes.auth__aside__generic__color}>
-          <Link to={"/sign-up"}>{t("signUp")}</Link>
+          <Link to="/sign-up">{t("signUp")}</Link>
         </li>
         <li className={classes.auth__aside__generic__color}>
-          <Link to={"/login"}>{t("login")}</Link>
+          <Link to="/login">{t("login")}</Link>
         </li>
         <li className={classes.auth__aside__generic__color}>
           <Link to="/forgot-password">{t("forgotPassword")}</Link>

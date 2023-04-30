@@ -48,7 +48,6 @@ var translationIt = {
   filterOptions: {
     all: "Tutti",
     cakes: "Torte",
-    breads: "Pane",
     biscuits: "Biscotti",
     tarts: "Crostate",
     glutenFree: "Senza Glutine",

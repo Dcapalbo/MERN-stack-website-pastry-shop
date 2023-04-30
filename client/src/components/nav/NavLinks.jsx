@@ -1,13 +1,13 @@
 import { faFlag, faFlagUsa, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { dataUserActions } from "../../store/data-user-slice";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import classes from "./navLinks.module.scss";
 import { isAuth } from "../../utils/isAuth";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate, useNavigate } from "react-router-dom";
 import i18n from "i18next";
-import { dataUserActions } from "../../store/data-user-slice";
 
 const NavLinks = () => {
   const { t } = useTranslation();
@@ -42,7 +42,7 @@ const NavLinks = () => {
         </li>
       )}
       <li>
-        <Link to="/home">{t("home")}</Link>
+        <Link to="/">{t("home")}</Link>
       </li>
       <li>
         <Link to="/about">{t("about")}</Link>

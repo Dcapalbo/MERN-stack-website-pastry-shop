@@ -50,3 +50,30 @@
   color: #fff;
   transition: 0.5s;
 }
+
+.accordion__description__image__container {
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  margin: auto;
+  height: 100%;
+  width: 60%;
+}
+.accordion__description__image__container .accordion__image {
+  border-radius: 10px;
+  object-fit: cover;
+  margin-top: 30px;
+  height: 100%;
+  width: 100%;
+}
+@media (max-width: 992px) {
+  .accordion__description__image__container {
+    width: 80%;
+  }
+}
+@media (max-width: 576px) {
+  .accordion__description__image__container {
+    width: 100%;
+  }
+}

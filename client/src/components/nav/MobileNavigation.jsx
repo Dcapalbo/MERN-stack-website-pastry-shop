@@ -1,5 +1,6 @@
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import logo from "../../assets/img/logo_transparent.jpeg";
 import classes from "./mobileNavigation.module.scss";
 import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
@@ -38,10 +39,10 @@ const MobileNavigation = () => {
       }
     >
       {!isOpen && (
-        <Link to="/home">
+        <Link to="/">
           <img
             className={classes.brand__logo}
-            src={""}
+            src={logo}
             alt="logo pastry"
             title="logo pastry"
           />

@@ -48,7 +48,6 @@ var translationEn = {
   filterOptions: {
     all: "All",
     cakes: "Cakes",
-    breads: "Bread",
     biscuits: "Biscuits",
     tarts: "Tarts",
     glutenFree: "Gluten free",

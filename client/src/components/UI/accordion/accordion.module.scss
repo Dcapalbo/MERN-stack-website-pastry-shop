@@ -45,7 +45,28 @@
   }
 }
 
+// extra style
 .active {
   color: #fff;
   transition: 0.5s;
+}
+
+.accordion__description__image__container {
+  @include flex-center;
+  margin: auto;
+  height: 100%;
+  width: 60%;
+  .accordion__image {
+    border-radius: 10px;
+    object-fit: cover;
+    margin-top: 30px;
+    height: 100%;
+    width: 100%;
+  }
+  @media (max-width: $screen-lg-min) {
+    width: 80%;
+  }
+  @media (max-width: $screen-sm-min) {
+    width: 100%;
+  }
 }

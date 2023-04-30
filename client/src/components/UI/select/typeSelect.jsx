@@ -13,10 +13,6 @@ const TypeSelect = (props) => {
       label: t("filterOptions.cakes"),
     },
     {
-      value: t("filterOptions.breads"),
-      label: t("filterOptions.breads"),
-    },
-    {
       value: t("filterOptions.biscuits"),
       label: t("filterOptions.biscuits"),
     },

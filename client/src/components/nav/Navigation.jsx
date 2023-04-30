@@ -1,15 +1,16 @@
-import { Link } from "react-router-dom";
+import logo from "../../assets/img/logo_transparent.jpeg";
 import classes from "./navigation.module.scss";
+import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import React from "react";
 
 const Navigation = () => {
   return (
     <nav className={classes.navigation}>
-      <Link to="/home">
+      <Link to="/">
         <img
           className={classes.brand__logo}
-          src={""}
+          src={logo}
           alt="logo pastry"
           title="logo pastry"
         />
