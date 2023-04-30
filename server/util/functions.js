@@ -50,7 +50,7 @@ function calculateSweetPrices(sweets) {
       sweetName: sweet.sweetName,
       sweetQuantity: sweet.sweetQuantity,
       price: sweet.price,
-      discountedPrice,
+      discountedPrice: discountedPrice.toFixed(2),
       description: sweet.description,
       category: sweet.category,
       imageUrl: sweet.imageUrl,
