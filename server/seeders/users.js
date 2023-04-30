@@ -6,7 +6,7 @@ require("dotenv").config();
 // Define the users to seed
 const users = [
   {
-    name: "Domenico",
+    name: "Laura",
     email: "capalbodomenico@gmail.com",
     password: "Domenico03",
   },
@@ -21,7 +21,7 @@ const users = [
 const seedUsers = async () => {
   try {
     // Connect to the database
-    await mongoose.connect(
+    mongoose.connect(
       `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}${process.env.MONGO_CLUSTER}.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`,
       {
         useNewUrlParser: true,

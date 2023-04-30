@@ -6,90 +6,112 @@ require("dotenv").config();
 // Define the sweets to seed
 const sweets = [
   {
-    sweetName: "The Shawshank Redemption",
+    sweetName: "Torta di mele",
+    sweetQuantity: 7,
     ingredients: [
+      { ingredientName: "Mele", measureUnit: "gr", amount: 500 },
+      { ingredientName: "Cannella", measureUnit: "gr", amount: 10 },
+      { ingredientName: "Crosta di tora", measureUnit: "gr", amount: 200 },
+    ],
+    price: 11,
+    description: "Una torta di mele classica con un pizzico di cannella",
+    category: "torte",
+    slug: "torta-di-mele",
+    imageUrl: {
+      data: readImageData("../images/cake.jpg"),
+      contentType: getContentType(".jpg"),
+    },
+    createdAt: new Date(Date.now() - 24 * 60 * 60 * 1000),
+  },
+  {
+    sweetName: "Biscotti alla nocciola",
+    sweetQuantity: 7,
+    ingredients: [
+      { ingredientName: "Farina", measureUnit: "gr", amount: 200 },
+      { ingredientName: "Zucchero di canna", measureUnit: "gr", amount: 100 },
+      { ingredientName: "Burro", measureUnit: "gr", amount: 100 },
+      { ingredientName: "Nocciole tritate", measureUnit: "gr", amount: 100 },
+      { ingredientName: "Uova", measureUnit: "gr", amount: 50 },
+    ],
+    price: 8,
+    description: "Una torta di mele classica con un pizzico di cannella",
+    category: "biscotti",
+    slug: "biscotti-alla-nocciola",
+    imageUrl: {
+      data: readImageData("../images/biscuit.jpg"),
+      contentType: getContentType(".jpg"),
+    },
+    createdAt: new Date(),
+  },
+  {
+    sweetName: "Torta al mirtillo",
+    sweetQuantity: 15,
+    ingredients: [
+      { ingredientName: "Floro", measureUnit: "gr", amount: 150 },
+      { ingredientName: "Zucchero", measureUnit: "gr", amount: 100 },
+      { ingredientName: "Mirtilli", measureUnit: "gr", amount: 200 },
+    ],
+    price: 12,
+    description: "Torta al mirtillo",
+    category: "Senza glutine",
+    slug: "torta-al-mirtillo",
+    imageUrl: {
+      data: readImageData("../images/senza_glutine.jpg"),
+      contentType: getContentType(".jpg"),
+    },
+    createdAt: new Date(Date.now() - 48 * 60 * 60 * 1000),
+  },
+  {
+    sweetName: "Crostata alla frutta",
+    sweetQuantity: 22,
+    ingredients: [
+      { ingredientName: "Floro", measureUnit: "gr", amount: 150 },
+      { ingredientName: "Zucchero", measureUnit: "gr", amount: 100 },
+      { ingredientName: "Mirtilli", measureUnit: "gr", amount: 200 },
+    ],
+    price: 12,
+    description: "Crostata alla frutta, con frutti di bosco e fragole",
+    category: "crostate",
+    slug: "crostata-alla-frutta",
+    imageUrl: {
+      data: readImageData("../images/senza_glutine.jpg"),
+      contentType: getContentType(".jpg"),
+    },
+    createdAt: new Date(Date.now() - 48 * 60 * 60 * 1000),
+  },
+  {
+    sweetName: "Torta senza lattosio",
+    sweetQuantity: 7,
+    ingredients: [
+      { ingredientName: "Farina", measureUnit: "gr", amount: 200 },
+      { ingredientName: "Fecola di patate", measureUnit: "gr", amount: 100 },
+      { ingredientName: "Uova", measureUnit: "gr", amount: 200 },
       {
-        ingredientName: "water",
-        measureUnit: "100 ml",
+        ingredientName: "Olio di semi di girasole",
+        measureUnit: "gr",
+        amount: 100,
       },
       {
-        ingredientName: "coffe",
-        measureUnit: "50 gr",
-      },
-      {
-        ingredientName: "meat",
-        measureUnit: "100 gr",
+        ingredientName: "lievito per dolci",
+        measureUnit: "gr",
+        amount: 30,
       },
     ],
-    production: "Castle Rock Entertainment",
-    screenwriter: "Frank Darabont",
-    directorOfPhotography: "Roger Deakins",
-    synopsis:
-      "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-    duration: 142,
-    year: 1994,
-    type: "Drama",
-    slug: "the-shawshank-redemption",
+    price: 24,
+    description:
+      "Una torta senza lattosio per chi non vuole negarsi i piaceri del dessert",
+    category: "senza lattosio",
+    slug: "torta-senza-lattosio",
     imageUrl: {
-      data: readImageData("../images/image_1.jpg"),
+      data: readImageData("../images/senza_lattosio.jpg"),
       contentType: getContentType(".jpg"),
     },
-  },
-  {
-    title: "The Godfather",
-    director: "Francis Ford Coppola",
-    production: "Paramount Pictures",
-    screenwriter: "Mario Puzo, Francis Ford Coppola",
-    directorOfPhotography: "Gordon Willis",
-    synopsis:
-      "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
-    duration: 175,
-    year: 1972,
-    type: "Crime",
-    slug: "the-godfather",
-    imageUrl: {
-      data: readImageData("../images/image_2.jpg"),
-      contentType: getContentType(".jpg"),
-    },
-  },
-  {
-    title: "The Dark Knight",
-    director: "Christopher Nolan",
-    production: "Warner Bros. Pictures",
-    screenwriter: "Jonathan Nolan, Christopher Nolan",
-    directorOfPhotography: "Wally Pfister",
-    synopsis:
-      "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-    duration: 152,
-    year: 2008,
-    type: "action",
-    slug: "the-dark-knight",
-    imageUrl: {
-      data: readImageData("../images/image_1.jpg"),
-      contentType: getContentType(".jpg"),
-    },
-  },
-  {
-    title: "Forrest Gump",
-    director: "Robert Zemeckis",
-    production: "Paramount Pictures",
-    screenwriter: "Eric Roth",
-    directorOfPhotography: "Don Burgess",
-    synopsis:
-      "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate and other historical events unfold through the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.",
-    duration: 142,
-    year: 1994,
-    type: "drama",
-    slug: "forrest-gump",
-    imageUrl: {
-      data: readImageData("../images/image_2.jpg"),
-      contentType: getContentType(".jpg"),
-    },
+    createdAt: new Date(Date.now() - 72 * 60 * 60 * 1000),
   },
 ];
 
 // Define the seeder function
-const seedFilms = async () => {
+const seedSweets = async () => {
   try {
     // Connect to the database
     mongoose.connect(
