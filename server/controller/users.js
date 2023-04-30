@@ -86,7 +86,7 @@ exports.loginUser = async (req, res) => {
         userId: existingUser._id,
       },
       process.env.JWT_SECRET,
-      { expiresIn: "6h" }
+      { expiresIn: "3h" }
     );
 
     return res.status(200).json({
