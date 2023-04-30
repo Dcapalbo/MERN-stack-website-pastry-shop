@@ -85,7 +85,7 @@ const Sweetsweet = () => {
                           >
                             <>
                               <FontAwesomeIcon icon={faEuroSign} />
-                              <small>{sweet.discountedPrice.toFixed(2)}</small>
+                              <small>{sweet.discountedPrice}</small>
                             </>
                           </div>
                         )}

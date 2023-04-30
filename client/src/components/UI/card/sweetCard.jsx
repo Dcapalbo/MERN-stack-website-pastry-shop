@@ -152,9 +152,7 @@ const SweetCard = (props) => {
         />
       )}
       <div className={classes.card__internal__description}>
-        {props.ingredients && <input hidden id={props.ingredients} />}
         {props.description && <p>{props.description}</p>}
-        {props.slug && <input hidden id={props.slug} />}
         {props._id && <input hidden id={props._id} />}
       </div>
       {props.sweetName && <h2>{props.sweetName}</h2>}
@@ -182,7 +180,7 @@ const SweetCard = (props) => {
               {props.discountedPrice && (
                 <>
                   <FontAwesomeIcon icon={faEuroSign} />
-                  <small>{props.discountedPrice.toFixed(2)}</small>
+                  <small>{props.discountedPrice}</small>
                 </>
               )}
             </div>
