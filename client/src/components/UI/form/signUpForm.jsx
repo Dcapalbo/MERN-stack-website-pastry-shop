@@ -1,7 +1,6 @@
 import { dataUserActions } from "../../../store/data-user-slice";
 import { signUpSchema } from "../../../schema/signUpSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import PuffLoader from "react-spinners/PuffLoader";
 import classes from "./genericForm.module.scss";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
+import LoadingSpinner from "../spinner/loadingSpinner";
 
 const SignUpForm = () => {
   const { register, handleSubmit, formState } = useForm({
@@ -81,19 +81,7 @@ const SignUpForm = () => {
           </button>
         </div>
         {error && <small>{t("errors.signUp")}</small>}
-        {isLoading && (
-          <PuffLoader
-            style={{
-              display: "inherit",
-              position: "relative",
-              width: "100px",
-              height: "100px",
-              margin: "auto",
-            }}
-            color={"#d27b7b"}
-            size={100}
-          />
-        )}
+        {isLoading && <LoadingSpinner />}
       </form>
     </section>
   );

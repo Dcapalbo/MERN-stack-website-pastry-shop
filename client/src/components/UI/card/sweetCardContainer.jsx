@@ -1,11 +1,11 @@
 import StateGetHook from "../../../hooks/stateGetHook";
 import base64ArrayBuffer from "../../../utils/base64";
-import PuffLoader from "react-spinners/PuffLoader";
 import classes from "./cardContainer.module.scss";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import SweetCard from "./sweetCard";
+import LoadingSpinner from "../spinner/loadingSpinner";
 
 const SweetCardContainer = () => {
   const { t } = useTranslation();
@@ -33,19 +33,7 @@ const SweetCardContainer = () => {
   }, [sweets, sweetCategory]);
 
   if (loading) {
-    return (
-      <PuffLoader
-        style={{
-          display: "inherit",
-          position: "relative",
-          width: "100px",
-          height: "100px",
-          margin: "auto",
-        }}
-        color={"#d27b7b"}
-        size={100}
-      />
-    );
+    return <LoadingSpinner />;
   } else if (error) {
     return (
       <h1 className={classes.text__align__center}>

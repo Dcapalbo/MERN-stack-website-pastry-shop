@@ -1,10 +1,10 @@
 import { faEuroSign, faTag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import PuffLoader from "react-spinners/PuffLoader";
 import classes from "./detailSweet.module.scss";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import React from "react";
+import LoadingSpinner from "../spinner/loadingSpinner";
 
 const Sweetsweet = () => {
   const sweet = useSelector((state) => state.dataSweets.sweetData);
@@ -21,19 +21,7 @@ const Sweetsweet = () => {
   }, [sweet]);
 
   if (loading) {
-    return (
-      <PuffLoader
-        style={{
-          display: "inherit",
-          position: "relative",
-          width: "100px",
-          height: "100px",
-          margin: "auto",
-        }}
-        color={"#d27b7b"}
-        size={100}
-      />
-    );
+    return <LoadingSpinner />;
   } else if (error) {
     return (
       <h1 className={classes.text__align__center}>

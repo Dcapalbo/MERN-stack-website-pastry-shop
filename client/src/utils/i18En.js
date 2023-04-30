@@ -40,6 +40,7 @@ const translationEn = {
   signInAction: "Sign in",
   createAccount: "Create account",
   modifySweetCard: "Modify sweet",
+  modifyQuantity: "Modify quantity",
   deleteSweetCard: "Delete sweet",
   filterSweets: "Filter the sweets by category",
   filterOptions: {

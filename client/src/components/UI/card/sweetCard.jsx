@@ -8,7 +8,6 @@ import {
 import { dataSweetActions } from "../../../store/data-sweet-slice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
-import PuffLoader from "react-spinners/PuffLoader";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { isAuth } from "../../../utils/isAuth";
@@ -16,6 +15,7 @@ import { useState, useEffect } from "react";
 import classes from "./card.module.scss";
 import axios from "axios";
 import React from "react";
+import LoadingSpinner from "../spinner/loadingSpinner";
 
 const SweetCard = (props) => {
   const { t } = useTranslation();
@@ -48,9 +48,6 @@ const SweetCard = (props) => {
         sweetName: props.sweetName,
         sweetQuantity: props.sweetQuantity,
         ingredients: props.ingredients,
-        // ingredientName: props.ingredientName,
-        // measureUnit: props.measureUnit,
-        // amount: props.amount.toString(),
         price: props.price,
         description: props.description,
         category: props.category,
@@ -69,9 +66,6 @@ const SweetCard = (props) => {
         ingredients: props.ingredients,
         price: props.price,
         discountedPrice: props.discountedPrice,
-        // ingredientName: props.ingredientName,
-        // measureUnit: props.measureUnit,
-        // amount: props.amount,
         description: props.description,
         category: props.category,
         imageUrl: props.imageUrl,
@@ -238,24 +232,12 @@ const SweetCard = (props) => {
               </button>
             </div>
             <button onClick={modifySweetQuantity} className={classes.card__cta}>
-              Modifica quantità
+              {t("modifyQuantity")}
             </button>
           </div>
         </>
       )}
-      {isLoading && (
-        <PuffLoader
-          style={{
-            display: "inherit",
-            position: "relative",
-            width: "100px",
-            height: "100px",
-            margin: "auto",
-          }}
-          color={"#d27b7b"}
-          size={100}
-        />
-      )}
+      {isLoading && <LoadingSpinner />}
       {errorDelete && (
         <small className={classes.error}>{t("errors.errorSweetDelete")}</small>
       )}

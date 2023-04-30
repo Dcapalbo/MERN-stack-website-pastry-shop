@@ -40,6 +40,7 @@ const translationIt = {
   signInAction: "Accedi",
   createAccount: "Crea account",
   modifySweetCard: "Modifica dolce",
+  modifyQuantity: "Modifica quantità",
   deleteSweetCard: "Elimina dolce",
   filterSweets: "Filtra i dolci per categoria",
   filterOptions: {

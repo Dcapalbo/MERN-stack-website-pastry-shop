@@ -1,14 +1,14 @@
 import { dataUserActions } from "../../../store/data-user-slice";
 import { loginSchema } from "../../../schema/loginSchema";
+import { useDispatch, useSelector } from "react-redux";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
-import PuffLoader from "react-spinners/PuffLoader";
-import { useTranslation } from "react-i18next";
 import classes from "./genericForm.module.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
+import LoadingSpinner from "../spinner/loadingSpinner";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -94,19 +94,7 @@ const LoginForm = () => {
           </button>
         </div>
         {error && <small>{t("errors.login")}</small>}
-        {isLoading && (
-          <PuffLoader
-            style={{
-              display: "inherit",
-              position: "relative",
-              width: "100px",
-              height: "100px",
-              margin: "auto",
-            }}
-            color={"#d27b7b"}
-            size={100}
-          />
-        )}
+        {isLoading && <LoadingSpinner />}
       </form>
     </section>
   );

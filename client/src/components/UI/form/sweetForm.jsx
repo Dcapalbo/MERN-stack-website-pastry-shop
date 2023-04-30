@@ -4,7 +4,6 @@ import { sweetSchema } from "../../../schema/sweetSchema";
 import { slugCreation } from "../../../utils/functions";
 import { useDispatch, useSelector } from "react-redux";
 import { zodResolver } from "@hookform/resolvers/zod";
-import PuffLoader from "react-spinners/PuffLoader";
 import classes from "./genericForm.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -12,6 +11,7 @@ import TypeSelect from "../select/typeSelect";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
+import LoadingSpinner from "../spinner/loadingSpinner";
 
 const SweetForm = () => {
   const { t } = useTranslation();
@@ -310,19 +310,7 @@ const SweetForm = () => {
             )
           )}
         </div>
-        {isLoading && (
-          <PuffLoader
-            style={{
-              display: "inherit",
-              position: "relative",
-              width: "100px",
-              height: "100px",
-              margin: "auto",
-            }}
-            color={"#d27b7b"}
-            size={100}
-          />
-        )}
+        {isLoading && <LoadingSpinner />}
       </form>
     </section>
   );
