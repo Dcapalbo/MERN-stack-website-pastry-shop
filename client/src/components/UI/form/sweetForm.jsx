@@ -4,6 +4,8 @@ import { sweetSchema } from "../../../schema/sweetSchema";
 import { slugCreation } from "../../../utils/functions";
 import { useDispatch, useSelector } from "react-redux";
 import { zodResolver } from "@hookform/resolvers/zod";
+import LoadingSpinner from "../spinner/loadingSpinner";
+import ErrorMessage from "../errorMessage/errorMessage";
 import classes from "./genericForm.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -11,7 +13,6 @@ import TypeSelect from "../select/typeSelect";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
-import LoadingSpinner from "../spinner/loadingSpinner";
 
 const SweetForm = () => {
   const { t } = useTranslation();
@@ -161,7 +162,7 @@ const SweetForm = () => {
             type="text"
           />
           {errors.sweetName?.message && (
-            <small>{errors.sweetName?.message}</small>
+            <ErrorMessage error={errors.sweetName?.message} />
           )}
         </div>
         <div className={classes.form__container__item}>
@@ -172,7 +173,7 @@ const SweetForm = () => {
             type="number"
           />
           {errors.sweetQuantity?.message && (
-            <small>{errors.sweetQuantity?.message}</small>
+            <ErrorMessage error={errors.sweetQuantity?.message} />
           )}
         </div>
         {ingredientsObject.map((ingredient, index) => (
@@ -192,9 +193,10 @@ const SweetForm = () => {
               type="text"
             />
             {errors.ingredients?.[index]?.ingredientName?.message && (
-              <small>
-                {errors.ingredients?.[index]?.ingredientName?.message}
-              </small>
+              <ErrorMessage
+                error={errors.ingredients?.[index]?.ingredientName}
+                index={index}
+              />
             )}
             <label className={classes.margin__top} htmlFor="MeasureUnit">
               {t("measureUnit")}
@@ -208,7 +210,10 @@ const SweetForm = () => {
               type="text"
             />
             {errors.ingredients?.[index]?.measureUnit?.message && (
-              <small>{errors.ingredients?.[index]?.measureUnit?.message}</small>
+              <ErrorMessage
+                error={errors.ingredients?.[index]?.measureUnit}
+                index={index}
+              />
             )}
             <label className={classes.margin__top} htmlFor="Amount">
               {t("amount")}
@@ -224,7 +229,10 @@ const SweetForm = () => {
               type="number"
             />
             {errors.ingredients?.[index]?.amount?.message && (
-              <small>{errors.ingredients?.[index]?.amount?.message}</small>
+              <ErrorMessage
+                error={errors.ingredients?.[index]?.amount}
+                index={index}
+              />
             )}
             {index !== 0 && (
               <button
@@ -255,7 +263,7 @@ const SweetForm = () => {
             })}
             type="number"
           />
-          {errors.price?.message && <small>{errors.price?.message}</small>}
+          {errors.price?.message && <ErrorMessage error={errors.price} />}
         </div>
         <div className={classes.form__container__item}>
           <label htmlFor="Description">{t("description")}</label>
@@ -265,15 +273,13 @@ const SweetForm = () => {
             type="text"
           ></textarea>
           {errors.description?.message && (
-            <small>{errors.description?.message}</small>
+            <ErrorMessage error={errors.description} />
           )}
         </div>
         <div className={classes.form__container__item}>
           <label htmlFor="Category">{t("category")}</label>
           <TypeSelect onChange={handleSelectChange} value={field.value} />
-          {errors.category?.message && (
-            <small>{errors.category?.message}</small>
-          )}
+          {errors.category?.message && <ErrorMessage error={errors.category} />}
         </div>
         <div className={classes.form__container__item}>
           <label htmlFor="Image">{t("cover")}</label>

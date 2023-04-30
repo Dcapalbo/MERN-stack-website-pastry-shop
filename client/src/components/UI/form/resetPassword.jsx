@@ -8,6 +8,7 @@ import { useState } from "react";
 import axios from "axios";
 import React from "react";
 import LoadingSpinner from "../spinner/loadingSpinner";
+import ErrorMessage from "../errorMessage/errorMessage";
 
 const ResetPassword = () => {
   const { t } = useTranslation();
@@ -57,13 +58,13 @@ const ResetPassword = () => {
           <label htmlFor="Password">{t("password")}</label>
           <input {...register("password")} type="password" />
         </div>
-        {errors.password?.message && <small>{errors.password?.message}</small>}
+        {errors.password?.message && <ErrorMessage error={errors.password} />}
         <div className={classes.form__container__item}>
           <label htmlFor="confirmPassword">{t("confirmPassword")}</label>
           <input {...register("confirmPassword")} type="password" />
         </div>
         {errors.confirmPassword?.message && (
-          <small>{errors.confirmPassword?.message}</small>
+          <ErrorMessage error={errors.confirmPassword} />
         )}
         <div className={classes.form__container__item}>
           <button className={classes.primary__button} type="submit">

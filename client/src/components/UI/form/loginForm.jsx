@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
+import ErrorMessage from "../errorMessage/errorMessage";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -69,19 +70,19 @@ const LoginForm = () => {
           <h4>{t("labels.loginLabel")}</h4>
           <label htmlFor="Email">{t("genericInfo.email")}</label>
           <input {...register("email")} type="email" />
-          {errors.email?.message && <small>{errors.email?.message}</small>}
+          {errors.email?.message && <ErrorMessage error={errors.email} />}
         </div>
         <div className={classes.form__container__item}>
           <label htmlFor="Password">{t("password")}</label>
           <input {...register("password")} type="password" />
         </div>
-        {errors.password?.message && <small>{errors.password?.message}</small>}
+        {errors.password?.message && <ErrorMessage error={errors.password} />}
         <div className={classes.form__container__item}>
           <label htmlFor="confirmPassword">{t("confirmPassword")}</label>
           <input {...register("confirmPassword")} type="password" />
         </div>
         {errors.confirmPassword?.message && (
-          <small>{errors.confirmPassword?.message}</small>
+          <ErrorMessage error={errors.confirmPassword} />
         )}
         {isLoggedIn && (
           <div className={classes.form__container__item}>

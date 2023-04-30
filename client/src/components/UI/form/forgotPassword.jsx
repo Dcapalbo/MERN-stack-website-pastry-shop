@@ -7,6 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 import React from "react";
 import LoadingSpinner from "../spinner/loadingSpinner";
+import ErrorMessage from "../errorMessage/errorMessage";
 
 const ForgotPassword = () => {
   const { t } = useTranslation();
@@ -53,7 +54,7 @@ const ForgotPassword = () => {
           <h4>{t("labels.emailLabel")}</h4>
           <label htmlFor="Email">{t("genericInfo.email")}</label>
           <input {...register("email")} type="email" />
-          {errors.email?.message && <small>{errors.email?.message}</small>}
+          {errors.email?.message && <ErrorMessage error={errors.email} />}
         </div>
         {resetMessage && (
           <div className={classes.form__container__item}>

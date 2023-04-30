@@ -25,7 +25,8 @@ const SweetCardContainer = () => {
       setFilteredSweets(sweets);
       if (sweetCategory) {
         const filteredSweets = sweets.filter(
-          (sweet) => sweet.category === sweetCategory
+          (sweet) =>
+            sweet.category.toLowerCase() === sweetCategory.toLowerCase()
         );
         setFilteredSweets(filteredSweets);
       }

@@ -10,6 +10,7 @@ import { useState } from "react";
 import axios from "axios";
 import React from "react";
 import LoadingSpinner from "../spinner/loadingSpinner";
+import ErrorMessage from "../errorMessage/errorMessage";
 
 const SignUpForm = () => {
   const { register, handleSubmit, formState } = useForm({
@@ -63,18 +64,18 @@ const SignUpForm = () => {
           <h4>{t("labels.signUpLabel")}</h4>
           <label htmlFor="Name">{t("genericInfo.name")}</label>
           <input {...register("name")} type="text" />
-          {errors.name?.message && <small>{errors.name?.message}</small>}
+          {errors.name?.message && <ErrorMessage error={errors.name} />}
         </div>
         <div className={classes.form__container__item}>
           <label htmlFor="Email">{t("genericInfo.email")}</label>
           <input {...register("email")} type="email" />
-          {errors.email?.message && <small>{errors.email?.message}</small>}
+          {errors.email?.message && <ErrorMessage error={errors.email} />}
         </div>
         <div className={classes.form__container__item}>
           <label htmlFor="Password">{t("password")}</label>
           <input {...register("password")} type="password" />
         </div>
-        {errors.password?.message && <small>{errors.password?.message}</small>}
+        {errors.password?.message && <ErrorMessage error={errors.password} />}
         <div className={classes.form__container__item}>
           <button className={classes.primary__button} type="submit">
             {t("createAccount")}
