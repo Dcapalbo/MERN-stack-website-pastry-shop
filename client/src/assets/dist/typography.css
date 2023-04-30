@@ -189,10 +189,11 @@ h6 {
 .primary__button {
   background-color: #f3e8eb;
   color: #8d2a46;
+  width: fit-content;
+  padding: 5px 10px;
   font-size: 18px;
   transition: 1s;
   height: 45px;
-  width: 180px;
   border: 1px;
 }
 .primary__button:hover, .primary__button:active, .primary__button:focus {

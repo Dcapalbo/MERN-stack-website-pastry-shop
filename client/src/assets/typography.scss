@@ -176,10 +176,11 @@ h6 {
 .primary__button {
   background-color: $thirdColor;
   color: $firstColor;
+  width: fit-content;
+  padding: 5px 10px;
   font-size: 18px;
   transition: 1s;
   height: 45px;
-  width: 180px;
   border: 1px;
   &:hover,
   &:active,

@@ -232,7 +232,7 @@ const SweetForm = () => {
                 className={classes.primary__button}
                 type="button"
               >
-                Elimina ingrediente
+                {t("labels.deleteIngredient")}
               </button>
             )}
           </div>
@@ -243,7 +243,7 @@ const SweetForm = () => {
             className={classes.primary__button}
             type="button"
           >
-            Aggiungi ingrediente
+            {t("labels.addIngredient")}
           </button>
         </div>
         <div className={classes.form__container__item}>
