@@ -62,7 +62,9 @@ var translationIt = {
     resetPasswordMessage: "Controlla la tua email dovrebbe esserti arrivato un link per il reset della password",
     emailLabel: "Inserisci la tua email",
     addDbSweet: "Aggiungere un Dolce al database",
-    modifyDbSweet: "Modificare un Dolce del database"
+    modifyDbSweet: "Modificare un Dolce del database",
+    addIngredient: "Aggiungi ingrediente",
+    deleteIngredient: "Elimina ingrediente"
   },
   errors: {
     dbCrud: "Problema nella compilazione del database, effettuare nuovamente la compilazione del form",

@@ -4,12 +4,15 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import classes from "./navLinks.module.scss";
 import { isAuth } from "../../utils/isAuth";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import i18n from "i18next";
+import { dataUserActions } from "../../store/data-user-slice";
 
 const NavLinks = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [tokenExpiration, setTokenExpiration] = useState(() => {});
@@ -22,6 +25,11 @@ const NavLinks = () => {
     setTokenExpiration(isAuth(token));
     setIsAuthenticated(isLoggedIn);
   }, [isLoggedIn, token]);
+
+  const logout = () => {
+    dispatch(dataUserActions.logout());
+    navigate("/login");
+  };
 
   return (
     <ul className={classes.nav__links}>
@@ -46,19 +54,20 @@ const NavLinks = () => {
         <Link to="/login">{t("login")}</Link>
       </li>
       {isAuthenticated && tokenExpiration && (
-        <li>
-          <Link to="/admin/sweets">{t("sweetsList")}</Link>
-        </li>
-      )}
-      {isAuthenticated && tokenExpiration && (
-        <li>
-          <Link to="/admin/add-new-sweet">{t("addSweet")}</Link>
-        </li>
-      )}
-      {isAuthenticated && tokenExpiration && (
-        <li>
-          <Link to="/forgot-password">{t("forgotPassword")}</Link>
-        </li>
+        <>
+          <li>
+            <Link to="/admin/sweets">{t("sweetsList")}</Link>
+          </li>
+          <li>
+            <Link to="/admin/add-new-sweet">{t("addSweet")}</Link>
+          </li>
+          <li>
+            <Link to="/forgot-password">{t("forgotPassword")}</Link>
+          </li>
+          <li>
+            <p onClick={logout}>Logout</p>
+          </li>
+        </>
       )}
       {i18n.language === "it" ? (
         <li>

@@ -61,6 +61,8 @@ const translationIt = {
     emailLabel: "Inserisci la tua email",
     addDbSweet: "Aggiungere un Dolce al database",
     modifyDbSweet: "Modificare un Dolce del database",
+    addIngredient: "Aggiungi ingrediente",
+    deleteIngredient: "Elimina ingrediente",
   },
   errors: {
     dbCrud:

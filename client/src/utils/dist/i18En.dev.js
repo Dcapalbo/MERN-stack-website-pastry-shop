@@ -63,12 +63,8 @@ var translationEn = {
     emailLabel: "Insert your email",
     addDbSweet: "Add a sweet inside the database",
     modifyDbSweet: "Modify a sweet inside the database",
-    vatNumber: "Vat number",
-    pastry: "Pastry",
-    phoneNumber: "Phone number",
-    hours: "Hours of work",
-    monday: "Monday",
-    saturday: "Saturday"
+    addIngredient: "Aggiungi ingrediente",
+    deleteIngredient: "Elimina ingrediente"
   },
   errors: {
     dbCrud: "Problem during the compilation of the database, try to fill the form again",
@@ -79,6 +75,14 @@ var translationEn = {
     emptySweets: "There are no items for this search, please manually enter them in the section of the Database dedicated to desserts.",
     errorSweetDelete: "Problem during the delete of the single sweet, try again",
     errorSweetQuantity: "Problem during the modify of the quantity of the single sweet, try again"
+  },
+  footer: {
+    vatNumber: "Vat number",
+    pastry: "Pastry",
+    phoneNumber: "Phone number",
+    hours: "Hours of work",
+    monday: "Monday",
+    saturday: "Saturday"
   }
 };
 exports.translationEn = translationEn;

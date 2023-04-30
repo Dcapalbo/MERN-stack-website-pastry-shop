@@ -6,12 +6,14 @@
   z-index: 10;
   li {
     color: $fourthColor;
-    a {
+    a,
+    p {
       color: $fourthColor;
       transition: 0.4s;
       &:hover {
         color: $firstColor;
         transition: 0.4s;
+        cursor: pointer;
       }
     }
     svg {

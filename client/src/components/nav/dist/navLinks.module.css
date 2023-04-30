@@ -8,13 +8,16 @@
 .nav__links li {
   color: #d27b7b;
 }
-.nav__links li a {
+.nav__links li a,
+.nav__links li p {
   color: #d27b7b;
   transition: 0.4s;
 }
-.nav__links li a:hover {
+.nav__links li a:hover,
+.nav__links li p:hover {
   color: #8d2a46;
   transition: 0.4s;
+  cursor: pointer;
 }
 .nav__links li svg {
   color: #d27b7b;

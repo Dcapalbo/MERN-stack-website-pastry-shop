@@ -61,12 +61,8 @@ const translationEn = {
     emailLabel: "Insert your email",
     addDbSweet: "Add a sweet inside the database",
     modifyDbSweet: "Modify a sweet inside the database",
-    vatNumber: "Vat number",
-    pastry: "Pastry",
-    phoneNumber: "Phone number",
-    hours: "Hours of work",
-    monday: "Monday",
-    saturday: "Saturday",
+    addIngredient: "Aggiungi ingrediente",
+    deleteIngredient: "Elimina ingrediente",
   },
   errors: {
     dbCrud:
@@ -84,6 +80,14 @@ const translationEn = {
       "Problem during the delete of the single sweet, try again",
     errorSweetQuantity:
       "Problem during the modify of the quantity of the single sweet, try again",
+  },
+  footer: {
+    vatNumber: "Vat number",
+    pastry: "Pastry",
+    phoneNumber: "Phone number",
+    hours: "Hours of work",
+    monday: "Monday",
+    saturday: "Saturday",
   },
 };
 
