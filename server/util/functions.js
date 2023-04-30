@@ -33,15 +33,15 @@ function getContentType(fileExtension) {
 function calculateSweetPrices(sweets) {
   const currentDate = new Date();
   const sweetPrices = sweets.map((sweet) => {
-    const minutesElapsed = Math.floor(
-      (currentDate - sweet.createdAt) / (60 * 1000)
+    const daysElapsed = Math.floor(
+      (currentDate - sweet.createdAt) / (24 * 60 * 60 * 1000)
     );
     let discountedPrice;
-    if (minutesElapsed < 1) {
+    if (daysElapsed < 1) {
       discountedPrice = sweet.price;
-    } else if (minutesElapsed > 3) {
+    } else if (daysElapsed > 3) {
       discountedPrice = sweet.price * 0.8;
-    } else if (minutesElapsed > 10) {
+    } else if (daysElapsed > 10) {
       discountedPrice = sweet.price * 0.2;
     } else {
       discountedPrice = 0;

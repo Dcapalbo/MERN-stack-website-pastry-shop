@@ -1,5 +1,6 @@
 const { validationResult } = require("express-validator");
 const Sweet = require("../model/sweet");
+const cron = require("node-cron");
 const {
   deleteFile,
   calculateSweetPrices,
@@ -7,7 +8,25 @@ const {
 } = require("../util/functions");
 const path = require("path");
 const fs = require("fs");
-const { log } = require("console");
+
+// Running a cron schedule every day at midnight to control what sweets have finished their life cycle
+cron.schedule("0 0 * * *", async () => {
+  try {
+    // Get all sweets older than 4 days
+    const date = new Date();
+    date.setDate(date.getDate() - 4);
+    const sweetsToDelete = await Sweet.find({ createdAt: { $lt: date } });
+
+    // Delete the sweets
+    for (const sweet of sweetsToDelete) {
+      await sweet.remove();
+    }
+
+    console.log(`Deleted ${sweetsToDelete.length} sweets`);
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 // GET => Getting all sweets and calculate the discount of them all
 exports.getSweets = async (req, res) => {
