@@ -77,6 +77,8 @@ const translationIt = {
       "Non ci sono elementi per questa ricerca, inserirli manualmente presso la sezione del Database dedicata ai dolci",
     errorSweetDelete:
       "Problema nell' eliminazione del singolo dolce, riprovare",
+    errorSweetQuantity:
+      "Problema nella modifica della quantità del singolo dolce, riprovare",
   },
   footer: {
     vatNumber: "Partita iva",

@@ -10,38 +10,48 @@ var _zod = require("zod");
 var sweetSchema = _zod.z.object({
   sweetName: _zod.z.string().min(3, {
     message: "Il nome del dolce deve contenere almeno 3 caratteri"
-  }).max(25, {
+  }).max(40, {
     message: "il nome del dolce non deve contenere più di 25 caratteri"
   }),
-  sweetQuantity: _zod.z.number().min(1, {
+  sweetQuantity: _zod.z.number().positive({
+    message: "il numero deve essere superiore allo 0"
+  }).min(1, {
     message: "La quantità del dolce deve essere di almeno 1 unità"
   }).max(99, {
-    message: "Non si possono aggiungere più di 99 unità"
+    message: "La quantità del dolce non può essere superiore a 99"
   }),
-  ingredientName: _zod.z.string().nonempty({
-    meesage: "inserire il nome dell'ingrediente"
-  }).min(3, {
-    message: "Il nome dell'ingrediente deve contenere almeno 3 caratteri"
-  }).max(25, {
-    message: "Il nome dell'ingrediente non deve contenere più di 25 caratteri"
-  }),
-  measureUnit: _zod.z.string().min(2, {
-    message: "la sigla dell'unità di misura deve contenere almeno 2 caratteri: esempio (gr, cl, ml)"
-  }).max(2, {
-    message: "la sigla dell'unità di misura non deve contenere più di 2 caratteri: esempio (gr, cl, ml)"
-  }),
-  amount: _zod.z.number().min(1, {
-    message: "indicare la quantità dell'ingrediente in numeri, minimo 1 numero"
-  }).max(4, {
-    message: "indicare la quantità dell'ingrediente in numeri, massimo 5 numeri"
-  }),
-  price: _zod.z.number().min(2, {
-    message: "il prezzo deve essere di almeno due cifre"
-  }).max(5, {
-    message: "il prezzo deve essere composto da massimo 5 cifre"
+  ingredients: _zod.z.array(_zod.z.object({
+    ingredientName: _zod.z.string().min(3, {
+      message: "Il nome dell'ingrediente deve contenere almeno 3 caratteri"
+    }).max(20, {
+      message: "Il nome dell'ingrediente non deve contenere più di 20 caratteri"
+    }),
+    measureUnit: _zod.z.string().min(2, {
+      message: "la sigla dell'unità di misura deve contenere almeno 2 caratteri: esempio (gr, cl, ml)"
+    }).max(2, {
+      message: "la sigla dell'unità di misura non deve contenere più di 2 caratteri: esempio (gr, cl, ml)"
+    }).refine(function (val) {
+      return val === "gr" || val === "cl" || val === "ml";
+    }, {
+      message: "la sigla dell'unità di misura deve essere 'gr', 'cl', o 'ml'"
+    }),
+    amount: _zod.z.number().positive({
+      message: "il numero deve essere superiore allo 0"
+    }).min(1, {
+      message: "la quantità dell'ingrediente deve essere di minimo 1"
+    }).max(1000, {
+      message: "la quantità dell'ingrediente deve essere di massimo 1000"
+    })
+  })),
+  price: _zod.z.number().positive({
+    message: "il numero deve essere superiore allo 0"
+  }).min(2, {
+    message: "il prezzo deve essere di almeno 2 cifre"
+  }).max(999, {
+    message: "il prezzo non può essere superiore a 999"
   }),
   description: _zod.z.string().min(10, {
-    message: "la descrizione del prodotto di pasticceria deve essere di almeno 40 caratteri"
+    message: "la descrizione del prodotto di pasticceria deve essere di almeno 10 caratteri"
   }).max(250, {
     message: "la descrizione del prodotto di pasticceria non può superare i 250 caratteri"
   }),

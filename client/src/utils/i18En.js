@@ -82,6 +82,8 @@ const translationEn = {
       "There are no items for this search, please manually enter them in the section of the Database dedicated to desserts.",
     errorSweetDelete:
       "Problem during the delete of the single sweet, try again",
+    errorSweetQuantity:
+      "Problem during the modify of the quantity of the single sweet, try again",
   },
 };
 

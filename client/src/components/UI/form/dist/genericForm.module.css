@@ -278,6 +278,9 @@ h6 {
     padding: 20px 30px;
   }
 }
+.form__container .ingredients input {
+  margin-bottom: 10px;
+}
 
 .generic__padding {
   padding: 50px 0px;
@@ -285,4 +288,8 @@ h6 {
 
 .resetting__padding {
   padding: 0px;
+}
+
+.margin__top {
+  margin: 10px;
 }

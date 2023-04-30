@@ -24,17 +24,12 @@ var loginSchema = _zod.z.object({
     message: "La conferma della password deve contenere almeno 10 caratteri"
   }).max(30, {
     message: "La conferma della password non può contenere più di 30 caratteri"
+  }).refine(function (data) {
+    return data.password === data.confirmPassword;
+  }, {
+    message: "Le password non sono uguali",
+    path: ["confirmPassword"]
   })
-}).superRefine(function (_ref, ctx) {
-  var confirmPassword = _ref.confirmPassword,
-      password = _ref.password;
-
-  if (confirmPassword !== password) {
-    ctx.addIssue({
-      code: "custom",
-      message: "Le password non sono uguali"
-    });
-  }
 });
 
 exports.loginSchema = loginSchema;

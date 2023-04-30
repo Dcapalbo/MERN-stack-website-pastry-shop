@@ -30,8 +30,9 @@ const SweetCard = (props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [newQuantity, setNewQuantity] = useState(0);
 
+  const [errorQuantity, setErrorQuantity] = useState(null);
+  const [errorDelete, setErrorDelete] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     setIsAuthenticated(isLoggedIn);
@@ -45,11 +46,12 @@ const SweetCard = (props) => {
     dispatch(
       dataSweetActions.setSweetData({
         sweetName: props.sweetName,
-        sweetQuantity: props.sweetQuantity.toString(),
+        sweetQuantity: props.sweetQuantity,
+        ingredients: props.ingredients,
         // ingredientName: props.ingredientName,
         // measureUnit: props.measureUnit,
         // amount: props.amount.toString(),
-        price: props.price.toString(),
+        price: props.price,
         description: props.description,
         category: props.category,
         imageUrl: props.imageUrl,
@@ -64,6 +66,7 @@ const SweetCard = (props) => {
       dataSweetActions.setSweetData({
         sweetName: props.sweetName,
         sweetQuantity: props.sweetQuantity,
+        ingredients: props.ingredients,
         price: props.price,
         discountedPrice: props.discountedPrice,
         // ingredientName: props.ingredientName,
@@ -107,7 +110,7 @@ const SweetCard = (props) => {
           err.name
         );
         setIsLoading(false);
-        setError(err);
+        setErrorQuantity(err);
       });
   };
 
@@ -132,7 +135,7 @@ const SweetCard = (props) => {
           err.name
         );
         setIsLoading(false);
-        setError(err);
+        setErrorDelete(err);
       });
   };
 
@@ -155,10 +158,8 @@ const SweetCard = (props) => {
         />
       )}
       <div className={classes.card__internal__description}>
+        {props.ingredients && <input hidden id={props.ingredients} />}
         {props.description && <p>{props.description}</p>}
-        {props.ingredientName && <p>{props.ingredientName}</p>}
-        {props.measureUnit && <p>{props.measureUnit}</p>}
-        {props.amount && <p>{props.amount}</p>}
         {props.slug && <input hidden id={props.slug} />}
         {props._id && <input hidden id={props._id} />}
       </div>
@@ -255,7 +256,14 @@ const SweetCard = (props) => {
           size={100}
         />
       )}
-      {error && <small>{t("errors.errorSweetDelete")}</small>}
+      {errorDelete && (
+        <small className={classes.error}>{t("errors.errorSweetDelete")}</small>
+      )}
+      {errorQuantity && (
+        <small className={classes.error}>
+          {t("errors.errorSweetQuantity")}
+        </small>
+      )}
     </div>
   );
 };

@@ -22,6 +22,7 @@ const Aside = () => {
     );
 
     dispatch(dataSweetActions.setSweetsData(sweets));
+    dispatch(dataSweetActions.resetSweetData());
   }
 
   const userName = useSelector((state) => state.userLogin.userName);

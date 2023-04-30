@@ -28,7 +28,8 @@ var translationEn = {
   },
   password: "Password",
   confirmPassword: "Confirm password",
-  sweetName: "Name of the sweet",
+  sweetName: "Sweet's name",
+  sweetQuantity: "Sweet's quantity",
   ingredientName: "Name of the ingredient",
   measureUnit: "Measure unit of the ingredient",
   amount: "Amount of the ingredient",
@@ -76,7 +77,8 @@ var translationEn = {
     forgotPassword: "Problem during the request of password reset, try to make a new request",
     resetPassword: "Problema during the reset of the password, try to make a new request",
     emptySweets: "There are no items for this search, please manually enter them in the section of the Database dedicated to desserts.",
-    errorSweetDelete: "Problem during the delete of the single sweet, try again"
+    errorSweetDelete: "Problem during the delete of the single sweet, try again",
+    errorSweetQuantity: "Problem during the modify of the quantity of the single sweet, try again"
   }
 };
 exports.translationEn = translationEn;

@@ -152,12 +152,6 @@
     margin: 12px;
   }
 }
-
-.discount__price {
-  text-decoration-color: $errorColor !important;
-  text-decoration: line-through;
-}
-
 .card__cta {
   border: 1px solid $fourthColor;
   background-color: $thirdColor;
@@ -176,4 +170,14 @@
     transition: 0.2s;
     cursor: pointer;
   }
+}
+
+// extra dynamic style
+.discount__price {
+  text-decoration-color: $errorColor !important;
+  text-decoration: line-through;
+}
+
+.error {
+  color: $errorColor;
 }

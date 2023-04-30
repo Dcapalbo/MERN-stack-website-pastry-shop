@@ -168,11 +168,6 @@
   }
 }
 
-.discount__price {
-  text-decoration-color: #fd2a2a !important;
-  text-decoration: line-through;
-}
-
 .card__cta {
   border: 1px solid #d27b7b;
   background-color: #f3e8eb;
@@ -191,4 +186,13 @@
   color: #f3e8eb;
   transition: 0.2s;
   cursor: pointer;
+}
+
+.discount__price {
+  text-decoration-color: #fd2a2a !important;
+  text-decoration: line-through;
+}
+
+.error {
+  color: #fd2a2a;
 }

@@ -29,6 +29,7 @@ var translationIt = {
   password: "Password",
   confirmPassword: "Conferma password",
   sweetName: "Nome del dolce",
+  sweetQuantity: "Quantità del dolce",
   ingredientName: "Nome dell'ingrediente",
   measureUnit: "Unita di misura dell'ingrediente",
   amount: "Quantità dell'ingrediente",
@@ -70,7 +71,8 @@ var translationIt = {
     forgotPassword: "Problema durante la richiesta di ripristino della password, provare a rieffettuare i passaggi",
     resetPassword: "Problema durante il ripristino della password, provare a rieffettuare i passaggi",
     emptySweets: "Non ci sono elementi per questa ricerca, inserirli manualmente presso la sezione del Database dedicata ai dolci",
-    errorSweetDelete: "Problema nell' eliminazione del singolo dolce, riprovare"
+    errorSweetDelete: "Problema nell' eliminazione del singolo dolce, riprovare",
+    errorSweetQuantity: "Problema nella modifica della quantità del singolo dolce, riprovare"
   },
   footer: {
     vatNumber: "Partita iva",

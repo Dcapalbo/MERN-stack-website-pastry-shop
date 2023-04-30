@@ -74,9 +74,7 @@ const SweetCardContainer = () => {
               <SweetCard
                 sweetName={sweet.sweetName}
                 sweetQuantity={sweet.sweetQuantity}
-                // ingredientname={sweet.ingredientName}
-                // measureunit={sweet.measureUnit}
-                // amount={sweet.amount}
+                ingredients={sweet.ingredients}
                 price={sweet.price}
                 discountedPrice={sweet.discountedPrice}
                 description={sweet.description}

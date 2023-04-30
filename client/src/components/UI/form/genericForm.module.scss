@@ -60,6 +60,9 @@
   @media (max-width: $screen-lg-min) {
     padding: 20px 30px;
   }
+  .ingredients input {
+    margin-bottom: 10px;
+  }
 }
 
 .generic__padding {
@@ -68,4 +71,8 @@
 
 .resetting__padding {
   padding: 0px;
+}
+
+.margin__top {
+  margin: 10px;
 }
