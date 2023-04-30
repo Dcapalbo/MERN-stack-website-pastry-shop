@@ -181,13 +181,13 @@ exports.editSweet = async (req, res) => {
 };
 
 exports.editSweetQuantity = async (req, res) => {
+  const { _id, newQuantity } = req.body.dataQuantity;
+
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-
-    const { _id, newQuantity } = req.body;
 
     const sweet = await Sweet.findById(_id);
 
