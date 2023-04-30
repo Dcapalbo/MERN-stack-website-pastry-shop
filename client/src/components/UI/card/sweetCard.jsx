@@ -166,7 +166,8 @@ const SweetCard = (props) => {
                 <FontAwesomeIcon icon={faEuroSign} />
                 <small
                   className={
-                    props.discountedPrice !== props.price
+                    props.discountedPrice < props.price &&
+                    props.discountedPrice > 0
                       ? classes.discount__price
                       : ""
                   }
@@ -176,7 +177,7 @@ const SweetCard = (props) => {
               </>
             )}
           </div>
-          {props.discountedPrice !== props.price && (
+          {props.discountedPrice < props.price && props.discountedPrice > 0 && (
             <div className={classes.card__external__informations__item}>
               {props.discountedPrice && (
                 <>

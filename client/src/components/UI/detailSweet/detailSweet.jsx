@@ -1,15 +1,17 @@
 import { faEuroSign, faTag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import LoadingSpinner from "../spinner/loadingSpinner";
 import classes from "./detailSweet.module.scss";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import React from "react";
-import LoadingSpinner from "../spinner/loadingSpinner";
 
 const Sweetsweet = () => {
   const sweet = useSelector((state) => state.dataSweets.sweetData);
   const [loading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  console.log(sweet.discountedPrice);
 
   useEffect(() => {
     setIsLoading(true);
@@ -47,21 +49,6 @@ const Sweetsweet = () => {
                     <h2>{sweet.sweetName ?? ""}</h2>
                   </div>
                 )}
-                {sweet?.ingredientName && (
-                  <div className={classes.detail__sweet__card__info__wrapper}>
-                    <h2>{sweet?.ingredientName ?? ""}</h2>
-                  </div>
-                )}
-                {sweet?.measureUnit && (
-                  <div className={classes.detail__sweet__card__info__wrapper}>
-                    <h2>{sweet?.measureUnit ?? ""}</h2>
-                  </div>
-                )}
-                {sweet?.amount && (
-                  <div className={classes.detail__sweet__card__info__wrapper}>
-                    <p>{sweet?.amount ?? ""}</p>
-                  </div>
-                )}
                 {sweet.description && (
                   <div className={classes.detail__sweet__card__info__wrapper}>
                     <p>{sweet.description ?? ""}</p>
@@ -77,19 +64,31 @@ const Sweetsweet = () => {
                       >
                         <>
                           <FontAwesomeIcon icon={faEuroSign} />
-                          <small>{sweet.price}</small>
+                          <small
+                            className={
+                              sweet.discountedPrice < sweet.price &&
+                              sweet.discountedPrice !== 0
+                                ? classes.discount__price
+                                : ""
+                            }
+                          >
+                            {sweet.price}
+                          </small>
                         </>
                       </div>
-                      <div
-                        className={
-                          classes.detail__sweet__card__info__wrapper__item
-                        }
-                      >
-                        <>
-                          <FontAwesomeIcon icon={faEuroSign} />
-                          <small>{sweet.price}</small>
-                        </>
-                      </div>
+                      {sweet.discountedPrice < sweet.price &&
+                        sweet.discountedPrice !== 0 && (
+                          <div
+                            className={
+                              classes.detail__sweet__card__info__wrapper__item
+                            }
+                          >
+                            <>
+                              <FontAwesomeIcon icon={faEuroSign} />
+                              <small>{sweet.discountedPrice.toFixed(2)}</small>
+                            </>
+                          </div>
+                        )}
                     </div>
                   </>
                 )}
@@ -108,22 +107,32 @@ const Sweetsweet = () => {
                   </div>
                 )}
               </div>
-              <div className={classes.detail__sweet__card}>
-                <div
-                  className={
-                    classes.detail__sweet__card__ingredients__container
-                  }
-                >
-                  <div>
-                    <p>Ingrediente numero 1</p>
+              <div className={classes.detail__sweet__ingredients}>
+                {sweet.ingredients.map((ingredient) => (
+                  <div className={classes.detail__sweet__card}>
+                    <div
+                      className={
+                        classes.detail__sweet__card__ingredients__container
+                      }
+                    >
+                      {ingredient.ingredientName && (
+                        <div>
+                          <p>{ingredient.ingredientName}</p>
+                        </div>
+                      )}
+                      {ingredient.amount && ingredient.measureUnit && (
+                        <div
+                          className={
+                            classes.detail__sweet__card__ingredients__item
+                          }
+                        >
+                          <small>{ingredient.amount}</small>
+                          <small>{ingredient.measureUnit}</small>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  <div
-                    className={classes.detail__sweet__card__ingredients__item}
-                  >
-                    <small>100</small>
-                    <small>gr</small>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

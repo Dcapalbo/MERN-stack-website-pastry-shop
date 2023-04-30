@@ -43,9 +43,9 @@
   }
 }
 .detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card {
-  width: calc(100% / 2);
   text-align: right;
   padding: 10px;
+  width: 100%;
 }
 @media (max-width: 992px) {
   .detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card {
@@ -123,4 +123,13 @@
 }
 .detail__sweet__container .detail__sweet__card__container .detail__sweet__card__info__flex .detail__sweet__card .detail__sweet__card__ingredients__container .detail__sweet__card__ingredients__item small:last-child {
   margin-left: 5px;
+}
+
+.discount__price {
+  text-decoration-color: #fd2a2a !important;
+  text-decoration: line-through;
+}
+
+.detail__sweet__ingredients {
+  width: 100%;
 }

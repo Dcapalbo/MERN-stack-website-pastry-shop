@@ -37,9 +37,9 @@
         flex-direction: column;
       }
       .detail__sweet__card {
-        width: calc(100% / 2);
         text-align: right;
         padding: 10px;
+        width: 100%;
         @media (max-width: $screen-lg-min) {
           width: 100%;
         }
@@ -107,4 +107,14 @@
       }
     }
   }
+}
+
+// extra dynamic style
+.discount__price {
+  text-decoration-color: $errorColor !important;
+  text-decoration: line-through;
+}
+
+.detail__sweet__ingredients {
+  width: 100%;
 }
