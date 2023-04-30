@@ -45,9 +45,7 @@ exports.addSweet = async (req, res) => {
   const {
     sweetName,
     sweetQuantity,
-    ingredientName,
-    measureUnit,
-    amount,
+    ingredients,
     price,
     description,
     category,
@@ -64,9 +62,7 @@ exports.addSweet = async (req, res) => {
       sweet: {
         sweetName,
         sweetQuantity,
-        ingredientName,
-        measureUnit,
-        amount,
+        ingredients,
         price,
         description,
         category,
@@ -89,9 +85,7 @@ exports.addSweet = async (req, res) => {
     const sweet = await Sweet.create({
       sweetName,
       sweetQuantity,
-      ingredientName,
-      measureUnit,
-      amount,
+      ingredients,
       price,
       description,
       category,
@@ -117,9 +111,7 @@ exports.editSweet = async (req, res) => {
   const {
     sweetName,
     sweetQuantity,
-    ingredientName,
-    measureUnit,
-    amount,
+    ingredients,
     price,
     description,
     category,
@@ -146,9 +138,7 @@ exports.editSweet = async (req, res) => {
   const update = {
     sweetName,
     sweetQuantity,
-    ingredientName,
-    measureUnit,
-    amount,
+    ingredients,
     price,
     description,
     category,
@@ -164,9 +154,7 @@ exports.editSweet = async (req, res) => {
       sweet: {
         sweetName,
         sweetQuantity,
-        ingredientName,
-        measureUnit,
-        amount,
+        ingredients,
         price,
         description,
         category,
@@ -192,10 +180,14 @@ exports.editSweet = async (req, res) => {
   }
 };
 
-// PUT => Adding new quantity to a single sweet
 exports.editSweetQuantity = async (req, res) => {
   try {
-    const { _id, newQuantity } = req.body.dataQuantity;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { _id, newQuantity } = req.body;
 
     const sweet = await Sweet.findById(_id);
 
