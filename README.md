@@ -8,4 +8,4 @@ the project is divided in 2 folders.
 
 2. BE (server)
 
-inside of the specific folders it is possible to find further informations about the applications with the specific ReadMe
+inside of the folders it is possible to find further informations about the applications with the specific ReadMe
