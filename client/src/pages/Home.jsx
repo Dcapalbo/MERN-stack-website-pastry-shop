@@ -10,13 +10,13 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 const Home = () => {
-  const [type, setType] = useState("");
+  const [category, setCategory] = useState("");
   const dispatch = useDispatch();
 
   const sendTypeHandler = (event) => {
     const value = event.target.value;
     dispatch(dataSelectActions.setDataCategory(value));
-    setType(value);
+    setCategory(value);
   };
 
   return (
@@ -26,7 +26,7 @@ const Home = () => {
       </Header>
       <Hero />
       <Accordion />
-      <FilterDataSelect onChange={sendTypeHandler} type={type} />
+      <FilterDataSelect onChange={sendTypeHandler} category={category} />
       <SweetCardContainer />
       <Footer />
     </>

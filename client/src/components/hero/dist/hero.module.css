@@ -1,0 +1,7 @@
+.hero {
+  min-width: 100%;
+}
+.hero .home__video {
+  max-width: 100%;
+  height: 100%;
+}

@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section className={classes.hero}>
       <video
-        className={classes.fabrique__video}
+        className={classes.home__video}
         autoPlay="autoPlay"
         controls={false}
         muted

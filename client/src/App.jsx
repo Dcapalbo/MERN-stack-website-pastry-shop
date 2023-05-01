@@ -21,6 +21,7 @@ import LoginForm from "./pages/LoginForm";
 import UpdateSweet from "./pages/UpdateSweet";
 import Sweet from "./pages/Sweet";
 import AuthSignUp from "./pages/AuthSignUp";
+import About from "./pages/About";
 import ForgotPasswordForm from "./pages/ForgotPassword";
 import AuthAllSweets from "./pages/AuthAllSweets";
 import ResetPasswordForm from "./pages/ResetPassword";
@@ -64,6 +65,7 @@ const App = () => {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/reset-password" element={<ResetPasswordForm />} />
         <Route path="/sign-up" element={<AuthSignUp />} />
+        <Route path="/about" element={<About />} />
 
         {/* authenticated Routes  */}
         {isAuthenticated && tokenExpiration && (

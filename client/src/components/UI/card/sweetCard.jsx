@@ -8,6 +8,7 @@ import {
 import { dataSweetActions } from "../../../store/data-sweet-slice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
+import LoadingSpinner from "../spinner/loadingSpinner";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { isAuth } from "../../../utils/isAuth";
@@ -15,7 +16,6 @@ import { useState, useEffect } from "react";
 import classes from "./card.module.scss";
 import axios from "axios";
 import React from "react";
-import LoadingSpinner from "../spinner/loadingSpinner";
 
 const SweetCard = (props) => {
   const { t } = useTranslation();
@@ -105,6 +105,9 @@ const SweetCard = (props) => {
         );
         setIsLoading(false);
         setErrorQuantity(err);
+      })
+      .finally(() => {
+        setErrorQuantity(null);
       });
   };
 
@@ -130,6 +133,9 @@ const SweetCard = (props) => {
         );
         setIsLoading(false);
         setErrorDelete(err);
+      })
+      .finally(() => {
+        setErrorDelete(null);
       });
   };
 

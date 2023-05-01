@@ -30,14 +30,14 @@
     color: $firstColor;
   }
   .accordion__description {
-    transition: all 0.4s cubic-bezier(0, 1, 0, 1);
+    transition: all 0.1s cubic-bezier(0, 1, 0, 1);
     color: $firstColor;
     margin-top: 10px;
     overflow: hidden;
     max-height: 0;
   }
   .accordion__description__show {
-    transition: all 0.4s cubic-bezier(1, 0, 1, 0);
+    transition: all 0.1s cubic-bezier(1, 0, 1, 0);
     color: $firstColor;
     max-height: 9999px;
     overflow: hidden;

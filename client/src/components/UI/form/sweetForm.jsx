@@ -118,7 +118,7 @@ const SweetForm = () => {
           })
           .finally(() => {
             setIsLoading(false);
-            // navigate("/admin/sweets");
+            navigate("/admin/sweets");
           });
       } else {
         setIsLoading(true);
