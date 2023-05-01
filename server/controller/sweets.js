@@ -52,6 +52,7 @@ exports.addSweet = async (req, res) => {
     slug,
   } = req.body;
 
+  // taking the image from the multer middleware
   const image = req.file;
 
   const errors = validationResult(req);
@@ -76,12 +77,13 @@ exports.addSweet = async (req, res) => {
   // saving the data inside the db
   try {
     const existingSweet = await Sweet.findOne({ sweetName });
+    // if the sweet exist already send an error
     if (existingSweet) {
       return res.status(400).json({ message: "The sweet exist already" });
     }
 
     const contentType = getContentType(path.extname(image.originalname));
-
+    // save the sweet
     const sweet = await Sweet.create({
       sweetName,
       sweetQuantity,
@@ -95,10 +97,11 @@ exports.addSweet = async (req, res) => {
         contentType: contentType,
       },
     });
-
+    // delete the file from the storage
     deleteFile("images/" + image.filename);
-    console.log("the sweet has been created:", sweet);
-    return res.status(201).send(sweet);
+    return res
+      .status(201)
+      .send({ meesage: "the sweet has been created", sweet });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Something went wrong.", error });
@@ -118,14 +121,14 @@ exports.editSweet = async (req, res) => {
     slug,
     _id,
   } = req.body;
-
+  // if there isn't the id send and error
   if (!_id) {
     res.status(404).json({
       message:
         "Was not possible to update the specific sweet, because the id is missing",
     });
   }
-
+  // taking the image from the multer middleware
   const image = req.file;
 
   const contentType = getContentType(path.extname(image.originalname));
@@ -181,20 +184,23 @@ exports.editSweet = async (req, res) => {
 };
 
 exports.editSweetQuantity = async (req, res) => {
+  // destructuring the body
   const { _id, newQuantity } = req.body.dataQuantity;
 
   try {
+    // if there are errors
+    // Send a response with the status and a json
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-
+    // find the sweet inside the db
     const sweet = await Sweet.findById(_id);
-
+    // if there isn't send an error
     if (!sweet) {
       return res.status(404).json({ message: "Sweet not found" });
     }
-
+    // handling the quantity, positive or negative
     let updateQuantity = sweet.sweetQuantity;
     if (newQuantity > 0) {
       updateQuantity += newQuantity;
@@ -205,6 +211,7 @@ exports.editSweetQuantity = async (req, res) => {
     // Ensure that updateQuantity is not less than 0
     updateQuantity = updateQuantity < 0 ? 0 : updateQuantity;
 
+    // update the quantity of the specific sweet
     const updatedSweet = await Sweet.findByIdAndUpdate(
       _id,
       { sweetQuantity: updateQuantity },
@@ -220,15 +227,22 @@ exports.editSweetQuantity = async (req, res) => {
 
 //DELETE => Delete a single sweet using the prod id and user id
 exports.deleteSweet = async (req, res) => {
-  const sweetId = req.body._id;
+  // destructuring the body
+  const { _id } = req.body;
   try {
-    await Sweet.findByIdAndRemove(sweetId);
-    res.status(200).json({
+    // take the specific id from the db
+    const deletedSweet = await Sweet.findByIdAndRemove(_id);
+    // if there isn't send an error
+    if (!deletedSweet) {
+      return res.status(404).json({
+        message: "Sweet not found",
+      });
+    }
+    return res.status(200).json({
       message: "The sweet has been deleted",
     });
-    console.log("The sweet has been deleted");
   } catch (error) {
-    res.status(500).send(error);
-    console.log("Something went wrong while deleting a sweet: ", error);
+    console.error("Something went wrong while deleting a sweet:", error);
+    return res.status(500).send(error);
   }
 };
