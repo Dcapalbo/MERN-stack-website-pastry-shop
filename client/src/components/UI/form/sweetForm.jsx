@@ -1,11 +1,11 @@
 import { dataSweetActions } from "../../../store/data-sweet-slice";
-import { useForm, useController } from "react-hook-form";
 import { sweetSchema } from "../../../schema/sweetSchema";
+import { useForm, useController } from "react-hook-form";
 import { slugCreation } from "../../../utils/functions";
+import ErrorMessage from "../errorMessage/errorMessage";
+import LoadingSpinner from "../spinner/loadingSpinner";
 import { useDispatch, useSelector } from "react-redux";
 import { zodResolver } from "@hookform/resolvers/zod";
-import LoadingSpinner from "../spinner/loadingSpinner";
-import ErrorMessage from "../errorMessage/errorMessage";
 import classes from "./genericForm.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -20,12 +20,11 @@ const SweetForm = () => {
   const dispatch = useDispatch();
   const uriLocation = window.location.href;
 
-  const dataUpdateSweets = useSelector(
+  const dataUpdateSweet = useSelector(
     (state) => state.dataSweets.sweetData ?? ""
   );
-
   const { register, control, handleSubmit, formState } = useForm({
-    defaultValues: dataUpdateSweets ?? "",
+    defaultValues: dataUpdateSweet ?? "",
     resolver: zodResolver(sweetSchema),
   });
 
@@ -33,7 +32,6 @@ const SweetForm = () => {
     if (uriLocation.includes("/admin/update-sweet")) {
       setIsUpdate(true);
     } else {
-      dispatch(dataSweetActions.resetSweetData());
       setIsUpdate(false);
     }
   }, [uriLocation, dispatch]);
@@ -42,36 +40,60 @@ const SweetForm = () => {
 
   const { field } = useController({ name: "category", control });
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [error, setError] = useState(null);
+  const [file, setFile] = useState(null);
+
   const [ingredientsObject, setIngredientsObject] = useState([
     { ingredientName: "", measureUnit: "", amount: 0 },
   ]);
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [isUpdate, setIsUpdate] = useState(false);
-  const [file, setFile] = useState(null);
-  const [error, setError] = useState(null);
-
-  const sweetsData =
-    dataUpdateSweets?.ingredients?.length > 0
-      ? dataUpdateSweets.ingredients
+  const sweetData =
+    dataUpdateSweet?.ingredients?.length > 0
+      ? dataUpdateSweet.ingredients
       : ingredientsObject;
+
+  console.log(sweetData);
 
   const handleSelectChange = (option) => {
     field.onChange(option.target.value);
   };
 
   const handleAddIngredient = () => {
-    setIngredientsObject([
-      ...ingredientsObject,
-      { ingredientName: "", measureUnit: "", amount: 0 },
-    ]);
+    if (isUpdate) {
+      dispatch(
+        dataSweetActions.updateSweetIngredients({
+          ingredients: [
+            ...sweetData,
+            { ingredientName: "", measureUnit: "", amount: 0 },
+          ],
+        })
+      );
+    } else {
+      setIngredientsObject([
+        ...ingredientsObject,
+        { ingredientName: "", measureUnit: "", amount: 0 },
+      ]);
+    }
   };
 
   const handleDeleteIngredient = (index) => {
-    const updatedIngredients = [...ingredientsObject];
-    updatedIngredients.splice(index, 1);
-    setIngredientsObject(updatedIngredients);
-    console.log(index);
+    if (isUpdate) {
+      const updatedIngredients = sweetData.filter(
+        (ingredient, i) => i !== index
+      );
+      dispatch(
+        dataSweetActions.updateSweetIngredients({
+          ingredients: updatedIngredients,
+        })
+      );
+    } else {
+      const updatedIngredients = ingredientsObject.filter(
+        (ingredient, i) => i !== index
+      );
+      setIngredientsObject(updatedIngredients);
+    }
   };
 
   const confirmHandler = (event) => {
@@ -88,7 +110,7 @@ const SweetForm = () => {
 
     formData.append("sweetName", sweetName);
     formData.append("sweetQuantity", sweetQuantity);
-    formData.append("price", price);
+    formData.append("price", price.toFixed(2));
     formData.append("description", description);
     formData.append("category", category);
     ingredients.forEach((ingredient, index) => {
@@ -105,8 +127,8 @@ const SweetForm = () => {
     formData.append("slug", slugCreation(sweetName));
     formData.append("file", file);
 
-    if (dataUpdateSweets?._id) {
-      formData.append("_id", dataUpdateSweets?._id);
+    if (dataUpdateSweet?._id) {
+      formData.append("_id", dataUpdateSweet?._id);
     }
 
     if (formData !== {}) {
@@ -123,6 +145,7 @@ const SweetForm = () => {
             setError(err);
           })
           .finally(() => {
+            dispatch(dataSweetActions.resetSweetData());
             setIsLoading(false);
             navigate("/admin/sweets");
           });
@@ -138,6 +161,7 @@ const SweetForm = () => {
             setError(err);
           })
           .finally(() => {
+            dispatch(dataSweetActions.resetSweetData());
             setIsLoading(false);
             navigate("/admin/sweets");
           });
@@ -180,7 +204,7 @@ const SweetForm = () => {
             <ErrorMessage error={errors.sweetQuantity} />
           )}
         </div>
-        {sweetsData.map((ingredient, index) => (
+        {sweetData.map((ingredient, index) => (
           <div
             className={
               classes.form__container__item + " " + classes.ingredients
@@ -261,6 +285,7 @@ const SweetForm = () => {
               valueAsNumber: true,
             })}
             type="number"
+            step="any"
           />
           {errors.price?.message && <ErrorMessage error={errors.price} />}
         </div>

@@ -43,12 +43,12 @@ var sweetSchema = _zod.z.object({
       message: "la quantità dell'ingrediente deve essere di massimo 1000"
     })
   })),
-  price: _zod.z.number().positive({
-    message: "il numero deve essere superiore allo 0"
-  }).min(2, {
-    message: "il prezzo deve essere di almeno 2 cifre"
+  price: _zod.z.positive({
+    message: "Il numero deve essere superiore a 0"
+  }).min(0.01, {
+    message: "Il prezzo deve essere di almeno 0.01"
   }).max(999, {
-    message: "il prezzo non può essere superiore a 999"
+    message: "Il prezzo non può essere superiore a 999"
   }),
   description: _zod.z.string().min(10, {
     message: "la descrizione del prodotto di pasticceria deve essere di almeno 10 caratteri"

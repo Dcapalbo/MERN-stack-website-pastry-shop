@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import classes from "./aside.module.scss";
 import i18n from "i18next";
 import React from "react";
+import { useEffect } from "react";
 
 const Aside = () => {
   const { t } = useTranslation();
@@ -16,16 +17,20 @@ const Aside = () => {
   const navigate = useNavigate();
   let uriLocation = window.location.href;
 
+  const userName = useSelector((state) => state.userLogin.userName);
+
+  useEffect(() => {
+    if (!uriLocation.includes("/admin/update-sweet")) {
+      dispatch(dataSweetActions.resetSweetData());
+    }
+  }, [dispatch, uriLocation]);
+
   if (uriLocation.includes("/admin/sweets")) {
     const { sweets } = ApiGetHook(
       `${process.env.REACT_APP_API_LOCAL_PORT}/get-sweets`
     );
-
     dispatch(dataSweetActions.setSweetsData(sweets));
-    dispatch(dataSweetActions.resetSweetData());
   }
-
-  const userName = useSelector((state) => state.userLogin.userName);
 
   const logout = () => {
     dispatch(dataUserActions.logout());

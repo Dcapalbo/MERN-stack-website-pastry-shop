@@ -18,8 +18,6 @@ const SweetCardContainer = () => {
     (state) => state.dataSweets.sweetsData
   );
 
-  console.log(sweets);
-
   useEffect(() => {
     if (sweets) {
       setFilteredSweets(sweets);

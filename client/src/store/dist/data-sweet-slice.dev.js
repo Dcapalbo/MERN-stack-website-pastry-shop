@@ -29,6 +29,10 @@ var dataSweetSlice = (0, _toolkit.createSlice)({
         return sweet._id !== _id;
       });
     },
+    // update sweet ingredients of a single sweet in the store
+    updateSweetIngredients: function updateSweetIngredients(state, action) {
+      state.sweetData.ingredients = action.payload.ingredients;
+    },
     // update sweet Quantity of a single element in the store
     updateSweetQuantity: function updateSweetQuantity(state, action) {
       var _action$payload = action.payload,

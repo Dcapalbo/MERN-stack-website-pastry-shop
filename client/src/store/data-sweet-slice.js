@@ -20,6 +20,10 @@ const dataSweetSlice = createSlice({
       const { _id } = action.payload;
       state.sweetsData = state.sweetsData.filter((sweet) => sweet._id !== _id);
     },
+    // update sweet ingredients of a single sweet in the store
+    updateSweetIngredients(state, action) {
+      state.sweetData.ingredients = action.payload.ingredients;
+    },
     // update sweet Quantity of a single element in the store
     updateSweetQuantity(state, action) {
       const { _id, sweetQuantity } = action.payload;

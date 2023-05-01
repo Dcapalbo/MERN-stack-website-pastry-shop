@@ -11,8 +11,6 @@ const Sweetsweet = () => {
   const [loading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  console.log(sweet.discountedPrice);
-
   useEffect(() => {
     setIsLoading(true);
     if (sweet) {
@@ -108,8 +106,8 @@ const Sweetsweet = () => {
                 )}
               </div>
               <div className={classes.detail__sweet__ingredients}>
-                {sweet.ingredients.map((ingredient) => (
-                  <div className={classes.detail__sweet__card}>
+                {sweet?.ingredients?.map((ingredient, index) => (
+                  <div key={index} className={classes.detail__sweet__card}>
                     <div
                       className={
                         classes.detail__sweet__card__ingredients__container
