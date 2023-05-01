@@ -26,7 +26,12 @@
 }
 
 .card__about:first-child {
-  margin-bottom: 60px;
+  margin-bottom: 80px;
+}
+@media (max-width: 828px) {
+  .card__about:first-child {
+    margin-bottom: 20px;
+  }
 }
 
 .card__about:last-child {
