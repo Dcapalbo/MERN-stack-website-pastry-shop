@@ -17,7 +17,7 @@ cron.schedule("0 0 * * *", async () => {
     date.setDate(date.getDate() - 4);
     const sweetsToDelete = await Sweet.find({ createdAt: { $lt: date } });
 
-    // Delete the sweets
+    // Delete the matching sweets
     for (const sweet of sweetsToDelete) {
       await sweet.remove();
     }
@@ -97,7 +97,7 @@ exports.addSweet = async (req, res) => {
     });
 
     deleteFile("images/" + image.filename);
-    console.log("my sweet has been created?", sweet);
+    console.log("the sweet has been created:", sweet);
     return res.status(201).send(sweet);
   } catch (error) {
     console.log(error);
