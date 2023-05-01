@@ -37,9 +37,7 @@ var dataSweetSlice = (0, _toolkit.createSlice)({
     updateSweetQuantity: function updateSweetQuantity(state, action) {
       var _action$payload = action.payload,
           _id = _action$payload._id,
-          sweetQuantity = _action$payload.sweetQuantity;
-      console.log(action.payload);
-      console.log(_id, sweetQuantity); // finding the index of the element
+          sweetQuantity = _action$payload.sweetQuantity; // finding the index of the element
 
       var index = state.sweetsData.findIndex(function (sweet) {
         return sweet._id === _id;

@@ -1,5 +1,7 @@
 import { dataUserActions } from "../../../store/data-user-slice";
 import { signUpSchema } from "../../../schema/signUpSchema";
+import ErrorMessage from "../errorMessage/errorMessage";
+import LoadingSpinner from "../spinner/loadingSpinner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import classes from "./genericForm.module.scss";
 import { useTranslation } from "react-i18next";
@@ -9,8 +11,6 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
-import LoadingSpinner from "../spinner/loadingSpinner";
-import ErrorMessage from "../errorMessage/errorMessage";
 
 const SignUpForm = () => {
   const { register, handleSubmit, formState } = useForm({

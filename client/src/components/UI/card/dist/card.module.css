@@ -1,5 +1,5 @@
 .card {
-  box-shadow: 2px 4px 10px #8d2a46;
+  box-shadow: 2px 4px 10px #f3d4c3;
   border: 1px solid #d27b7b;
   background-color: #f3e8eb;
   max-height: calc(100% - 40px);
@@ -189,10 +189,10 @@
 }
 
 .discount__price {
-  text-decoration-color: #fd2a2a !important;
+  text-decoration-color: #fd0d0d !important;
   text-decoration: line-through;
 }
 
 .error {
-  color: #fd2a2a;
+  color: #fd0d0d;
 }

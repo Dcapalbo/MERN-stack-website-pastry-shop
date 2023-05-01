@@ -27,8 +27,6 @@ const dataSweetSlice = createSlice({
     // update sweet Quantity of a single element in the store
     updateSweetQuantity(state, action) {
       const { _id, sweetQuantity } = action.payload;
-      console.log(action.payload);
-      console.log(_id, sweetQuantity);
       // finding the index of the element
       const index = state.sweetsData.findIndex((sweet) => sweet._id === _id);
       // if there is

@@ -17,7 +17,18 @@ import classes from "./card.module.scss";
 import axios from "axios";
 import React from "react";
 
-const SweetCard = (props) => {
+const SweetCard = ({
+  sweetName,
+  sweetQuantity,
+  ingredients,
+  price,
+  discountedPrice,
+  description,
+  category,
+  imageUrl,
+  slug,
+  _id,
+}) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -45,14 +56,14 @@ const SweetCard = (props) => {
   const sendSweetToFormHandler = () => {
     dispatch(
       dataSweetActions.setSweetData({
-        sweetName: props.sweetName,
-        sweetQuantity: props.sweetQuantity,
-        ingredients: props.ingredients,
-        price: props.price,
-        description: props.description,
-        category: props.category,
-        imageUrl: props.imageUrl,
-        _id: props._id,
+        sweetName,
+        sweetQuantity,
+        ingredients,
+        price,
+        description,
+        category,
+        imageUrl,
+        _id,
       })
     );
     navigate("/admin/update-sweet");
@@ -61,19 +72,19 @@ const SweetCard = (props) => {
   const sendDetailSweet = () => {
     dispatch(
       dataSweetActions.setSweetData({
-        sweetName: props.sweetName,
-        sweetQuantity: props.sweetQuantity,
-        ingredients: props.ingredients,
-        price: props.price,
-        discountedPrice: props.discountedPrice,
-        description: props.description,
-        category: props.category,
-        imageUrl: props.imageUrl,
-        slug: props.slug,
-        _id: props._id,
+        sweetName,
+        sweetQuantity,
+        ingredients,
+        price,
+        discountedPrice,
+        description,
+        category,
+        imageUrl,
+        slug,
+        _id,
       })
     );
-    navigate(`/sweet/${props.slug}`);
+    navigate(`/sweet/${slug}`);
   };
 
   const modifySweetQuantity = () => {
@@ -81,7 +92,7 @@ const SweetCard = (props) => {
 
     const dataQuantity = {
       newQuantity: parseInt(newQuantity),
-      _id: props._id,
+      _id: _id,
     };
 
     axios
@@ -91,7 +102,7 @@ const SweetCard = (props) => {
       .then((res) => {
         dispatch(
           dataSweetActions.updateSweetQuantity({
-            _id: props._id,
+            _id: _id,
             sweetQuantity: parseInt(newQuantity),
           })
         );
@@ -115,7 +126,7 @@ const SweetCard = (props) => {
     setIsLoading(true);
 
     const sweetId = {
-      _id: props._id,
+      _id: _id,
     };
 
     axios
@@ -123,7 +134,7 @@ const SweetCard = (props) => {
         data: sweetId,
       })
       .then((res) => {
-        dispatch(dataSweetActions.removeSweetData({ _id: props._id }));
+        dispatch(dataSweetActions.removeSweetData({ _id: _id }));
         setIsLoading(false);
       })
       .catch((err) => {
@@ -147,64 +158,63 @@ const SweetCard = (props) => {
           : classes.card
       }
     >
-      {props.imageUrl && (
+      {imageUrl && (
         <img
           onClick={sendDetailSweet}
           className={classes.card__image}
-          src={props.imageUrl}
-          alt={props.sweetName}
-          title={props.sweetName}
+          src={imageUrl}
+          alt={sweetName}
+          title={sweetName}
           loading="lazy"
         />
       )}
       <div className={classes.card__internal__description}>
-        {props.description && <p>{props.description}</p>}
-        {props._id && <input hidden id={props._id} />}
+        {description && <p>{description}</p>}
+        {_id && <input hidden id={_id} />}
       </div>
-      {props.sweetName && <h2>{props.sweetName}</h2>}
+      {sweetName && <h2>{sweetName}</h2>}
       <div className={classes.card__external__informations}>
         <div>
           <div className={classes.card__external__informations__item}>
-            {props.price && (
+            {price && (
               <>
                 <FontAwesomeIcon icon={faEuroSign} />
                 <small
                   className={
-                    props.discountedPrice < props.price &&
-                    props.discountedPrice > 0
+                    discountedPrice < price && discountedPrice > 0
                       ? classes.discount__price
                       : ""
                   }
                 >
-                  {props.price}
+                  {price}
                 </small>
               </>
             )}
           </div>
-          {props.discountedPrice < props.price && props.discountedPrice > 0 && (
+          {discountedPrice < price && discountedPrice > 0 && (
             <div className={classes.card__external__informations__item}>
-              {props.discountedPrice && (
+              {discountedPrice && (
                 <>
                   <FontAwesomeIcon icon={faEuroSign} />
-                  <small>{props.discountedPrice}</small>
+                  <small>{discountedPrice}</small>
                 </>
               )}
             </div>
           )}
         </div>
         <div className={classes.card__external__informations__item}>
-          {props.category && (
+          {category && (
             <>
               <FontAwesomeIcon icon={faTag} />
-              <small>{props.category}</small>
+              <small>{category}</small>
             </>
           )}
         </div>
         <div className={classes.card__external__informations__item}>
-          {props.sweetQuantity && (
+          {sweetQuantity && (
             <>
               <FontAwesomeIcon icon={faShoppingBasket} />
-              <small>{props.sweetQuantity}</small>
+              <small>{sweetQuantity}</small>
             </>
           )}
         </div>

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import classes from "./aboutCard.module.scss";
 import React from "react";
 
-const AboutCard = (props) => {
+const AboutCard = () => {
   const { t } = useTranslation();
 
   return (

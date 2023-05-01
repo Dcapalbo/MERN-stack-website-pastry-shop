@@ -1,7 +1,7 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
+import React from "react";
 
-const TypeSelect = (props) => {
+const TypeSelect = ({ onChange, value }) => {
   const { t } = useTranslation();
   const options = [
     {
@@ -31,7 +31,7 @@ const TypeSelect = (props) => {
   ];
 
   return (
-    <select onChange={props.onChange} value={props.value}>
+    <select onChange={onChange} value={value}>
       {options.map((option, index) => (
         <option key={index} value={option.value}>
           {option.label}

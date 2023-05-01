@@ -54,8 +54,6 @@ const SweetForm = () => {
       ? dataUpdateSweet.ingredients
       : ingredientsObject;
 
-  console.log(sweetData);
-
   const handleSelectChange = (option) => {
     field.onChange(option.target.value);
   };
