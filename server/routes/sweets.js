@@ -199,14 +199,14 @@ router.put(
 //update-sweet-quantity => PUT
 router.put(
   "/edit-sweet-quantity",
-  // [
-  //   body("_id").isMongoId().withMessage("id invalido"),
-  //   body("newQuantity")
-  //     .isNumeric()
-  //     .withMessage("La quantità deve essere un numero")
-  //     .isInt({ min: 0, max: 99 })
-  //     .withMessage("La quantità deve essere compresa tra 0 e 99"),
-  // ],
+  [
+    body("_id").isMongoId().withMessage("id invalido"),
+    body("newQuantity")
+      .isNumeric()
+      .withMessage("La quantità deve essere un numero")
+      .isInt({ min: 0, max: 99 })
+      .withMessage("La quantità deve essere compresa tra 0 e 99"),
+  ],
   editSweetQuantity
 );
 router.delete(
