@@ -153,7 +153,7 @@ const SweetCard = (props) => {
           className={classes.card__image}
           src={props.imageUrl}
           alt={props.sweetName}
-          sweetName={props.sweetName}
+          title={props.sweetName}
           loading="lazy"
         />
       )}

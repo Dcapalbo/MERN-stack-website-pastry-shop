@@ -64,7 +64,9 @@ var translationEn = {
     addDbSweet: "Add a sweet inside the database",
     modifyDbSweet: "Modify a sweet inside the database",
     addIngredient: "Aggiungi ingrediente",
-    deleteIngredient: "Elimina ingrediente"
+    deleteIngredient: "Elimina ingrediente",
+    backOffice: "Welcome to the back office area of the application! This section is reserved for site administrators and the development team who are responsible for managing the content and functionality. You can navigate the application using the side menu. Currently, the dual Italian/English language feature is still under development. To avoid any bugs, it is preferable to perform CRUD operations and view database information only in Italian.",
+    developmentTeam: "The development team"
   },
   errors: {
     dbCrud: "Problem during the compilation of the database, try to fill the form again",

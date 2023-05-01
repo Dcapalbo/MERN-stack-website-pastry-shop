@@ -63,6 +63,9 @@ const translationIt = {
     modifyDbSweet: "Modificare un Dolce del database",
     addIngredient: "Aggiungi ingrediente",
     deleteIngredient: "Elimina ingrediente",
+    backOffice:
+      "Benvenuto nell'area di back office dell'applicativo! Questa sezione è riservata agli amministratori del sito e al team di sviluppo, che si occupano della gestione dei contenuti e delle funzionalità. Per navigare l'applicativo potete affidarvi al menu laterale. Al momento la duplice lingua italiano/inglese è in fase di sviluppo, è preferibile, donde evitare bug, eseguire le CRUD e visionare i dati del database solo in lingua italiana.",
+    developmentTeam: "Il team di sviluppo",
   },
   errors: {
     dbCrud:

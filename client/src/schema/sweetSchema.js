@@ -51,6 +51,7 @@ const sweetSchema = z.object({
     })
   ),
   price: z
+    .number()
     .positive({ message: "Il numero deve essere superiore a 0" })
     .min(0.01, { message: "Il prezzo deve essere di almeno 0.01" })
     .max(999, { message: "Il prezzo non può essere superiore a 999" }),
