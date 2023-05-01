@@ -51,6 +51,11 @@ const SweetForm = () => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
 
+  const sweetsData =
+    dataUpdateSweets?.ingredients?.length > 0
+      ? dataUpdateSweets.ingredients
+      : ingredientsObject;
+
   const handleSelectChange = (option) => {
     field.onChange(option.target.value);
   };
@@ -66,6 +71,7 @@ const SweetForm = () => {
     const updatedIngredients = [...ingredientsObject];
     updatedIngredients.splice(index, 1);
     setIngredientsObject(updatedIngredients);
+    console.log(index);
   };
 
   const confirmHandler = (event) => {
@@ -174,7 +180,7 @@ const SweetForm = () => {
             <ErrorMessage error={errors.sweetQuantity} />
           )}
         </div>
-        {ingredientsObject.map((ingredient, index) => (
+        {sweetsData.map((ingredient, index) => (
           <div
             className={
               classes.form__container__item + " " + classes.ingredients

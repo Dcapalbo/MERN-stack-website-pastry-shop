@@ -1,3 +1,4 @@
+import HomeVideo from "../assets/video/pexels-taryn-elliott-3325984-1920x1080-24fps.mp4";
 import FilterDataSelect from "../components/UI/select/filterDataSelect";
 import SweetCardContainer from "../components/UI/card/sweetCardContainer";
 import { dataSelectActions } from "../store/data-select-slice";
@@ -24,7 +25,7 @@ const Home = () => {
       <Header>
         <NavBar />
       </Header>
-      <Hero />
+      <Hero videoSrc={HomeVideo} />
       <Accordion />
       <FilterDataSelect onChange={sendTypeHandler} category={category} />
       <SweetCardContainer />
