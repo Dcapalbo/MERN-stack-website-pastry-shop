@@ -50,24 +50,18 @@ const NavLinks = () => {
       <li>
         <Link to="/sign-up">{t("signUp")}</Link>
       </li>
+      {isAuthenticated && tokenExpiration && (
+        <li>
+          <Link to="/forgot-password">{t("forgotPassword")}</Link>
+        </li>
+      )}
       <li>
         <Link to="/login">{t("login")}</Link>
       </li>
       {isAuthenticated && tokenExpiration && (
-        <>
-          <li>
-            <Link to="/admin/sweets">{t("sweetsList")}</Link>
-          </li>
-          <li>
-            <Link to="/admin/add-new-sweet">{t("addSweet")}</Link>
-          </li>
-          <li>
-            <Link to="/forgot-password">{t("forgotPassword")}</Link>
-          </li>
-          <li>
-            <p onClick={logout}>Logout</p>
-          </li>
-        </>
+        <li>
+          <p onClick={logout}>Logout</p>
+        </li>
       )}
       {i18n.language === "it" ? (
         <li>

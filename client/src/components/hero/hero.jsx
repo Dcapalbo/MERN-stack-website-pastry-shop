@@ -1,4 +1,4 @@
-import HeroVideo from "../../assets/img/pexels-taryn-elliott-3325984-1920x1080-24fps.mp4";
+import HomeVideo from "../../assets/img/pexels-taryn-elliott-3325984-1920x1080-24fps.mp4";
 import classes from "./hero.module.scss";
 
 const Hero = () => {
@@ -11,7 +11,7 @@ const Hero = () => {
         muted
         loop
       >
-        <source src={HeroVideo} type="video/mp4" />
+        <source src={HomeVideo} type="video/mp4" />
       </video>
     </section>
   );

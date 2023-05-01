@@ -32,7 +32,7 @@
   margin-right: 60px;
   display: flex;
 }
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .nav__links .nav__links__user__logged {
     margin-right: 0px;
   }
@@ -44,7 +44,7 @@
   margin-right: 10px;
   color: #d27b7b;
 }
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .nav__links {
     justify-content: center;
     flex-direction: column;

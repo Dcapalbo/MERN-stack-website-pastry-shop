@@ -29,7 +29,7 @@
   .nav__links__user__logged {
     margin-right: 60px;
     display: flex;
-    @media (max-width: $screen-lg-min) {
+    @media (max-width: $screen-xl-min) {
       margin-right: 0px;
     }
     p {
@@ -40,7 +40,7 @@
       color: $fourthColor;
     }
   }
-  @media (max-width: $screen-lg-min) {
+  @media (max-width: $screen-xl-min) {
     @include flex-column;
   }
 }

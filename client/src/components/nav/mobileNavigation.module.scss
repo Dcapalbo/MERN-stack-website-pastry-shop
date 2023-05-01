@@ -11,7 +11,7 @@
   width: 80px;
 }
 
-@media (max-width: $screen-lg-min) {
+@media (max-width: $screen-xl-min) {
   .mobile__navigation {
     @include flex-between;
     transition: 1s;
