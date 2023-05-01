@@ -1,0 +1,36 @@
+@import "../../../assets/variables.scss";
+@import "../../../assets/mixin.scss";
+
+.card__about {
+  background-color: $thirdColor;
+  border-radius: 10px;
+  padding: 10px;
+  height: 100%;
+  width: 50%;
+  @media (max-width: $screen-md-min) {
+    width: 90%;
+  }
+  .card__about__image {
+    border-radius: 10px;
+    object-fit: cover;
+    height: 50%;
+    width: 100%;
+  }
+  .card__about__headline {
+    color: $firstColor;
+    margin-top: 10px;
+  }
+  .card__about__description {
+    color: $firstColor;
+    margin-top: 10px;
+  }
+}
+.card__about:first-child {
+  margin-bottom: 60px;
+}
+.card__about:last-child {
+  margin-left: auto;
+  @media (max-width: $screen-md-min) {
+    margin: 0px;
+  }
+}

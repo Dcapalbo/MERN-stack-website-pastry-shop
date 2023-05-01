@@ -1,0 +1,15 @@
+.wrapper__about__container {
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  padding: 50px 0px;
+  height: 100%;
+  margin: auto;
+  width: 80%;
+}
+@media (max-width: 828px) {
+  .wrapper__about__container {
+    align-items: center;
+    width: 100%;
+  }
+}

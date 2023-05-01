@@ -1,0 +1,39 @@
+.card__about {
+  background-color: #f3e8eb;
+  border-radius: 10px;
+  padding: 10px;
+  height: 100%;
+  width: 50%;
+}
+@media (max-width: 828px) {
+  .card__about {
+    width: 90%;
+  }
+}
+.card__about .card__about__image {
+  border-radius: 10px;
+  object-fit: cover;
+  height: 50%;
+  width: 100%;
+}
+.card__about .card__about__headline {
+  color: #8d2a46;
+  margin-top: 10px;
+}
+.card__about .card__about__description {
+  color: #8d2a46;
+  margin-top: 10px;
+}
+
+.card__about:first-child {
+  margin-bottom: 60px;
+}
+
+.card__about:last-child {
+  margin-left: auto;
+}
+@media (max-width: 828px) {
+  .card__about:last-child {
+    margin: 0px;
+  }
+}
