@@ -21,9 +21,12 @@ router.post(
       .withMessage("Il nome del dolce deve contenere tra i 3 e i 40 caratteri")
       .trim(),
     check("sweetQuantity")
-      .isNumeric()
-      .isLength({ min: 1, max: 99 })
-      .withMessage("La quantità del dolce deve essere tra 1 e 99 ")
+      .isDecimal({ decimal_digits: "1,2" })
+      .withMessage(
+        "La quantità del dolce deve essere un numero decimale con massimo 2 cifre dopo lo 0"
+      )
+      .isFloat({ min: 0.01, max: 99.99 })
+      .withMessage("La quantità del dolce deve essere tra 0.01 e 99.99")
       .trim(),
     check("ingredients")
       .isArray({ min: 1 })
@@ -82,12 +85,16 @@ router.post(
         return true;
       }),
     check("price")
-      .isNumeric()
+      .isDecimal({ decimal_digits: "1,2" })
+      .withMessage(
+        "Il prezzo deve essere un numero decimale con massimo 2 cifre dopo lo 0"
+      )
       .isLength({ min: 1, max: 999 })
       .withMessage(
         "Il prezzo non può essere inferiore a 1 euro né superiore a 999"
       )
       .trim(),
+
     check("description")
       .isString()
       .isLength({ min: 10, max: 250 })
@@ -174,12 +181,16 @@ router.put(
         return true;
       }),
     check("price")
-      .isNumeric()
+      .isDecimal({ decimal_digits: "1,2" })
+      .withMessage(
+        "Il prezzo deve essere un numero decimale con massimo 2 cifre dopo lo 0"
+      )
       .isLength({ min: 1, max: 999 })
       .withMessage(
         "Il prezzo non può essere inferiore a 1 euro né superiore a 999"
       )
       .trim(),
+
     check("description")
       .isString()
       .isLength({ min: 10, max: 250 })
