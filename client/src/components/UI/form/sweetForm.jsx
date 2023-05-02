@@ -67,8 +67,6 @@ const SweetForm = () => {
 
   const handleAddIngredient = () => {
     const newIngredient = { ingredientName: "", measureUnit: "", amount: "" };
-    console.log(newIngredient);
-
     setIngredients([...ingredients, newIngredient]);
   };
 
@@ -78,8 +76,8 @@ const SweetForm = () => {
   };
 
   const confirmHandler = (data) => {
-    console.log("confirmHandler", data.ingredients);
     const form = new FormData();
+
     form.append("sweetName", data.sweetName);
     form.append("sweetQuantity", data.sweetQuantity);
     form.append("price", data.price.toFixed(2));
