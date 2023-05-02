@@ -17,10 +17,10 @@ const translationIt = {
   team: "Il team",
   teamDescription:
     "Il team di Luana e Maria è composto da pasticcere altamente qualificate con anni di esperienza nel settore della pasticceria. Ognuna di loro ha competenze specializzate in diverse aree, come la decorazione o la panificazione. Il team condivide la passione per la creazione di dolci prelibati e sorprendenti, impegnandosi a creare dolci unici e memorabili per i loro clienti.",
-  headlineLaura:
-    "Eccellenza in pasticceria: la storia di Laura, la pasticcera che, ama il suo lavoro",
-  descriptionLaura:
-    "Laura è una pasticcera appassionata del suo lavoro. Con la sua creatività e la sua abilità riesce a creare dolci deliziosi e belli da vedere, sempre attenta ai dettagli e alla qualità degli ingredienti utilizzati. La sua passione si riflette nei suoi prodotti, che vengono realizzati con cura e dedizione per soddisfare i gusti di ogni cliente.",
+  headlineLuana:
+    "Eccellenza in pasticceria: la storia di Luana, la pasticcera che, ama il suo lavoro",
+  descriptionLuana:
+    "Luana è una pasticcera appassionata del suo lavoro. Con la sua creatività e la sua abilità riesce a creare dolci deliziosi e belli da vedere, sempre attenta ai dettagli e alla qualità degli ingredienti utilizzati. La sua passione si riflette nei suoi prodotti, che vengono realizzati con cura e dedizione per soddisfare i gusti di ogni cliente.",
   headlineMaria:
     "Maria, la pasticcera che sfida le intolleranze con dolci deliziosi e salutari",
   descriptionMaria:
