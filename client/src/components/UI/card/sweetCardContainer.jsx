@@ -1,11 +1,11 @@
 import StateGetHook from "../../../hooks/stateGetHook";
+import LoadingSpinner from "../spinner/loadingSpinner";
 import base64ArrayBuffer from "../../../utils/base64";
 import classes from "./cardContainer.module.scss";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import SweetCard from "./sweetCard";
-import LoadingSpinner from "../spinner/loadingSpinner";
 
 const SweetCardContainer = () => {
   const { t } = useTranslation();

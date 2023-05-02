@@ -1,4 +1,4 @@
-import LauraImage from "../../../assets/img/pexels-andrea-piacquadio-3770002.jpeg";
+import LuanaImage from "../../../assets/img/pexels-andrea-piacquadio-3770002.jpeg";
 import MariaImage from "../../../assets/img/pexels-shvets-production-7525118.jpeg";
 import { useTranslation } from "react-i18next";
 import classes from "./aboutCard.module.scss";
@@ -12,16 +12,16 @@ const AboutCard = () => {
       <div className={classes.card__about}>
         <img
           className={classes.card__about__image}
-          src={LauraImage}
-          alt={"Laura"}
+          src={LuanaImage}
+          alt={"Luana"}
           loading="lazy"
-          title="Laura"
+          title="Luana"
         />
         <div className={classes.card__about__headline}>
-          <h2>{t("headlineLaura")}</h2>
+          <h2>{t("headlineLuana")}</h2>
         </div>
         <div className={classes.card__about__description}>
-          <p>{t("descriptionLaura")}</p>
+          <p>{t("descriptionLuana")}</p>
         </div>
       </div>
       <div className={classes.card__about}>

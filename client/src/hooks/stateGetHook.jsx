@@ -10,7 +10,7 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_START":
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: null };
     case "FETCH_SUCCESS":
       return {
         ...state,
@@ -35,6 +35,7 @@ const StateGetHook = (selector) => {
   const data = useSelector(selector);
 
   useEffect(() => {
+    dispatch({ type: "FETCH_START" });
     if (data) {
       dispatch({ type: "FETCH_SUCCESS", payload: data });
     } else {
