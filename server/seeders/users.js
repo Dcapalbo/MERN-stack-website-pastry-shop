@@ -6,14 +6,14 @@ require("dotenv").config();
 // Define the users to seed
 const users = [
   {
-    name: "Laura",
-    email: "capalbodomenico@gmail.com",
-    password: "Domenico03",
+    name: "Luana",
+    email: "emailallaqualesihaaccesso",
+    password: "lapassword",
   },
   {
-    name: "Tiziano",
-    email: "janedoe@example.com",
-    password: "TiziScott",
+    name: "Maria",
+    email: "emailallaqualesihaaccesso",
+    password: "lasecondapassword",
   },
 ];
 

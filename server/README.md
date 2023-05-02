@@ -49,6 +49,8 @@ to run the seeders, move inside the server folder and then run the following com
 
 ### `node seeders/users.js` (for the users Luana & Maria)
 
+Take in mind that the email data of Luana & Maria must be changed with a real testing email.
+
 ### `node seeders/sweets.js` (for every sweets)
 
 Endpoints:
