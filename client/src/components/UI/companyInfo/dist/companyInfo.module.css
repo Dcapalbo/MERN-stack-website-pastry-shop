@@ -16,6 +16,9 @@
 }
 @media (max-width: 992px) {
   .companyInfo {
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
     max-height: 100vh;
     overflow: auto;
     padding: 12px;

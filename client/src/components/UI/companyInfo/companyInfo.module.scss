@@ -17,6 +17,7 @@
     font-size: 22px;
   }
   @media (max-width: $screen-lg-min) {
+    @include flex-column;
     max-height: 100vh;
     overflow: auto;
     padding: 12px;

@@ -23,10 +23,10 @@ const SweetForm = () => {
   const dataUpdateSweet = useSelector(
     (state) => state.dataSweets.sweetData ?? ""
   );
-  const { register, control, handleSubmit, formState } = useForm({
-    defaultValues: dataUpdateSweet ?? "",
-    resolver: zodResolver(sweetSchema),
-  });
+
+  const sweetData = dataUpdateSweet?.ingredients || [
+    { ingredientName: "", measureUnit: "", amount: "" },
+  ];
 
   useEffect(() => {
     if (uriLocation.includes("/admin/update-sweet")) {
@@ -34,136 +34,102 @@ const SweetForm = () => {
     } else {
       setIsUpdate(false);
     }
-  }, [uriLocation, dispatch]);
+  }, [uriLocation]);
+
+  const { register, control, formState, setValue, handleSubmit } = useForm({
+    defaultValues: dataUpdateSweet ?? "",
+    resolver: zodResolver(sweetSchema),
+  });
 
   const { errors } = formState;
 
   const { field } = useController({ name: "category", control });
 
+  const [ingredients, setIngredients] = useState(sweetData);
   const [isLoading, setIsLoading] = useState(false);
   const [isUpdate, setIsUpdate] = useState(false);
   const [error, setError] = useState(null);
   const [file, setFile] = useState(null);
 
-  const [ingredientsObject, setIngredientsObject] = useState([
-    { ingredientName: "", measureUnit: "", amount: 0 },
-  ]);
-
-  const sweetData =
-    dataUpdateSweet?.ingredients?.length > 0
-      ? dataUpdateSweet.ingredients
-      : ingredientsObject;
-
   const handleSelectChange = (option) => {
     field.onChange(option.target.value);
   };
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setValue(name, value);
+  };
+
+  const handleIngredientInputChange = (event, index) => {
+    const { name, value } = event.target;
+    setValue(`ingredients[${index}].${name}`, value);
+  };
+
   const handleAddIngredient = () => {
-    if (isUpdate) {
-      dispatch(
-        dataSweetActions.updateSweetIngredients({
-          ingredients: [
-            ...sweetData,
-            { ingredientName: "", measureUnit: "", amount: 0 },
-          ],
-        })
-      );
-    } else {
-      setIngredientsObject([
-        ...ingredientsObject,
-        { ingredientName: "", measureUnit: "", amount: 0 },
-      ]);
-    }
+    const newIngredient = { ingredientName: "", measureUnit: "", amount: "" };
+    console.log(newIngredient);
+
+    setIngredients([...ingredients, newIngredient]);
   };
 
   const handleDeleteIngredient = (index) => {
-    if (isUpdate) {
-      const updatedIngredients = sweetData.filter(
-        (ingredient, i) => i !== index
-      );
-      dispatch(
-        dataSweetActions.updateSweetIngredients({
-          ingredients: updatedIngredients,
-        })
-      );
-    } else {
-      const updatedIngredients = ingredientsObject.filter(
-        (ingredient, i) => i !== index
-      );
-      setIngredientsObject(updatedIngredients);
-    }
+    const filteredIngredients = ingredients.filter((ing, i) => i !== index);
+    setIngredients(filteredIngredients);
   };
 
-  const confirmHandler = (event) => {
-    const formData = new FormData();
-
-    const {
-      sweetName,
-      sweetQuantity,
-      price,
-      description,
-      category,
-      ingredients,
-    } = event;
-
-    formData.append("sweetName", sweetName);
-    formData.append("sweetQuantity", sweetQuantity);
-    formData.append("price", price.toFixed(2));
-    formData.append("description", description);
-    formData.append("category", category);
-    ingredients.forEach((ingredient, index) => {
-      formData.append(
-        `ingredients[${index}][ingredientName]`,
-        ingredient.ingredientName
+  const confirmHandler = (data) => {
+    console.log("confirmHandler", data.ingredients);
+    const form = new FormData();
+    form.append("sweetName", data.sweetName);
+    form.append("sweetQuantity", data.sweetQuantity);
+    form.append("price", data.price.toFixed(2));
+    form.append("description", data.description);
+    form.append("category", data.category);
+    for (let i = 0; i < ingredients.length; i++) {
+      form.append(
+        `ingredients[${i}][ingredientName]`,
+        data.ingredients[i].ingredientName
       );
-      formData.append(
-        `ingredients[${index}][measureUnit]`,
-        ingredient.measureUnit
+      form.append(
+        `ingredients[${i}][measureUnit]`,
+        data.ingredients[i].measureUnit
       );
-      formData.append(`ingredients[${index}][amount]`, ingredient.amount);
-    });
-    formData.append("slug", slugCreation(sweetName));
-    formData.append("file", file);
+      form.append(`ingredients[${i}][amount]`, data.ingredients[i].amount);
+    }
+    form.append("slug", slugCreation(data.sweetName));
+    form.append("file", file);
 
     if (dataUpdateSweet?._id) {
-      formData.append("_id", dataUpdateSweet?._id);
+      form.append("_id", dataUpdateSweet?._id);
     }
 
-    if (formData !== {}) {
-      if (uriLocation.includes("/admin/add-new-sweet")) {
-        setIsLoading(true);
-        axios
-          .post(`${process.env.REACT_APP_API_LOCAL_PORT}/add-sweet`, formData)
-          .then((res) => {
-            console.log(res.data);
-            setIsLoading(false);
-          })
-          .catch((err) => {
-            setIsLoading(false);
-            setError(err);
-          })
-          .finally(() => {
-            dispatch(dataSweetActions.resetSweetData());
-            setIsLoading(false);
-            navigate("/admin/sweets");
-          });
-      } else {
-        setIsLoading(true);
-        axios
-          .put(`${process.env.REACT_APP_API_LOCAL_PORT}/update-sweet`, formData)
-          .then((res) => {
-            console.log(res.data);
-          })
-          .catch((err) => {
-            console.error("there is an error for updating a sweet: ", err);
-            setError(err);
-          })
-          .finally(() => {
-            dispatch(dataSweetActions.resetSweetData());
-            setIsLoading(false);
-            navigate("/admin/sweets");
-          });
-      }
+    if (form !== {}) {
+      setIsLoading(true);
+      const request = uriLocation.includes("/admin/add-new-sweet")
+        ? axios.post(`${process.env.REACT_APP_API_LOCAL_PORT}/add-sweet`, form)
+        : axios.put(
+            `${process.env.REACT_APP_API_LOCAL_PORT}/update-sweet`,
+            form
+          );
+
+      request
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.error(
+            uriLocation.includes("/admin/add-new-sweet")
+              ? "there is an error for adding a sweet: "
+              : "there is an error for updating a sweet: ",
+            err
+          );
+          setError(err);
+        })
+        .finally(() => {
+          dispatch(dataSweetActions.resetSweetData());
+          setIsLoading(false);
+          navigate("/admin/sweets");
+        });
     }
   };
 
@@ -186,6 +152,7 @@ const SweetForm = () => {
             defaultValue={formState.defaultValues?.payload?.sweetName ?? ""}
             {...register("sweetName")}
             type="text"
+            onChange={handleInputChange}
           />
           {errors.sweetName?.message && (
             <ErrorMessage error={errors.sweetName} />
@@ -197,12 +164,13 @@ const SweetForm = () => {
             defaultValue={formState.defaultValues?.payload?.sweetQuantity ?? ""}
             {...register("sweetQuantity", { valueAsNumber: true })}
             type="number"
+            onChange={handleInputChange}
           />
           {errors.sweetQuantity?.message && (
             <ErrorMessage error={errors.sweetQuantity} />
           )}
         </div>
-        {sweetData.map((ingredient, index) => (
+        {ingredients.map((ingredient, index) => (
           <div
             className={
               classes.form__container__item + " " + classes.ingredients
@@ -217,6 +185,7 @@ const SweetForm = () => {
               }
               {...register(`ingredients.${index}.ingredientName`)}
               type="text"
+              onChange={(e) => handleIngredientInputChange(e, index)}
             />
             {errors.ingredients?.[index]?.ingredientName?.message && (
               <small>
@@ -233,6 +202,7 @@ const SweetForm = () => {
               }
               {...register(`ingredients.${index}.measureUnit`)}
               type="text"
+              onChange={(e) => handleIngredientInputChange(e, index)}
             />
             {errors.ingredients?.[index]?.measureUnit?.message && (
               <small>{errors.ingredients?.[index]?.measureUnit.message}</small>
@@ -249,6 +219,7 @@ const SweetForm = () => {
                 valueAsNumber: true,
               })}
               type="number"
+              onChange={(e) => handleIngredientInputChange(e, index)}
             />
             {errors.ingredients?.[index]?.amount?.message && (
               <div>
@@ -268,7 +239,7 @@ const SweetForm = () => {
         ))}
         <div className={classes.form__container__item}>
           <button
-            onClick={() => handleAddIngredient()}
+            onClick={handleAddIngredient}
             className={classes.primary__button}
             type="button"
           >
@@ -284,6 +255,7 @@ const SweetForm = () => {
             })}
             type="number"
             step="any"
+            onChange={handleInputChange}
           />
           {errors.price?.message && <ErrorMessage error={errors.price} />}
         </div>
@@ -293,6 +265,7 @@ const SweetForm = () => {
             defaultValue={formState.defaultValues?.payload?.description ?? ""}
             {...register("description")}
             type="text"
+            onChange={handleInputChange}
           ></textarea>
           {errors.description?.message && (
             <ErrorMessage error={errors.description} />
