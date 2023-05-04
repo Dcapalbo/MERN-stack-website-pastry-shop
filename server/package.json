@@ -1,7 +1,7 @@
 {
-  "name": "fabrique-entertainment-back-end-api",
+  "name": "pastry-shop-back-end-api",
   "version": "1.0.0",
-  "description": "REST architectural pattern, Back end DB with MongoDb for fabrique entertainment data",
+  "description": "REST architectural pattern, Back end DB with MongoDb for pastry shop data",
   "main": "app.js",
   "engines": {
     "node": "^19.0.0"
