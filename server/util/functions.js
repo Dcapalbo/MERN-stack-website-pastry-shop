@@ -24,7 +24,6 @@ function getContentType(fileExtension) {
       return "image/png";
     case ".gif":
       return "image/gif";
-    // Add more supported file extensions as needed
     default:
       return null;
   }
