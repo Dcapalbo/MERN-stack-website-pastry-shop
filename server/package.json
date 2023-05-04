@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "MONGO_USER=Capalbo MONGO_PASSWORD=N5lSTFp2yRGRZgwm MONGO_DEFAULT_DATABASE=pastry-website node app.js",
+    "start": "MONGO_USER=Capalbo MONGO_PASSWORD=N5lSTFp2yRGRZgwm MONGO_DEFAULT_DATABASE=Fabrique-DB node app.js",
     "start-server": "node app.js",
     "start:dev": "nodemon app.js"
   },
